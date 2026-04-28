@@ -23,6 +23,7 @@ import {
   Headphones, Monitor, Wifi, Coffee, Mountain,
   Sun, Moon, Cloud, Droplets, Wind,
   Mic, Radio, Tv, Music, Film
+  , Languages, Map
 } from 'lucide-react';
 
 
