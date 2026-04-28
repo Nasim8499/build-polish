@@ -293,7 +293,7 @@ const MobileBottomNav = ({ currentPath, navigate }) => {
       <div className="flex justify-around items-center h-16 px-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
-          const isActive = currentPath === tab.path;
+          const isActive = currentPath === tab.path || (tab.path === '/countries' && currentPath.startsWith('/country'));
           return (
             <button key={tab.path} onClick={() => navigate(tab.path)} className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-[#D4A843]' : 'text-gray-500'}`}>
               <Icon className="h-5 w-5" />
