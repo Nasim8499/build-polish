@@ -1755,10 +1755,10 @@ const Home = ({ navigate }) => {
   const featuredCountries = [
     { name: 'Singapore', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600', desc: 'Global financial hub with thriving tech scene.', hasVisaData: true },
     { name: 'Japan', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600', desc: 'Advanced engineering and specialized manufacturing.', hasVisaData: true },
-    { name: 'Canada', image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=1600', desc: 'Welcoming immigration policies for skilled workers.', hasVisaData: true },
-    { name: 'UAE', image: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1600', desc: 'Tax-free opportunities in booming economy.', hasVisaData: true },
-    { name: 'Australia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1600', desc: 'High demand for healthcare and mining professionals.', hasVisaData: true },
-    { name: 'UK', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1600', desc: 'Financial services and technology sectors thriving.', hasVisaData: true }
+    { name: 'Australia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1600', desc: 'Mining, healthcare, and skilled migration pathways.', hasVisaData: false },
+    { name: 'UAE', image: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1600', desc: 'Tax-free opportunities in a booming Gulf economy.', hasVisaData: true },
+    { name: 'Schengen', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1600', desc: '27-country European travel and business zone.', hasVisaData: false },
+    { name: 'Saudi Arabia', image: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1600', desc: 'Vision 2030 megaprojects driving demand.', hasVisaData: true },
   ];
   const [activeFeat, setActiveFeat] = useState(0);
 
