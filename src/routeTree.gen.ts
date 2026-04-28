@@ -9,14 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StudyRouteImport } from './routes/study'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as NewsRouteImport } from './routes/news'
 import { Route as JobsRouteImport } from './routes/jobs'
+import { Route as InvestRouteImport } from './routes/invest'
 import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CountriesRouteImport } from './routes/countries'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookRouteImport } from './routes/book'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CountryNameRouteImport } from './routes/country.$name'
 
+const StudyRoute = StudyRouteImport.update({
+  id: '/study',
+  path: '/study',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -27,9 +39,19 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JobsRoute = JobsRouteImport.update({
   id: '/jobs',
   path: '/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestRoute = InvestRouteImport.update({
+  id: '/invest',
+  path: '/invest',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocumentsRoute = DocumentsRouteImport.update({
@@ -37,9 +59,24 @@ const DocumentsRoute = DocumentsRouteImport.update({
   path: '/documents',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CountriesRoute = CountriesRouteImport.update({
   id: '/countries',
   path: '/countries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -52,77 +89,138 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CountryNameRoute = CountryNameRouteImport.update({
+  id: '/country/$name',
+  path: '/country/$name',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/countries': typeof CountriesRoute
+  '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
+  '/invest': typeof InvestRoute
   '/jobs': typeof JobsRoute
+  '/news': typeof NewsRoute
   '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
+  '/study': typeof StudyRoute
+  '/country/$name': typeof CountryNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/countries': typeof CountriesRoute
+  '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
+  '/invest': typeof InvestRoute
   '/jobs': typeof JobsRoute
+  '/news': typeof NewsRoute
   '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
+  '/study': typeof StudyRoute
+  '/country/$name': typeof CountryNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
   '/countries': typeof CountriesRoute
+  '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
+  '/invest': typeof InvestRoute
   '/jobs': typeof JobsRoute
+  '/news': typeof NewsRoute
   '/profile': typeof ProfileRoute
   '/services': typeof ServicesRoute
+  '/study': typeof StudyRoute
+  '/country/$name': typeof CountryNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/book'
+    | '/contact'
     | '/countries'
+    | '/dashboard'
     | '/documents'
+    | '/invest'
     | '/jobs'
+    | '/news'
     | '/profile'
     | '/services'
+    | '/study'
+    | '/country/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/book'
+    | '/contact'
     | '/countries'
+    | '/dashboard'
     | '/documents'
+    | '/invest'
     | '/jobs'
+    | '/news'
     | '/profile'
     | '/services'
+    | '/study'
+    | '/country/$name'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/book'
+    | '/contact'
     | '/countries'
+    | '/dashboard'
     | '/documents'
+    | '/invest'
     | '/jobs'
+    | '/news'
     | '/profile'
     | '/services'
+    | '/study'
+    | '/country/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BookRoute: typeof BookRoute
+  ContactRoute: typeof ContactRoute
   CountriesRoute: typeof CountriesRoute
+  DashboardRoute: typeof DashboardRoute
   DocumentsRoute: typeof DocumentsRoute
+  InvestRoute: typeof InvestRoute
   JobsRoute: typeof JobsRoute
+  NewsRoute: typeof NewsRoute
   ProfileRoute: typeof ProfileRoute
   ServicesRoute: typeof ServicesRoute
+  StudyRoute: typeof StudyRoute
+  CountryNameRoute: typeof CountryNameRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/study': {
+      id: '/study'
+      path: '/study'
+      fullPath: '/study'
+      preLoaderRoute: typeof StudyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -137,11 +235,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jobs': {
       id: '/jobs'
       path: '/jobs'
       fullPath: '/jobs'
       preLoaderRoute: typeof JobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invest': {
+      id: '/invest'
+      path: '/invest'
+      fullPath: '/invest'
+      preLoaderRoute: typeof InvestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/documents': {
@@ -151,11 +263,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocumentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/countries': {
       id: '/countries'
       path: '/countries'
       fullPath: '/countries'
       preLoaderRoute: typeof CountriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -172,17 +305,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/country/$name': {
+      id: '/country/$name'
+      path: '/country/$name'
+      fullPath: '/country/$name'
+      preLoaderRoute: typeof CountryNameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BookRoute: BookRoute,
+  ContactRoute: ContactRoute,
   CountriesRoute: CountriesRoute,
+  DashboardRoute: DashboardRoute,
   DocumentsRoute: DocumentsRoute,
+  InvestRoute: InvestRoute,
   JobsRoute: JobsRoute,
+  NewsRoute: NewsRoute,
   ProfileRoute: ProfileRoute,
   ServicesRoute: ServicesRoute,
+  StudyRoute: StudyRoute,
+  CountryNameRoute: CountryNameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
