@@ -3489,7 +3489,24 @@ const Book = ({ navigate }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', date: '', time: '', service: 'consultation', message: '' });
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', date: '', time: '', service: 'consultation', message: '' }); }, 3000); };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.email.trim() || !formData.date || !formData.time) {
+      try { (window as any).sonner?.error?.('Please fill all required fields'); } catch {}
+      return;
+    }
+    setSubmitted(true);
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const { toast } = require('sonner');
+      toast.success('Booking confirmed! We\'ll be in touch shortly.');
+    } catch {}
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: '', email: '', phone: '', date: '', time: '', service: 'consultation', message: '' });
+      if (navigate) navigate('/');
+    }, 1800);
+  };
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Book Consultation" subtitle="Schedule" subtitleBelow="Book" />
