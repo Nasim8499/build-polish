@@ -3493,15 +3493,15 @@ const Book = ({ navigate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.date || !formData.time) {
-      try { (window as any).sonner?.error?.('Please fill all required fields'); } catch {}
+      toast.error('Please fill all required fields');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      toast.error('Please enter a valid email');
       return;
     }
     setSubmitted(true);
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      const { toast } = require('sonner');
-      toast.success('Booking confirmed! We\'ll be in touch shortly.');
-    } catch {}
+    toast.success("Booking confirmed! We'll be in touch shortly.");
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: '', email: '', phone: '', date: '', time: '', service: 'consultation', message: '' });
