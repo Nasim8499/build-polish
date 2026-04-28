@@ -223,57 +223,58 @@ const FAQItem = ({ question, answer }) => {
   );
 };
 
-// --- NAVBAR ---
+// --- NAVBAR (sticky, no mobile menu — horizontal scroll on small screens) ---
+const NAV_LINKS = [
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
+  { path: '/services', label: 'Services' },
+  { path: '/countries', label: 'Countries' },
+  { path: '/jobs', label: 'Jobs' },
+  { path: '/documents', label: 'Documents' },
+  { path: '/study', label: 'Study' },
+  { path: '/invest', label: 'Invest' },
+  { path: '/news', label: 'News' },
+  { path: '/dashboard', label: 'Dashboard' },
+  { path: '/book', label: 'Book' },
+];
 const Navbar = ({ currentPath, navigate }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  const handleNavigate = (path) => { navigate(path); setIsOpen(false); };
+  const handleNavigate = (path) => { navigate(path); };
   return (
-    <nav className={`fixed left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled ? 'bg-white/95 backdrop-blur-md border-gray-200 shadow-sm py-4' : 'bg-transparent border-white/10 py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center cursor-pointer" onClick={() => handleNavigate('/')}>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-3 lg:py-4">
+        <div className="flex justify-between items-center gap-4">
+          <div className="flex items-center cursor-pointer shrink-0" onClick={() => handleNavigate('/')}>
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
                 <Globe className="h-5 w-5 text-white" />
               </div>
-              <div className="flex flex-col border-l border-current pl-4">
-                <span className={`font-black text-2xl leading-none tracking-tight ${scrolled ? 'text-[#003B73]' : 'text-white'}`}>VisaHOBe</span>
-                <span className={`text-[9px] font-bold tracking-[0.3em] uppercase mt-1 ${scrolled ? 'text-[#6E7580]' : 'text-gray-400'}`}>Pte. Ltd.</span>
+              <div className="hidden sm:flex flex-col border-l border-[#003B73]/30 pl-3">
+                <span className="font-black text-xl lg:text-2xl leading-none tracking-tight text-[#003B73]">VisaHOBe</span>
+                <span className="text-[8px] lg:text-[9px] font-bold tracking-[0.3em] uppercase mt-1 text-[#6E7580]">Pte. Ltd.</span>
               </div>
             </div>
           </div>
-          <div className="hidden lg:flex items-center space-x-8">
-            {['/', '/about', '/services', '/countries', '/jobs', '/documents', '/study', '/invest', '/news', '/dashboard', '/book'].map((path) => {
-              const labels = { '/': 'Home', '/about': 'About', '/services': 'Services', '/countries': 'Countries', '/jobs': 'Jobs', '/documents': 'Documents', '/study': 'Study', '/invest': 'Invest', '/news': 'News', '/dashboard': 'Dashboard', '/book': 'Book' };
-              return (
-                <button key={path} onClick={() => handleNavigate(path)} className={`text-xs font-bold tracking-widest uppercase transition-colors duration-300 relative group py-2 ${currentPath === path || (currentPath.startsWith('/country') && path === '/countries') ? 'text-[#D4A843]' : scrolled ? 'text-[#003B73] hover:text-[#D4A843]' : 'text-white hover:text-gray-300'}`}>
-                  {labels[path]}
-                  <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#D4A843] transform scale-x-0 transition-transform duration-300 origin-left ${currentPath === path || (currentPath.startsWith('/country') && path === '/countries') ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
-                </button>
-              );
-            })}
+          <div className="flex-1 overflow-x-auto scrollbar-hide">
+            <div className="flex items-center gap-5 lg:gap-7 justify-end lg:justify-center min-w-max px-2">
+              {NAV_LINKS.map(({ path, label }) => {
+                const active = currentPath === path || (currentPath.startsWith('/country') && path === '/countries');
+                return (
+                  <button
+                    key={path}
+                    onClick={() => handleNavigate(path)}
+                    className={`text-[11px] lg:text-xs font-bold tracking-widest uppercase transition-colors duration-200 relative py-2 whitespace-nowrap ${active ? 'text-[#D4A843]' : 'text-[#003B73] hover:text-[#D4A843]'}`}
+                  >
+                    {label}
+                    {active && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4A843]"></span>}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div className="hidden lg:flex gap-3">
-            <button onClick={() => handleNavigate('/profile')} className={`px-6 py-3 font-bold text-xs tracking-widest uppercase transition-all border ${scrolled ? 'border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white' : 'border-white text-white hover:bg-white hover:text-[#003B73]'}`}>Profile</button>
-            <button onClick={() => handleNavigate('/book')} className="px-6 py-3 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase hover:shadow-lg transition-all">Book Now</button>
+          <div className="hidden lg:flex gap-2 shrink-0">
+            <button onClick={() => handleNavigate('/profile')} className="px-5 py-2.5 font-bold text-xs tracking-widest uppercase transition-all border border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white rounded">Profile</button>
+            <button onClick={() => handleNavigate('/book')} className="px-5 py-2.5 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase hover:shadow-lg transition-all rounded">Book</button>
           </div>
-          <div className="lg:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className={`${scrolled ? 'text-[#003B73]' : 'text-white'}`}>{isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
-          </div>
-        </div>
-      </div>
-      <div className={`lg:hidden absolute top-full left-0 w-full bg-[#0A1628] border-t border-white/10 transition-all duration-300 ${isOpen ? 'opacity-100 h-auto py-6' : 'opacity-0 h-0 overflow-hidden py-0 pointer-events-none'}`}>
-        <div className="px-6 flex flex-col space-y-0 divide-y divide-white/5">
-          {['/', '/about', '/services', '/countries', '/jobs', '/documents', '/study', '/invest', '/news', '/dashboard', '/book'].map((path) => {
-            const labels = { '/': 'Home', '/about': 'About', '/services': 'Services', '/countries': 'Countries', '/jobs': 'Jobs', '/documents': 'Documents', '/study': 'Study', '/invest': 'Invest', '/news': 'News', '/dashboard': 'Dashboard', '/book': 'Book' };
-            return <button key={path} onClick={() => handleNavigate(path)} className={`text-left text-sm font-bold tracking-widest uppercase py-5 flex items-center justify-between ${currentPath === path ? 'text-[#D4A843]' : 'text-white'}`}>{labels[path]}<ChevronRight className="h-4 w-4 opacity-50" /></button>;
-          })}
         </div>
       </div>
     </nav>
