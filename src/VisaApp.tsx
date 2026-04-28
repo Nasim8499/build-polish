@@ -3542,6 +3542,62 @@ const Book = ({ navigate }) => {
   );
 };
 
-const Contact = ({ navigate }) => <Book navigate={navigate} />;
+const Contact = ({ navigate }) => {
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [sending, setSending] = useState(false);
+  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) { toast.error('Please complete all required fields'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { toast.error('Please enter a valid email'); return; }
+    if (form.message.length > 1000) { toast.error('Message too long (max 1000 characters)'); return; }
+    setSending(true);
+    setTimeout(() => {
+      setSending(false);
+      toast.success('Message sent. We\'ll reply within 1 business day.');
+      setForm({ name: '', email: '', subject: '', message: '' });
+      if (navigate) navigate('/');
+    }, 900);
+  };
+  return (
+    <div className="animate-in fade-in duration-500 pb-24">
+      <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Contact Us" subtitle="Get in Touch" subtitleBelow="Contact" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <AnimatedSection className="bg-white p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
+            <h3 className="text-2xl font-black text-[#003B73] mb-2 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Send a Message</h3>
+            <p className="text-sm text-gray-500 mb-8">We'll respond within one business day.</p>
+            <form onSubmit={onSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Full Name *</label><input type="text" name="name" value={form.name} onChange={onChange} maxLength={100} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="John Doe" /></div>
+                <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Email *</label><input type="email" name="email" value={form.email} onChange={onChange} maxLength={255} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="email@company.com" /></div>
+              </div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Subject</label><input type="text" name="subject" value={form.subject} onChange={onChange} maxLength={150} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="How can we help?" /></div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Message * <span className="text-gray-400 normal-case font-normal">({form.message.length}/1000)</span></label><textarea name="message" value={form.message} onChange={onChange} maxLength={1000} rows={6} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg resize-none" placeholder="Tell us about your needs..."></textarea></div>
+              <button type="submit" disabled={sending} className="w-full bg-gradient-to-r from-[#003B73] to-[#D4A843] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:shadow-2xl transition-all rounded-xl flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed">{sending ? 'Sending…' : <>Send Message <ArrowRight className="h-4 w-4"/></>}</button>
+            </form>
+          </AnimatedSection>
+        </div>
+        <div className="space-y-6">
+          {[{i:Phone,t:'Call',d:'+65 6123 4567',sub:'Mon–Fri 9am–6pm'},{i:Mail,t:'Email',d:'hello@visahobe.sg',sub:'24h response'},{i:MapPin,t:'Office',d:'10 Anson Road, #22-02',sub:'International Plaza, Singapore 079903'}].map((c,idx)=>(
+            <AnimatedSection key={idx} delay={idx*100} className="bg-white p-6 border border-gray-200 rounded-2xl hover:shadow-xl transition-shadow flex items-start gap-4">
+              <div className="w-12 h-12 shrink-0 bg-[#003B73] rounded-xl flex items-center justify-center"><c.i className="h-5 w-5 text-[#D4A843]"/></div>
+              <div>
+                <h4 className="text-xs font-black text-[#003B73] uppercase tracking-widest mb-1">{c.t}</h4>
+                <p className="text-sm text-gray-800 font-semibold">{c.d}</p>
+                <p className="text-xs text-gray-500 mt-1">{c.sub}</p>
+              </div>
+            </AnimatedSection>
+          ))}
+          <AnimatedSection delay={400} className="bg-gradient-to-br from-[#003B73] to-[#0A1628] text-white p-6 rounded-2xl">
+            <h4 className="text-xs font-black uppercase tracking-widest text-[#D4A843] mb-2">Need it faster?</h4>
+            <p className="text-sm text-white/80 mb-4">Book a 30-min consultation directly.</p>
+            <button onClick={() => navigate && navigate('/book')} className="w-full bg-white text-[#003B73] py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#D4A843] hover:text-white transition-colors flex items-center justify-center gap-2">Book Now <ArrowRight className="h-3 w-3"/></button>
+          </AnimatedSection>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export { Home, About, Services, Countries, CountryDetail, Jobs, Documents, Profile, News, Study, Invest, Book, Contact, Navbar, MobileBottomNav, Footer };
