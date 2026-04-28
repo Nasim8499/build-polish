@@ -2346,7 +2346,7 @@ const Countries = ({ navigate }) => {
         <div className="flex flex-wrap gap-4 mb-12">
           {regions.map(region => <button key={region.id} onClick={() => setActiveRegion(region.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeRegion === region.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{region.label}</button>)}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-gray-200 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-gray-200 rounded-2xl overflow-hidden">
           {filtered.map((dest, i) => (
             <div key={i} className="group relative cursor-pointer h-[500px] overflow-hidden bg-gray-100 border-b border-r border-gray-200"
               onClick={() => {
