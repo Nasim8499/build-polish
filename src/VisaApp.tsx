@@ -5,7 +5,7 @@ import { toast } from 'sonner';
 import {
   Menu, X, Globe, Users, Briefcase, Mail, Phone, MapPin,
   ChevronRight, ArrowRight, CheckCircle2, Star, Quote,
-  Building, Plane, MessageCircle, Home as HomeIcon, FileText,
+  Building, Plane, MessageCircle, Home as HomeIcon, FileText, FileTextIcon,
   Award, Shield, Target, Zap, ChevronDown, ExternalLink,
   Calendar, Clock, Check, TrendingUp, Lightbulb, Heart,
   Search, Filter, Bookmark, Eye, Download, User, Settings,
@@ -22,8 +22,8 @@ import {
   ChevronUp, Plus, Minus, Copy, Share2, Sparkles,
   Headphones, Monitor, Wifi, Coffee, Mountain,
   Sun, Moon, Cloud, Droplets, Wind,
-  Mic, Radio, Tv, Music, Film
-  , Languages, Map
+  Mic, Radio, Tv, Music, Film,
+  Languages, Map, Clock4
 } from 'lucide-react';
 
 
