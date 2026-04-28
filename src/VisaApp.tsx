@@ -223,57 +223,58 @@ const FAQItem = ({ question, answer }) => {
   );
 };
 
-// --- NAVBAR ---
+// --- NAVBAR (sticky, no mobile menu — horizontal scroll on small screens) ---
+const NAV_LINKS = [
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
+  { path: '/services', label: 'Services' },
+  { path: '/countries', label: 'Countries' },
+  { path: '/jobs', label: 'Jobs' },
+  { path: '/documents', label: 'Documents' },
+  { path: '/study', label: 'Study' },
+  { path: '/invest', label: 'Invest' },
+  { path: '/news', label: 'News' },
+  { path: '/dashboard', label: 'Dashboard' },
+  { path: '/book', label: 'Book' },
+];
 const Navbar = ({ currentPath, navigate }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  const handleNavigate = (path) => { navigate(path); setIsOpen(false); };
+  const handleNavigate = (path) => { navigate(path); };
   return (
-    <nav className={`fixed left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled ? 'bg-white/95 backdrop-blur-md border-gray-200 shadow-sm py-4' : 'bg-transparent border-white/10 py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center cursor-pointer" onClick={() => handleNavigate('/')}>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-3 lg:py-4">
+        <div className="flex justify-between items-center gap-4">
+          <div className="flex items-center cursor-pointer shrink-0" onClick={() => handleNavigate('/')}>
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
                 <Globe className="h-5 w-5 text-white" />
               </div>
-              <div className="flex flex-col border-l border-current pl-4">
-                <span className={`font-black text-2xl leading-none tracking-tight ${scrolled ? 'text-[#003B73]' : 'text-white'}`}>VisaHOBe</span>
-                <span className={`text-[9px] font-bold tracking-[0.3em] uppercase mt-1 ${scrolled ? 'text-[#6E7580]' : 'text-gray-400'}`}>Pte. Ltd.</span>
+              <div className="hidden sm:flex flex-col border-l border-[#003B73]/30 pl-3">
+                <span className="font-black text-xl lg:text-2xl leading-none tracking-tight text-[#003B73]">VisaHOBe</span>
+                <span className="text-[8px] lg:text-[9px] font-bold tracking-[0.3em] uppercase mt-1 text-[#6E7580]">Pte. Ltd.</span>
               </div>
             </div>
           </div>
-          <div className="hidden lg:flex items-center space-x-8">
-            {['/', '/about', '/services', '/countries', '/jobs', '/documents', '/study', '/invest', '/news', '/dashboard', '/book'].map((path) => {
-              const labels = { '/': 'Home', '/about': 'About', '/services': 'Services', '/countries': 'Countries', '/jobs': 'Jobs', '/documents': 'Documents', '/study': 'Study', '/invest': 'Invest', '/news': 'News', '/dashboard': 'Dashboard', '/book': 'Book' };
-              return (
-                <button key={path} onClick={() => handleNavigate(path)} className={`text-xs font-bold tracking-widest uppercase transition-colors duration-300 relative group py-2 ${currentPath === path || (currentPath.startsWith('/country') && path === '/countries') ? 'text-[#D4A843]' : scrolled ? 'text-[#003B73] hover:text-[#D4A843]' : 'text-white hover:text-gray-300'}`}>
-                  {labels[path]}
-                  <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#D4A843] transform scale-x-0 transition-transform duration-300 origin-left ${currentPath === path || (currentPath.startsWith('/country') && path === '/countries') ? 'scale-x-100' : 'group-hover:scale-x-100'}`}></span>
-                </button>
-              );
-            })}
+          <div className="flex-1 overflow-x-auto scrollbar-hide">
+            <div className="flex items-center gap-5 lg:gap-7 justify-end lg:justify-center min-w-max px-2">
+              {NAV_LINKS.map(({ path, label }) => {
+                const active = currentPath === path || (currentPath.startsWith('/country') && path === '/countries');
+                return (
+                  <button
+                    key={path}
+                    onClick={() => handleNavigate(path)}
+                    className={`text-[11px] lg:text-xs font-bold tracking-widest uppercase transition-colors duration-200 relative py-2 whitespace-nowrap ${active ? 'text-[#D4A843]' : 'text-[#003B73] hover:text-[#D4A843]'}`}
+                  >
+                    {label}
+                    {active && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4A843]"></span>}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div className="hidden lg:flex gap-3">
-            <button onClick={() => handleNavigate('/profile')} className={`px-6 py-3 font-bold text-xs tracking-widest uppercase transition-all border ${scrolled ? 'border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white' : 'border-white text-white hover:bg-white hover:text-[#003B73]'}`}>Profile</button>
-            <button onClick={() => handleNavigate('/book')} className="px-6 py-3 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase hover:shadow-lg transition-all">Book Now</button>
+          <div className="hidden lg:flex gap-2 shrink-0">
+            <button onClick={() => handleNavigate('/profile')} className="px-5 py-2.5 font-bold text-xs tracking-widest uppercase transition-all border border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white rounded">Profile</button>
+            <button onClick={() => handleNavigate('/book')} className="px-5 py-2.5 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase hover:shadow-lg transition-all rounded">Book</button>
           </div>
-          <div className="lg:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className={`${scrolled ? 'text-[#003B73]' : 'text-white'}`}>{isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
-          </div>
-        </div>
-      </div>
-      <div className={`lg:hidden absolute top-full left-0 w-full bg-[#0A1628] border-t border-white/10 transition-all duration-300 ${isOpen ? 'opacity-100 h-auto py-6' : 'opacity-0 h-0 overflow-hidden py-0 pointer-events-none'}`}>
-        <div className="px-6 flex flex-col space-y-0 divide-y divide-white/5">
-          {['/', '/about', '/services', '/countries', '/jobs', '/documents', '/study', '/invest', '/news', '/dashboard', '/book'].map((path) => {
-            const labels = { '/': 'Home', '/about': 'About', '/services': 'Services', '/countries': 'Countries', '/jobs': 'Jobs', '/documents': 'Documents', '/study': 'Study', '/invest': 'Invest', '/news': 'News', '/dashboard': 'Dashboard', '/book': 'Book' };
-            return <button key={path} onClick={() => handleNavigate(path)} className={`text-left text-sm font-bold tracking-widest uppercase py-5 flex items-center justify-between ${currentPath === path ? 'text-[#D4A843]' : 'text-white'}`}>{labels[path]}<ChevronRight className="h-4 w-4 opacity-50" /></button>;
-          })}
         </div>
       </div>
     </nav>
@@ -1754,10 +1755,10 @@ const Home = ({ navigate }) => {
   const featuredCountries = [
     { name: 'Singapore', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600', desc: 'Global financial hub with thriving tech scene.', hasVisaData: true },
     { name: 'Japan', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600', desc: 'Advanced engineering and specialized manufacturing.', hasVisaData: true },
-    { name: 'Canada', image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=1600', desc: 'Welcoming immigration policies for skilled workers.', hasVisaData: true },
-    { name: 'UAE', image: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1600', desc: 'Tax-free opportunities in booming economy.', hasVisaData: true },
-    { name: 'Australia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1600', desc: 'High demand for healthcare and mining professionals.', hasVisaData: true },
-    { name: 'UK', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1600', desc: 'Financial services and technology sectors thriving.', hasVisaData: true }
+    { name: 'Australia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1600', desc: 'Mining, healthcare, and skilled migration pathways.', hasVisaData: false },
+    { name: 'UAE', image: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1600', desc: 'Tax-free opportunities in a booming Gulf economy.', hasVisaData: true },
+    { name: 'Schengen', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1600', desc: '27-country European travel and business zone.', hasVisaData: false },
+    { name: 'Saudi Arabia', image: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1600', desc: 'Vision 2030 megaprojects driving demand.', hasVisaData: true },
   ];
   const [activeFeat, setActiveFeat] = useState(0);
 
@@ -2319,15 +2320,19 @@ const Countries = ({ navigate }) => {
   const [activeRegion, setActiveRegion] = useState('all');
   const regions = [{ id: 'all', label: 'All Regions' }, { id: 'asia', label: 'Asia Pacific' }, { id: 'middle-east', label: 'Middle East' }, { id: 'europe', label: 'Europe' }, { id: 'americas', label: 'Americas' }];
   const destinations = [
-    { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800', desc: 'Prime hub for corporate careers.', sectors: ['Finance', 'Tech', 'Healthcare'], hasVisaData: true },
-    { name: 'Japan', region: 'asia', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800', desc: 'Engineering and manufacturing.', sectors: ['Engineering', 'IT'], hasVisaData: true },
-    { name: 'Middle East', region: 'middle-east', image: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=800', desc: 'Construction and energy.', sectors: ['Construction', 'Energy'], hasVisaData: true },
-    { name: 'Europe', region: 'europe', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800', desc: 'Diverse EU roles.', sectors: ['Tech', 'Finance'], hasVisaData: true },
-    { name: 'Australia', region: 'asia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800', desc: 'Mining and healthcare.', sectors: ['Mining', 'Healthcare'], hasVisaData: true },
-    { name: 'Canada', region: 'americas', image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800', desc: 'Tech sector opportunities.', sectors: ['Tech', 'Engineering'], hasVisaData: true },
-    { name: 'USA', region: 'americas', image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800', desc: 'Diverse opportunities.', sectors: ['Tech', 'Finance'], hasVisaData: false },
-    { name: 'UK', region: 'europe', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800', desc: 'Financial hub.', sectors: ['Finance', 'Tech'], hasVisaData: true },
-    { name: 'UAE', region: 'middle-east', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800', desc: 'Tax-free opportunities.', sectors: ['Construction', 'Hospitality'], hasVisaData: true }
+    { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800', desc: 'Prime hub for corporate careers, finance, and biotech across Asia.', sectors: ['Finance', 'Tech', 'Healthcare'], hasVisaData: true },
+    { name: 'Japan', region: 'asia', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800', desc: 'World-leading engineering, robotics, and specified-skilled-worker pathways.', sectors: ['Engineering', 'IT', 'Manufacturing'], hasVisaData: true },
+    { name: 'Australia', region: 'asia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800', desc: 'Skilled migration, mining boom, and a strong healthcare workforce gap.', sectors: ['Mining', 'Healthcare', 'IT'], hasVisaData: false },
+    { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800', desc: 'Employment Pass and Tech.Pass for global professionals.', sectors: ['Finance', 'AI'], hasVisaData: true },
+    { name: 'UAE', region: 'middle-east', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800', desc: 'Tax-free salaries, Golden Visa programme, and Dubai/Abu Dhabi growth.', sectors: ['Construction', 'Hospitality', 'Finance'], hasVisaData: true },
+    { name: 'Saudi Arabia', region: 'middle-east', image: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=800', desc: 'NEOM, Red Sea, and Vision 2030 megaprojects hiring globally.', sectors: ['Construction', 'Energy', 'Tech'], hasVisaData: true },
+    { name: 'Kuwait', region: 'middle-east', image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800', desc: 'Oil & gas, healthcare and education roles with tax-free pay.', sectors: ['Energy', 'Healthcare'], hasVisaData: false },
+    { name: 'Schengen', region: 'europe', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800', desc: 'Single visa across 27 European countries for tourism and business.', sectors: ['Tourism', 'Business'], hasVisaData: false },
+    { name: 'Serbia', region: 'europe', image: 'https://images.unsplash.com/photo-1574236170880-faaf960c9c7a?w=800', desc: 'Easy work permits, growing IT outsourcing and Balkans gateway.', sectors: ['IT', 'Manufacturing'], hasVisaData: false },
+    { name: 'Moldova', region: 'europe', image: 'https://images.unsplash.com/photo-1601731223237-c1f1f37c6f5d?w=800', desc: 'Affordable European base with EU candidate status and IT growth.', sectors: ['IT', 'Agriculture'], hasVisaData: false },
+    { name: 'Belarus', region: 'europe', image: 'https://images.unsplash.com/photo-1597055181300-e3633a917a1b?w=800', desc: 'Hi-Tech Park residency for IT specialists and entrepreneurs.', sectors: ['IT', 'Engineering'], hasVisaData: false },
+    { name: 'Cambodia', region: 'asia', image: 'https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800', desc: 'Easy E-class business visa, fast company setup, low cost of living.', sectors: ['Tourism', 'Business', 'NGO'], hasVisaData: false },
+    { name: 'USA', region: 'americas', image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800', desc: 'H-1B, O-1 and EB programmes — the worlds largest opportunity market.', sectors: ['Tech', 'Finance', 'Research'], hasVisaData: false },
   ];
   const filtered = activeRegion === 'all' ? destinations : destinations.filter(d => d.region === activeRegion);
 
@@ -2341,7 +2346,7 @@ const Countries = ({ navigate }) => {
         <div className="flex flex-wrap gap-4 mb-12">
           {regions.map(region => <button key={region.id} onClick={() => setActiveRegion(region.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeRegion === region.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{region.label}</button>)}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-gray-200 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-gray-200 rounded-2xl overflow-hidden">
           {filtered.map((dest, i) => (
             <div key={i} className="group relative cursor-pointer h-[500px] overflow-hidden bg-gray-100 border-b border-r border-gray-200"
               onClick={() => {
