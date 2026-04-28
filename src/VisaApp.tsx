@@ -2378,7 +2378,7 @@ const Countries = ({ navigate }) => {
               { region: 'Europe', placements: '9,800+', growth: '+15%' },
               { region: 'Americas', placements: '7,500+', growth: '+10%' }
             ].map((stat, idx) => <div key={idx} className="bg-white p-8 border border-gray-200 hover:border-[#003B73] transition-all duration-300 rounded-2xl"><h3 className="text-lg font-bold text-[#003B73] mb-4">{stat.region}</h3><div className="text-4xl font-black text-[#003B73] mb-2">{stat.placements}</div><div className="flex items-center gap-2 text-[#D4A843] font-bold text-sm"><TrendingUp className="h-4 w-4" />{stat.growth} YoY Growth</div></div>)}
-          </AnimatedSection>
+          </div>
         </div>
       </div>
 
