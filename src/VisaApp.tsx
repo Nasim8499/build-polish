@@ -2320,15 +2320,19 @@ const Countries = ({ navigate }) => {
   const [activeRegion, setActiveRegion] = useState('all');
   const regions = [{ id: 'all', label: 'All Regions' }, { id: 'asia', label: 'Asia Pacific' }, { id: 'middle-east', label: 'Middle East' }, { id: 'europe', label: 'Europe' }, { id: 'americas', label: 'Americas' }];
   const destinations = [
-    { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800', desc: 'Prime hub for corporate careers.', sectors: ['Finance', 'Tech', 'Healthcare'], hasVisaData: true },
-    { name: 'Japan', region: 'asia', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800', desc: 'Engineering and manufacturing.', sectors: ['Engineering', 'IT'], hasVisaData: true },
-    { name: 'Middle East', region: 'middle-east', image: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=800', desc: 'Construction and energy.', sectors: ['Construction', 'Energy'], hasVisaData: true },
-    { name: 'Europe', region: 'europe', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800', desc: 'Diverse EU roles.', sectors: ['Tech', 'Finance'], hasVisaData: true },
-    { name: 'Australia', region: 'asia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800', desc: 'Mining and healthcare.', sectors: ['Mining', 'Healthcare'], hasVisaData: true },
-    { name: 'Canada', region: 'americas', image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800', desc: 'Tech sector opportunities.', sectors: ['Tech', 'Engineering'], hasVisaData: true },
-    { name: 'USA', region: 'americas', image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800', desc: 'Diverse opportunities.', sectors: ['Tech', 'Finance'], hasVisaData: false },
-    { name: 'UK', region: 'europe', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800', desc: 'Financial hub.', sectors: ['Finance', 'Tech'], hasVisaData: true },
-    { name: 'UAE', region: 'middle-east', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800', desc: 'Tax-free opportunities.', sectors: ['Construction', 'Hospitality'], hasVisaData: true }
+    { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800', desc: 'Prime hub for corporate careers, finance, and biotech across Asia.', sectors: ['Finance', 'Tech', 'Healthcare'], hasVisaData: true },
+    { name: 'Japan', region: 'asia', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800', desc: 'World-leading engineering, robotics, and specified-skilled-worker pathways.', sectors: ['Engineering', 'IT', 'Manufacturing'], hasVisaData: true },
+    { name: 'Australia', region: 'asia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800', desc: 'Skilled migration, mining boom, and a strong healthcare workforce gap.', sectors: ['Mining', 'Healthcare', 'IT'], hasVisaData: false },
+    { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800', desc: 'Employment Pass and Tech.Pass for global professionals.', sectors: ['Finance', 'AI'], hasVisaData: true },
+    { name: 'UAE', region: 'middle-east', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800', desc: 'Tax-free salaries, Golden Visa programme, and Dubai/Abu Dhabi growth.', sectors: ['Construction', 'Hospitality', 'Finance'], hasVisaData: true },
+    { name: 'Saudi Arabia', region: 'middle-east', image: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=800', desc: 'NEOM, Red Sea, and Vision 2030 megaprojects hiring globally.', sectors: ['Construction', 'Energy', 'Tech'], hasVisaData: true },
+    { name: 'Kuwait', region: 'middle-east', image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800', desc: 'Oil & gas, healthcare and education roles with tax-free pay.', sectors: ['Energy', 'Healthcare'], hasVisaData: false },
+    { name: 'Schengen', region: 'europe', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800', desc: 'Single visa across 27 European countries for tourism and business.', sectors: ['Tourism', 'Business'], hasVisaData: false },
+    { name: 'Serbia', region: 'europe', image: 'https://images.unsplash.com/photo-1574236170880-faaf960c9c7a?w=800', desc: 'Easy work permits, growing IT outsourcing and Balkans gateway.', sectors: ['IT', 'Manufacturing'], hasVisaData: false },
+    { name: 'Moldova', region: 'europe', image: 'https://images.unsplash.com/photo-1601731223237-c1f1f37c6f5d?w=800', desc: 'Affordable European base with EU candidate status and IT growth.', sectors: ['IT', 'Agriculture'], hasVisaData: false },
+    { name: 'Belarus', region: 'europe', image: 'https://images.unsplash.com/photo-1597055181300-e3633a917a1b?w=800', desc: 'Hi-Tech Park residency for IT specialists and entrepreneurs.', sectors: ['IT', 'Engineering'], hasVisaData: false },
+    { name: 'Cambodia', region: 'asia', image: 'https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800', desc: 'Easy E-class business visa, fast company setup, low cost of living.', sectors: ['Tourism', 'Business', 'NGO'], hasVisaData: false },
+    { name: 'USA', region: 'americas', image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800', desc: 'H-1B, O-1 and EB programmes — the worlds largest opportunity market.', sectors: ['Tech', 'Finance', 'Research'], hasVisaData: false },
   ];
   const filtered = activeRegion === 'all' ? destinations : destinations.filter(d => d.region === activeRegion);
 
