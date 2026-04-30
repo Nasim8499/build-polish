@@ -116,7 +116,7 @@ const HeroSlider = ({ navigate }) => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#003B73]/70 to-transparent z-10"></div>
           <img src={slide.image} alt={slide.title} className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-80" />
           <div className="absolute inset-0 z-20 flex items-center">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full mt-16">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full mt-16">
               <div className="max-w-3xl border-l-4 border-[#D4A843] pl-8">
                 <div className="inline-flex items-center gap-3 mb-8 text-[#D4A843] text-xs font-bold tracking-[0.3em] uppercase" style={{ fontFamily: 'Playfair Display, serif' }}><Globe className="h-4 w-4" /> Connecting Global Talent</div>
                 <h1 className="text-6xl md:text-8xl font-black text-white mb-6 leading-none tracking-tight">
@@ -172,7 +172,7 @@ const TestimonialsCarousel = () => {
   }, [testimonials.length]);
   return (
     <section className="py-32 bg-white overflow-hidden relative border-y border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 z-10 relative">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 z-10 relative">
         <div className="flex flex-col md:flex-row gap-12 items-end mb-16">
           <div className="md:w-1/3">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Testimonials</h4>
@@ -183,7 +183,7 @@ const TestimonialsCarousel = () => {
         <div className="relative min-h-[300px]">
           {testimonials.map((test, idx) => (
             <div key={idx} className={`absolute inset-0 transition-all duration-700 ease-in-out ${idx === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-gray-200">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-0 border-t border-gray-200">
                 {[test, testimonials[(idx + 1) % testimonials.length], testimonials[(idx + 2) % testimonials.length]].map((t, i) => (
                   <div key={`${idx}-${i}`} className={`p-12 ${i !== 2 ? 'md:border-r' : ''} border-b md:border-b-0 border-gray-200 hover:bg-gray-50 transition-colors`}>
                     <Quote className="h-10 w-10 text-[#D4A843] mb-8 opacity-20" />
@@ -238,46 +238,129 @@ const NAV_LINKS = [
   { path: '/book', label: 'Book' },
 ];
 const Navbar = ({ currentPath, navigate }) => {
-  const handleNavigate = (path) => { navigate(path); };
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const handleNavigate = (path) => { navigate(path); setDrawerOpen(false); };
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setDrawerOpen(false); };
+    if (drawerOpen) {
+      document.addEventListener('keydown', onKey);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [drawerOpen]);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-3 lg:py-4">
-        <div className="flex justify-between items-center gap-4">
-          <div className="flex items-center cursor-pointer shrink-0" onClick={() => handleNavigate('/')}>
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
-                <Globe className="h-5 w-5 text-white" />
-              </div>
-              <div className="hidden sm:flex flex-col border-l border-[#003B73]/30 pl-3">
-                <span className="font-black text-xl lg:text-2xl leading-none tracking-tight text-[#003B73]">VisaHOBe</span>
-                <span className="text-[8px] lg:text-[9px] font-bold tracking-[0.3em] uppercase mt-1 text-[#6E7580]">Pte. Ltd.</span>
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 py-3 lg:py-4">
+          <div className="flex justify-between items-center gap-3">
+            <div className="flex items-center cursor-pointer shrink-0" onClick={() => handleNavigate('/')}>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
+                  <Globe className="h-5 w-5 text-white" />
+                </div>
+                <div className="flex flex-col border-l border-[#003B73]/30 pl-3">
+                  <span className="font-black text-lg sm:text-xl lg:text-2xl leading-none tracking-tight text-[#003B73]">VisaHOBe</span>
+                  <span className="text-[8px] lg:text-[9px] font-bold tracking-[0.3em] uppercase mt-1 text-[#6E7580]">Pte. Ltd.</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="flex-1 overflow-x-auto scrollbar-hide">
-            <div className="flex items-center gap-5 lg:gap-7 justify-end lg:justify-center min-w-max px-2">
-              {NAV_LINKS.map(({ path, label }) => {
-                const active = currentPath === path || (currentPath.startsWith('/country') && path === '/countries');
-                return (
-                  <button
-                    key={path}
-                    onClick={() => handleNavigate(path)}
-                    className={`text-[11px] lg:text-xs font-bold tracking-widest uppercase transition-colors duration-200 relative py-2 whitespace-nowrap ${active ? 'text-[#D4A843]' : 'text-[#003B73] hover:text-[#D4A843]'}`}
-                  >
-                    {label}
-                    {active && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4A843]"></span>}
-                  </button>
-                );
-              })}
+            <div className="hidden lg:block flex-1 overflow-x-auto scrollbar-hide">
+              <div className="flex items-center gap-5 lg:gap-7 justify-center min-w-max px-2">
+                {NAV_LINKS.map(({ path, label }) => {
+                  const active = currentPath === path || (currentPath.startsWith('/country') && path === '/countries');
+                  return (
+                    <button
+                      key={path}
+                      onClick={() => handleNavigate(path)}
+                      className={`text-[11px] lg:text-xs font-bold tracking-widest uppercase transition-colors duration-200 relative py-2 whitespace-nowrap ${active ? 'text-[#D4A843]' : 'text-[#003B73] hover:text-[#D4A843]'}`}
+                    >
+                      {label}
+                      {active && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4A843]"></span>}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-          <div className="hidden lg:flex gap-2 shrink-0">
-            <button onClick={() => handleNavigate('/profile')} className="px-5 py-2.5 font-bold text-xs tracking-widest uppercase transition-all border border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white rounded">Profile</button>
-            <button onClick={() => handleNavigate('/book')} className="px-5 py-2.5 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase hover:shadow-lg transition-all rounded">Book</button>
+            <div className="hidden lg:flex gap-2 shrink-0">
+              <button onClick={() => handleNavigate('/profile')} className="px-5 py-2.5 font-bold text-xs tracking-widest uppercase transition-all border border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white rounded">Profile</button>
+              <button onClick={() => handleNavigate('/book')} className="px-5 py-2.5 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase hover:shadow-lg transition-all rounded">Book</button>
+            </div>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={drawerOpen}
+              onClick={() => setDrawerOpen(true)}
+              className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-[#003B73]/20 text-[#003B73] hover:bg-[#003B73] hover:text-white transition-colors"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Mobile drawer overlay */}
+      <div
+        onClick={() => setDrawerOpen(false)}
+        className={`lg:hidden fixed inset-0 z-[60] bg-black/60 transition-opacity duration-300 ${drawerOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        aria-hidden="true"
+      />
+
+      {/* Mobile drawer */}
+      <aside
+        className={`lg:hidden fixed top-0 right-0 z-[70] h-screen w-[85%] max-w-sm bg-[#0A1628] text-white shadow-2xl transform transition-transform duration-300 ease-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        role="dialog"
+        aria-label="Site navigation"
+      >
+        <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
+              <Globe className="h-5 w-5 text-white" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-black text-lg leading-none tracking-tight">VisaHOBe</span>
+              <span className="text-[9px] font-bold tracking-[0.3em] uppercase mt-1 text-gray-400">Pte. Ltd.</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setDrawerOpen(false)}
+            className="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white hover:bg-white/10 transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+        <div className="overflow-y-auto h-[calc(100vh-80px)] pb-32">
+          <nav className="flex flex-col px-2 py-4 divide-y divide-white/5">
+            {NAV_LINKS.map(({ path, label }) => {
+              const active = currentPath === path || (currentPath.startsWith('/country') && path === '/countries');
+              return (
+                <button
+                  key={path}
+                  onClick={() => handleNavigate(path)}
+                  className={`flex items-center justify-between px-4 py-4 text-sm font-bold tracking-widest uppercase transition-colors ${active ? 'text-[#D4A843]' : 'text-white hover:text-[#D4A843]'}`}
+                >
+                  <span>{label}</span>
+                  <ChevronRight className="h-4 w-4 opacity-50" />
+                </button>
+              );
+            })}
+          </nav>
+          <div className="px-6 mt-6 flex flex-col gap-3">
+            <button onClick={() => handleNavigate('/profile')} className="w-full px-5 py-3 font-bold text-xs tracking-widest uppercase border border-white/30 text-white hover:bg-white hover:text-[#003B73] rounded transition-colors">Profile</button>
+            <button onClick={() => handleNavigate('/book')} className="w-full px-5 py-3 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase rounded">Book Now</button>
+          </div>
+          <div className="px-6 mt-8 text-[10px] tracking-[0.25em] uppercase text-gray-500">
+            © {new Date().getFullYear()} VisaHOBe Pte. Ltd.
+          </div>
+        </div>
+      </aside>
+    </>
   );
 };
 
@@ -311,7 +394,7 @@ const MobileBottomNav = ({ currentPath, navigate }) => {
 // --- FOOTER ---
 const Footer = ({ navigate }) => (
   <footer className="bg-[#0A1628] text-white pt-32 pb-40 lg:pb-12 border-t border-[#D4A843]/30">
-    <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
         <div className="md:col-span-4">
           <div className="flex items-center gap-4 mb-8">
@@ -1460,7 +1543,7 @@ const CountryDetail = ({ navigate, countryName }) => {
         <img src={countryData.heroImage} alt={countryName} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/70 via-[#003B73]/50 to-[#0A1628]"></div>
         <div className="absolute inset-0 z-10 flex items-end pb-20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
             <button onClick={() => navigate('/countries')} className="mb-8 text-white/70 hover:text-white flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-colors group">
               <ChevronLeft className="h-4 w-4 transform group-hover:-translate-x-1 transition-transform" /> Back to Countries
             </button>
@@ -1478,7 +1561,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* Quick Facts */}
       <div className="bg-[#0A1628] py-16 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {countryData.quickFacts.map((fact, idx) => (
               <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#D4A843]/50 transition-all duration-300 group">
@@ -1494,7 +1577,7 @@ const CountryDetail = ({ navigate, countryName }) => {
       {/* Popular Visas Quick Access */}
       {popularVisas.length > 0 && (
         <div className="bg-gray-50 py-20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <AnimatedSection className="mb-12">
               <div className="flex items-center gap-3 mb-2">
                 <Star className="h-8 w-8 text-[#D4A843]" />
@@ -1502,7 +1585,7 @@ const CountryDetail = ({ navigate, countryName }) => {
               </div>
               <p className="text-gray-500 font-light ml-11">Quick access to the most frequently applied visa programs</p>
             </AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {popularVisas.map((visa, idx) => {
                 const category = countryData.visaTypes.find(cat => cat.visas.includes(visa));
                 return (
@@ -1535,7 +1618,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* Visa Categories Navigation */}
       <div className="bg-white sticky top-[72px] z-30 border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto no-scrollbar py-4 gap-3">
             {countryData.visaTypes.map((cat, idx) => (
               <button key={idx} onClick={() => setActiveCategory(idx)}
@@ -1554,7 +1637,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* Visa Types Detail */}
       <div className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="mb-16">
               <div className="flex items-center gap-4 mb-3">
@@ -1669,7 +1752,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* All Visa Types Summary */}
       <div className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h3 className="text-4xl font-black text-[#003B73] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>All Visa Types for {countryName}</h3>
             <p className="text-gray-500 font-light max-w-2xl mx-auto text-lg">Complete overview of all available visa categories and their respective programs</p>
@@ -1700,7 +1783,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* Country Quick Info & CTA */}
       <div className="bg-[#0A1628] py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-10">
               <h4 className="text-white font-bold text-xl mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -1850,7 +1933,7 @@ const Home = ({ navigate }) => {
 
       {/* 3. Stats Counter */}
       <div className="bg-white py-24 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Track Record</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Numbers That Speak</h2>
@@ -1868,7 +1951,7 @@ const Home = ({ navigate }) => {
 
       {/* 4. Featured Countries Slider */}
       <div className="bg-[#0A1628] py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Featured Destinations</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Top Countries</h2>
@@ -1904,7 +1987,7 @@ const Home = ({ navigate }) => {
 
       {/* 5. About Brief */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>About Us</h4>
@@ -1929,12 +2012,12 @@ const Home = ({ navigate }) => {
 
       {/* 6. Services Overview */}
       <div className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What We Offer</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Services</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-[#003B73] hover:shadow-xl transition-all duration-500 group">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6 group-hover:from-[#D4A843] group-hover:to-[#F1573D] transition-all duration-300">
@@ -1950,12 +2033,12 @@ const Home = ({ navigate }) => {
 
       {/* 7. Visa Categories */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Solutions</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Visa Categories</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {visaCategories.map((visa, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-[#003B73] hover:shadow-xl transition-all duration-500 group">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6 group-hover:from-[#D4A843] group-hover:to-[#F1573D] transition-colors duration-300">
@@ -1972,12 +2055,12 @@ const Home = ({ navigate }) => {
 
       {/* 8. How We Work */}
       <div className="bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Methodology</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">How We Work</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {howWeWork.map((step, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-10 rounded-2xl border border-gray-200 hover:border-[#003B73] transition-all duration-300 relative">
                 <div className="absolute top-6 right-6 text-6xl font-black text-gray-100">0{idx + 1}</div>
@@ -1992,7 +2075,7 @@ const Home = ({ navigate }) => {
 
       {/* 9. Global Talent Pool */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Network</h4>
@@ -2018,7 +2101,7 @@ const Home = ({ navigate }) => {
 
       {/* 10. Success Stories */}
       <div className="bg-[#0A1628] py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Impact</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Success Stories</h2>
@@ -2050,7 +2133,7 @@ const Home = ({ navigate }) => {
       {/* 12. Live Dashboard Preview */}
       <div className="py-24 bg-gradient-to-br from-[#003B73] to-[#177BBB] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600')] bg-cover bg-center"></div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Real-Time Insights</h4>
             <h2 className="text-5xl font-black text-white tracking-tight mb-4">Live Dashboard Preview</h2>
@@ -2108,7 +2191,7 @@ const Home = ({ navigate }) => {
 
       {/* 13. Document Hub Preview */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
               <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Resources</h4>
@@ -2116,7 +2199,7 @@ const Home = ({ navigate }) => {
             </div>
             <button onClick={() => navigate('/documents')} className="border border-gray-300 text-[#003B73] px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#003B73] hover:text-white transition-colors flex items-center gap-3">View All <ArrowRight className="h-4 w-4" /></button>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: FileText, title: 'Visa Application Guide', type: 'PDF', size: '2.4 MB' },
               { icon: FolderOpen, title: 'Required Documents Checklist', type: 'Checklist', size: '1.1 MB' },
@@ -2140,12 +2223,12 @@ const Home = ({ navigate }) => {
 
       {/* 14. News/Blog Preview */}
       <div className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Latest Updates</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">News & Insights</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {newsItems.map((post, i) => (
               <div key={i} className="bg-white border border-gray-200 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:border-[#003B73] hover:shadow-xl">
                 <div className="h-48 overflow-hidden relative"><img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /><div className="absolute top-4 left-4"><span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 px-3 py-1 rounded-full">{post.category}</span></div></div>
@@ -2165,12 +2248,12 @@ const Home = ({ navigate }) => {
 
       {/* 15. Study Programs Preview */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Education</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Study Abroad</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {studyPrograms.map((prog, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden hover:border-[#003B73] hover:shadow-xl transition-all duration-300 group cursor-pointer">
                 <div className="h-48 overflow-hidden"><img src={prog.image} alt={prog.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /></div>
@@ -2198,12 +2281,12 @@ const Home = ({ navigate }) => {
 
       {/* 16. Investment Programs Preview */}
       <div className="py-24 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Wealth Management</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Investor Programs</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {investPrograms.map((prog, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#D4A843] hover:shadow-xl transition-all duration-300 group">
                 <div className="flex items-start justify-between mb-6">
@@ -2229,7 +2312,7 @@ const Home = ({ navigate }) => {
 
       {/* 17. Job Opportunities Preview */}
       <div className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Career Opportunities</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Latest Jobs</h2>
@@ -2342,7 +2425,7 @@ const Countries = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600" title="Global Sectors" subtitle="Operational Reach" subtitleBelow="Countries" />
 
       {/* 2. Region Filter & Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12">
           {regions.map(region => <button key={region.id} onClick={() => setActiveRegion(region.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeRegion === region.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{region.label}</button>)}
         </div>
@@ -2373,12 +2456,12 @@ const Countries = ({ navigate }) => {
 
       {/* 3. Regional Stats */}
       <div className="bg-gray-50 py-24 mt-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Performance</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Regional Placements</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { region: 'Asia Pacific', placements: '18,500+', growth: '+12%' },
               { region: 'Middle East', placements: '12,200+', growth: '+8%' },
@@ -2391,12 +2474,12 @@ const Countries = ({ navigate }) => {
 
       {/* 4. Visa Requirements Overview */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Requirements</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Visa Categories</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: PlaneTakeoff, title: 'Visitor Visas', desc: 'Tourist, business, and transit visas for short-term stays across multiple countries.' },
               { icon: Briefcase, title: 'Work Visas', desc: 'Employment passes, skilled worker visas, and work permits for professionals.' },
@@ -2417,7 +2500,7 @@ const Countries = ({ navigate }) => {
 
       {/* 5. Why Choose Us */}
       <div className="py-24 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Advantages</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Why Choose Us</h2>
@@ -2479,7 +2562,7 @@ const Jobs = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1600" title="Career Opportunities" subtitle="Open Positions" subtitleBelow="Jobs" />
 
       {/* 2. Job Listings */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
           <h2 className="text-3xl font-black text-[#003B73]" style={{ fontFamily: 'Playfair Display, serif' }}>Available Positions</h2>
           <div className="flex flex-wrap gap-3">
@@ -2510,7 +2593,7 @@ const Jobs = ({ navigate }) => {
 
       {/* 3. Stats */}
       <div className="bg-gray-50 py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { label: 'Open Positions', value: '250+' },
@@ -2529,12 +2612,12 @@ const Jobs = ({ navigate }) => {
 
       {/* 4. How to Apply */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Process</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">How to Apply</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { step: '01', title: 'Submit CV', desc: 'Upload your resume and complete the application form online.' },
               { step: '02', title: 'Screening', desc: 'Our team reviews your qualifications and matches you with opportunities.' },
@@ -2625,11 +2708,11 @@ const Documents = () => {
       <ParallaxSection image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600" title="Document Center" subtitle="Resources" subtitleBelow="Documents" />
 
       {/* 2. Tabs & Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">
           {tabs.map(tab => <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === tab.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{tab.label}</button>)}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {docs[activeTab].map((doc, idx) => (
             <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-8 border border-gray-200 hover:border-[#003B73] transition-all duration-300 hover:shadow-lg group cursor-pointer rounded-2xl">
               <div className="flex items-start justify-between mb-4">
@@ -2661,7 +2744,7 @@ const Documents = () => {
 
       {/* 4. Popular Documents */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Downloads</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Most Downloaded</h2>
@@ -2690,12 +2773,12 @@ const Documents = () => {
 
       {/* 5. Tips */}
       <div className="py-20 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Guidance</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Document Tips</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: CheckCircle2, title: 'Accuracy Matters', desc: 'Ensure all information matches your official documents exactly.' },
               { icon: Clock4, title: 'Validity Period', desc: 'Check expiration dates - most documents must be valid for 6+ months.' },
@@ -2769,7 +2852,7 @@ const Profile = () => {
           <div className="p-8">
             {activeTab === 'overview' && (
               <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                   <div className="bg-blue-50 p-6 rounded-xl"><div className="text-3xl font-black text-[#003B73] mb-1">3</div><div className="text-xs text-gray-500 uppercase tracking-wider">Active Applications</div></div>
                   <div className="bg-green-50 p-6 rounded-xl"><div className="text-3xl font-black text-green-600 mb-1">1</div><div className="text-xs text-gray-500 uppercase tracking-wider">Approved</div></div>
                   <div className="bg-yellow-50 p-6 rounded-xl"><div className="text-3xl font-black text-yellow-600 mb-1">2</div><div className="text-xs text-gray-500 uppercase tracking-wider">Pending</div></div>
@@ -2839,7 +2922,7 @@ const Profile = () => {
 
       {/* 3. Quick Actions */}
       <div className="max-w-5xl mx-auto px-6 lg:px-8 mt-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {[
             { icon: Calendar, title: 'Book Consultation', desc: 'Schedule a free consultation with our specialists.' },
             { icon: FileText, title: 'Upload Documents', desc: 'Submit required documents securely.' },
@@ -2943,7 +3026,7 @@ const News = () => {
       <ParallaxSection image="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600" title="Intelligence" subtitle="News & Briefings" subtitleBelow="News" />
 
       {/* 2. Featured Article & Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12">{categories.map(cat => <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeCategory === cat ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{cat}</button>)}</div>
         {filtered.length > 0 && (
           <div className="mb-12">
@@ -2962,7 +3045,7 @@ const News = () => {
             </div>
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.slice(1).map((post, i) => (
             <div key={i} className="bg-white border border-gray-200 cursor-pointer group transition-all duration-300 hover:border-[#003B73] hover:shadow-xl rounded-2xl overflow-hidden">
               <div className="h-56 overflow-hidden relative"><img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /><div className="absolute top-4 left-4"><span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 px-3 py-1 rounded-full">{post.category}</span></div></div>
@@ -2991,8 +3074,8 @@ const News = () => {
 
       {/* 4. Categories Overview */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { category: 'Immigration', count: '24', icon: Globe },
               { category: 'Industry', count: '18', icon: Building },
@@ -3012,10 +3095,10 @@ const News = () => {
 
       {/* 5. Editorial Team */}
       <div className="py-20 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
           <h3 className="text-3xl font-black text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Editorial Team</h3>
           <p className="text-gray-400 font-light mb-12 max-w-2xl mx-auto">Expert journalists and industry analysts delivering accurate, timely immigration news.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { name: 'Sarah Mitchell', role: 'Senior Editor', specialty: 'Immigration Policy' },
               { name: 'David Chen', role: 'Industry Analyst', specialty: 'Global Markets' },
@@ -3065,7 +3148,7 @@ const Services = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600" title="Service Protocols" subtitle="Our Expertise" subtitleBelow="Services" />
 
       {/* 2. Tabs & Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">{tabs.map((tab, idx) => <button key={idx} onClick={() => setActiveTab(idx)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === idx ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{tab}</button>)}</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
@@ -3084,7 +3167,7 @@ const Services = ({ navigate }) => {
 
       {/* 3. Service Stats */}
       <div className="bg-gray-50 py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { label: 'Services Offered', value: '50+' },
@@ -3103,12 +3186,12 @@ const Services = ({ navigate }) => {
 
       {/* 4. Process */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Workflow</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Process</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {['Consultation', 'Assessment', 'Application', 'Processing', 'Delivery'].map((step, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="text-center p-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -3124,12 +3207,12 @@ const Services = ({ navigate }) => {
 
       {/* 5. Pricing */}
       <div className="py-20 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Pricing</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Service Packages</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { name: 'Basic', price: '$500', features: ['Single visa application', 'Document review', 'Email support', 'Standard processing'], popular: false },
               { name: 'Professional', price: '$1,200', features: ['Multiple visa applications', 'Full document preparation', 'Priority support', 'Expedited processing', 'Interview coaching'], popular: true },
@@ -3186,12 +3269,12 @@ const Study = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600" title="Study Abroad" subtitle="Education Programs" subtitleBelow="Study" />
 
       {/* 2. Programs Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <AnimatedSection className="text-center mb-16">
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Programs</h4>
           <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Featured Programs</h2>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((prog, idx) => (
             <AnimatedSection key={idx} delay={idx * 100} className="bg-white border border-gray-200 overflow-hidden hover:border-[#003B73] hover:shadow-xl transition-all duration-300 group cursor-pointer rounded-2xl">
               <div className="h-56 overflow-hidden"><img src={prog.image} alt={prog.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /></div>
@@ -3215,8 +3298,8 @@ const Study = ({ navigate }) => {
 
       {/* 3. Benefits */}
       <div className="bg-gray-50 py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: GraduationCap, title: 'Top Universities', desc: 'Access to world-ranked universities and educational institutions globally.' },
               { icon: DollarSign, title: 'Scholarships', desc: 'Guidance on scholarship applications and financial aid opportunities.' },
@@ -3234,12 +3317,12 @@ const Study = ({ navigate }) => {
 
       {/* 4. Process */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Application Process</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {['Choose Program', 'Submit Application', 'Get Acceptance', 'Apply for Visa'].map((step, idx) => (
               <div key={idx} className="text-center p-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -3298,7 +3381,7 @@ const Invest = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600" title="Investment Immigration" subtitle="Investor Programs" subtitleBelow="Invest" />
 
       {/* 2. Programs Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <AnimatedSection className="text-center mb-16">
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Opportunities</h4>
           <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Investor Visa Programs</h2>
@@ -3328,8 +3411,8 @@ const Invest = ({ navigate }) => {
 
       {/* 3. Why Invest */}
       <div className="bg-gray-50 py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: TrendingUp, title: 'High ROI', desc: 'Strong returns on investment with favorable economic conditions.' },
               { icon: ShieldCheck, title: 'Secure', desc: 'Government-backed programs with legal protections.' },
@@ -3347,12 +3430,12 @@ const Invest = ({ navigate }) => {
 
       {/* 4. Process */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Investment Process</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {['Initial Consultation', 'Due Diligence', 'Investment', 'Residency Approval'].map((step, idx) => (
               <div key={idx} className="text-center p-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -3402,7 +3485,7 @@ const About = () => (
     <ParallaxSection image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600" title="Firm Profile" subtitle="About Us" subtitleBelow="About" />
 
     {/* 2. Executive Summary */}
-    <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div>
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Corporate History</h4>
@@ -3419,9 +3502,9 @@ const About = () => (
 
     {/* 3. Core Values */}
     <div className="bg-gray-50 py-20 mt-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16"><h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What Drives Us</h4><h2 className="text-5xl font-black text-[#003B73] tracking-tight">Core Values</h2></AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {[{ icon: Shield, title: 'Compliance First', desc: 'We maintain rigorous standards to ensure 100% regulatory compliance.' }, { icon: Target, title: 'Precision Matching', desc: 'Our proprietary screening methodology ensures optimal talent-to-role alignment.' }, { icon: Heart, title: 'People Centric', desc: 'We treat every candidate and client with personalized care.' }].map((value, idx) => (
             <AnimatedSection key={idx} delay={idx * 150} className="bg-white p-10 border border-gray-200 hover:border-[#003B73] transition-all duration-300 hover:shadow-xl rounded-2xl">
               <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6"><value.icon className="h-7 w-7 text-[#003B73]" /></div>
@@ -3435,12 +3518,12 @@ const About = () => (
 
     {/* 4. Team */}
     <div className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Leadership</h4>
           <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Team</h2>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { name: 'James Lee', role: 'CEO & Founder', specialty: 'Global Strategy' },
             { name: 'Sarah Chen', role: 'COO', specialty: 'Operations' },
@@ -3535,7 +3618,7 @@ const Book = ({ navigate }) => {
           </form>
         </AnimatedSection>
       </div>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-24 grid grid-cols-2 md:grid-cols-3 gap-6">
         {[{i:Phone,t:'Call Us',d:'+65 6123 4567'},{i:Mail,t:'Email',d:'hello@visahobe.sg'},{i:MapPin,t:'Visit',d:'10 Anson Rd, Singapore'}].map((c,idx)=>(
           <AnimatedSection key={idx} delay={idx*100} className="bg-white p-8 border border-gray-200 rounded-2xl text-center hover:shadow-xl transition-shadow">
             <div className="w-14 h-14 mx-auto mb-4 bg-[#003B73] rounded-xl flex items-center justify-center"><c.i className="h-6 w-6 text-[#D4A843]"/></div>
@@ -3568,7 +3651,7 @@ const Contact = ({ navigate }) => {
   return (
     <div className="animate-in fade-in duration-500 pb-24">
       <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Contact Us" subtitle="Get in Touch" subtitleBelow="Contact" />
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <AnimatedSection className="bg-white p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
             <h3 className="text-2xl font-black text-[#003B73] mb-2 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Send a Message</h3>
