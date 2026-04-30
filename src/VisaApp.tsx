@@ -116,7 +116,7 @@ const HeroSlider = ({ navigate }) => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#003B73]/70 to-transparent z-10"></div>
           <img src={slide.image} alt={slide.title} className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-80" />
           <div className="absolute inset-0 z-20 flex items-center">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full mt-16">
+            <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full mt-16">
               <div className="max-w-3xl border-l-4 border-[#D4A843] pl-8">
                 <div className="inline-flex items-center gap-3 mb-8 text-[#D4A843] text-xs font-bold tracking-[0.3em] uppercase" style={{ fontFamily: 'Playfair Display, serif' }}><Globe className="h-4 w-4" /> Connecting Global Talent</div>
                 <h1 className="text-6xl md:text-8xl font-black text-white mb-6 leading-none tracking-tight">
@@ -172,7 +172,7 @@ const TestimonialsCarousel = () => {
   }, [testimonials.length]);
   return (
     <section className="py-32 bg-white overflow-hidden relative border-y border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 z-10 relative">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 z-10 relative">
         <div className="flex flex-col md:flex-row gap-12 items-end mb-16">
           <div className="md:w-1/3">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Testimonials</h4>
@@ -394,7 +394,7 @@ const MobileBottomNav = ({ currentPath, navigate }) => {
 // --- FOOTER ---
 const Footer = ({ navigate }) => (
   <footer className="bg-[#0A1628] text-white pt-32 pb-40 lg:pb-12 border-t border-[#D4A843]/30">
-    <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
         <div className="md:col-span-4">
           <div className="flex items-center gap-4 mb-8">
@@ -1543,7 +1543,7 @@ const CountryDetail = ({ navigate, countryName }) => {
         <img src={countryData.heroImage} alt={countryName} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/70 via-[#003B73]/50 to-[#0A1628]"></div>
         <div className="absolute inset-0 z-10 flex items-end pb-20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
             <button onClick={() => navigate('/countries')} className="mb-8 text-white/70 hover:text-white flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-colors group">
               <ChevronLeft className="h-4 w-4 transform group-hover:-translate-x-1 transition-transform" /> Back to Countries
             </button>
@@ -1561,7 +1561,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* Quick Facts */}
       <div className="bg-[#0A1628] py-16 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {countryData.quickFacts.map((fact, idx) => (
               <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#D4A843]/50 transition-all duration-300 group">
@@ -1577,7 +1577,7 @@ const CountryDetail = ({ navigate, countryName }) => {
       {/* Popular Visas Quick Access */}
       {popularVisas.length > 0 && (
         <div className="bg-gray-50 py-20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <AnimatedSection className="mb-12">
               <div className="flex items-center gap-3 mb-2">
                 <Star className="h-8 w-8 text-[#D4A843]" />
@@ -1618,7 +1618,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* Visa Categories Navigation */}
       <div className="bg-white sticky top-[72px] z-30 border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto no-scrollbar py-4 gap-3">
             {countryData.visaTypes.map((cat, idx) => (
               <button key={idx} onClick={() => setActiveCategory(idx)}
@@ -1637,7 +1637,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* Visa Types Detail */}
       <div className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="mb-16">
               <div className="flex items-center gap-4 mb-3">
@@ -1752,7 +1752,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* All Visa Types Summary */}
       <div className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h3 className="text-4xl font-black text-[#003B73] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>All Visa Types for {countryName}</h3>
             <p className="text-gray-500 font-light max-w-2xl mx-auto text-lg">Complete overview of all available visa categories and their respective programs</p>
@@ -1783,7 +1783,7 @@ const CountryDetail = ({ navigate, countryName }) => {
 
       {/* Country Quick Info & CTA */}
       <div className="bg-[#0A1628] py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-10">
               <h4 className="text-white font-bold text-xl mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -1933,7 +1933,7 @@ const Home = ({ navigate }) => {
 
       {/* 3. Stats Counter */}
       <div className="bg-white py-24 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Track Record</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Numbers That Speak</h2>
@@ -1951,7 +1951,7 @@ const Home = ({ navigate }) => {
 
       {/* 4. Featured Countries Slider */}
       <div className="bg-[#0A1628] py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Featured Destinations</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Top Countries</h2>
@@ -1987,7 +1987,7 @@ const Home = ({ navigate }) => {
 
       {/* 5. About Brief */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>About Us</h4>
@@ -2012,7 +2012,7 @@ const Home = ({ navigate }) => {
 
       {/* 6. Services Overview */}
       <div className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What We Offer</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Services</h2>
@@ -2033,7 +2033,7 @@ const Home = ({ navigate }) => {
 
       {/* 7. Visa Categories */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Solutions</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Visa Categories</h2>
@@ -2055,7 +2055,7 @@ const Home = ({ navigate }) => {
 
       {/* 8. How We Work */}
       <div className="bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Methodology</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">How We Work</h2>
@@ -2075,7 +2075,7 @@ const Home = ({ navigate }) => {
 
       {/* 9. Global Talent Pool */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Network</h4>
@@ -2101,7 +2101,7 @@ const Home = ({ navigate }) => {
 
       {/* 10. Success Stories */}
       <div className="bg-[#0A1628] py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Impact</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Success Stories</h2>
@@ -2133,7 +2133,7 @@ const Home = ({ navigate }) => {
       {/* 12. Live Dashboard Preview */}
       <div className="py-24 bg-gradient-to-br from-[#003B73] to-[#177BBB] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600')] bg-cover bg-center"></div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Real-Time Insights</h4>
             <h2 className="text-5xl font-black text-white tracking-tight mb-4">Live Dashboard Preview</h2>
@@ -2191,7 +2191,7 @@ const Home = ({ navigate }) => {
 
       {/* 13. Document Hub Preview */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
               <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Resources</h4>
@@ -2223,7 +2223,7 @@ const Home = ({ navigate }) => {
 
       {/* 14. News/Blog Preview */}
       <div className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Latest Updates</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">News & Insights</h2>
@@ -2248,7 +2248,7 @@ const Home = ({ navigate }) => {
 
       {/* 15. Study Programs Preview */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Education</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Study Abroad</h2>
@@ -2281,7 +2281,7 @@ const Home = ({ navigate }) => {
 
       {/* 16. Investment Programs Preview */}
       <div className="py-24 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Wealth Management</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Investor Programs</h2>
@@ -2312,7 +2312,7 @@ const Home = ({ navigate }) => {
 
       {/* 17. Job Opportunities Preview */}
       <div className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Career Opportunities</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Latest Jobs</h2>
@@ -2425,7 +2425,7 @@ const Countries = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600" title="Global Sectors" subtitle="Operational Reach" subtitleBelow="Countries" />
 
       {/* 2. Region Filter & Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12">
           {regions.map(region => <button key={region.id} onClick={() => setActiveRegion(region.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeRegion === region.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{region.label}</button>)}
         </div>
@@ -2456,7 +2456,7 @@ const Countries = ({ navigate }) => {
 
       {/* 3. Regional Stats */}
       <div className="bg-gray-50 py-24 mt-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Performance</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Regional Placements</h2>
@@ -2474,7 +2474,7 @@ const Countries = ({ navigate }) => {
 
       {/* 4. Visa Requirements Overview */}
       <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Requirements</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Visa Categories</h2>
@@ -2500,7 +2500,7 @@ const Countries = ({ navigate }) => {
 
       {/* 5. Why Choose Us */}
       <div className="py-24 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Advantages</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Why Choose Us</h2>
@@ -2562,7 +2562,7 @@ const Jobs = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1600" title="Career Opportunities" subtitle="Open Positions" subtitleBelow="Jobs" />
 
       {/* 2. Job Listings */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
           <h2 className="text-3xl font-black text-[#003B73]" style={{ fontFamily: 'Playfair Display, serif' }}>Available Positions</h2>
           <div className="flex flex-wrap gap-3">
@@ -2593,7 +2593,7 @@ const Jobs = ({ navigate }) => {
 
       {/* 3. Stats */}
       <div className="bg-gray-50 py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { label: 'Open Positions', value: '250+' },
@@ -2612,7 +2612,7 @@ const Jobs = ({ navigate }) => {
 
       {/* 4. How to Apply */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Process</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">How to Apply</h2>
@@ -2708,7 +2708,7 @@ const Documents = () => {
       <ParallaxSection image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600" title="Document Center" subtitle="Resources" subtitleBelow="Documents" />
 
       {/* 2. Tabs & Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">
           {tabs.map(tab => <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === tab.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{tab.label}</button>)}
         </div>
@@ -2744,7 +2744,7 @@ const Documents = () => {
 
       {/* 4. Popular Documents */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Downloads</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Most Downloaded</h2>
@@ -2773,7 +2773,7 @@ const Documents = () => {
 
       {/* 5. Tips */}
       <div className="py-20 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Guidance</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Document Tips</h2>
@@ -3026,7 +3026,7 @@ const News = () => {
       <ParallaxSection image="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600" title="Intelligence" subtitle="News & Briefings" subtitleBelow="News" />
 
       {/* 2. Featured Article & Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12">{categories.map(cat => <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeCategory === cat ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{cat}</button>)}</div>
         {filtered.length > 0 && (
           <div className="mb-12">
@@ -3074,7 +3074,7 @@ const News = () => {
 
       {/* 4. Categories Overview */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { category: 'Immigration', count: '24', icon: Globe },
@@ -3095,7 +3095,7 @@ const News = () => {
 
       {/* 5. Editorial Team */}
       <div className="py-20 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
           <h3 className="text-3xl font-black text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Editorial Team</h3>
           <p className="text-gray-400 font-light mb-12 max-w-2xl mx-auto">Expert journalists and industry analysts delivering accurate, timely immigration news.</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
@@ -3148,7 +3148,7 @@ const Services = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600" title="Service Protocols" subtitle="Our Expertise" subtitleBelow="Services" />
 
       {/* 2. Tabs & Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">{tabs.map((tab, idx) => <button key={idx} onClick={() => setActiveTab(idx)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === idx ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{tab}</button>)}</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
@@ -3167,7 +3167,7 @@ const Services = ({ navigate }) => {
 
       {/* 3. Service Stats */}
       <div className="bg-gray-50 py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { label: 'Services Offered', value: '50+' },
@@ -3186,7 +3186,7 @@ const Services = ({ navigate }) => {
 
       {/* 4. Process */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Workflow</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Process</h2>
@@ -3207,7 +3207,7 @@ const Services = ({ navigate }) => {
 
       {/* 5. Pricing */}
       <div className="py-20 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Pricing</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Service Packages</h2>
@@ -3269,7 +3269,7 @@ const Study = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600" title="Study Abroad" subtitle="Education Programs" subtitleBelow="Study" />
 
       {/* 2. Programs Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <AnimatedSection className="text-center mb-16">
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Programs</h4>
           <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Featured Programs</h2>
@@ -3298,7 +3298,7 @@ const Study = ({ navigate }) => {
 
       {/* 3. Benefits */}
       <div className="bg-gray-50 py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: GraduationCap, title: 'Top Universities', desc: 'Access to world-ranked universities and educational institutions globally.' },
@@ -3317,7 +3317,7 @@ const Study = ({ navigate }) => {
 
       {/* 4. Process */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Application Process</h2>
@@ -3381,7 +3381,7 @@ const Invest = ({ navigate }) => {
       <ParallaxSection image="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600" title="Investment Immigration" subtitle="Investor Programs" subtitleBelow="Invest" />
 
       {/* 2. Programs Grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <AnimatedSection className="text-center mb-16">
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Opportunities</h4>
           <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Investor Visa Programs</h2>
@@ -3411,7 +3411,7 @@ const Invest = ({ navigate }) => {
 
       {/* 3. Why Invest */}
       <div className="bg-gray-50 py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: TrendingUp, title: 'High ROI', desc: 'Strong returns on investment with favorable economic conditions.' },
@@ -3430,7 +3430,7 @@ const Invest = ({ navigate }) => {
 
       {/* 4. Process */}
       <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Investment Process</h2>
@@ -3485,7 +3485,7 @@ const About = () => (
     <ParallaxSection image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600" title="Firm Profile" subtitle="About Us" subtitleBelow="About" />
 
     {/* 2. Executive Summary */}
-    <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div>
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Corporate History</h4>
@@ -3502,7 +3502,7 @@ const About = () => (
 
     {/* 3. Core Values */}
     <div className="bg-gray-50 py-20 mt-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16"><h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What Drives Us</h4><h2 className="text-5xl font-black text-[#003B73] tracking-tight">Core Values</h2></AnimatedSection>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {[{ icon: Shield, title: 'Compliance First', desc: 'We maintain rigorous standards to ensure 100% regulatory compliance.' }, { icon: Target, title: 'Precision Matching', desc: 'Our proprietary screening methodology ensures optimal talent-to-role alignment.' }, { icon: Heart, title: 'People Centric', desc: 'We treat every candidate and client with personalized care.' }].map((value, idx) => (
@@ -3518,7 +3518,7 @@ const About = () => (
 
     {/* 4. Team */}
     <div className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Leadership</h4>
           <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Team</h2>
@@ -3618,7 +3618,7 @@ const Book = ({ navigate }) => {
           </form>
         </AnimatedSection>
       </div>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-24 grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-24 grid grid-cols-2 md:grid-cols-3 gap-6">
         {[{i:Phone,t:'Call Us',d:'+65 6123 4567'},{i:Mail,t:'Email',d:'hello@visahobe.sg'},{i:MapPin,t:'Visit',d:'10 Anson Rd, Singapore'}].map((c,idx)=>(
           <AnimatedSection key={idx} delay={idx*100} className="bg-white p-8 border border-gray-200 rounded-2xl text-center hover:shadow-xl transition-shadow">
             <div className="w-14 h-14 mx-auto mb-4 bg-[#003B73] rounded-xl flex items-center justify-center"><c.i className="h-6 w-6 text-[#D4A843]"/></div>
@@ -3651,7 +3651,7 @@ const Contact = ({ navigate }) => {
   return (
     <div className="animate-in fade-in duration-500 pb-24">
       <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Contact Us" subtitle="Get in Touch" subtitleBelow="Contact" />
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <AnimatedSection className="bg-white p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
             <h3 className="text-2xl font-black text-[#003B73] mb-2 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Send a Message</h3>
