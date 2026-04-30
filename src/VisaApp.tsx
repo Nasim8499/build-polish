@@ -183,7 +183,7 @@ const TestimonialsCarousel = () => {
         <div className="relative min-h-[300px]">
           {testimonials.map((test, idx) => (
             <div key={idx} className={`absolute inset-0 transition-all duration-700 ease-in-out ${idx === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-gray-200">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-0 border-t border-gray-200">
                 {[test, testimonials[(idx + 1) % testimonials.length], testimonials[(idx + 2) % testimonials.length]].map((t, i) => (
                   <div key={`${idx}-${i}`} className={`p-12 ${i !== 2 ? 'md:border-r' : ''} border-b md:border-b-0 border-gray-200 hover:bg-gray-50 transition-colors`}>
                     <Quote className="h-10 w-10 text-[#D4A843] mb-8 opacity-20" />
@@ -1585,7 +1585,7 @@ const CountryDetail = ({ navigate, countryName }) => {
               </div>
               <p className="text-gray-500 font-light ml-11">Quick access to the most frequently applied visa programs</p>
             </AnimatedSection>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {popularVisas.map((visa, idx) => {
                 const category = countryData.visaTypes.find(cat => cat.visas.includes(visa));
                 return (
@@ -2017,7 +2017,7 @@ const Home = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What We Offer</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Services</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-[#003B73] hover:shadow-xl transition-all duration-500 group">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6 group-hover:from-[#D4A843] group-hover:to-[#F1573D] transition-all duration-300">
@@ -2038,7 +2038,7 @@ const Home = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Solutions</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Visa Categories</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {visaCategories.map((visa, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-[#003B73] hover:shadow-xl transition-all duration-500 group">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6 group-hover:from-[#D4A843] group-hover:to-[#F1573D] transition-colors duration-300">
@@ -2060,7 +2060,7 @@ const Home = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Methodology</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">How We Work</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {howWeWork.map((step, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-10 rounded-2xl border border-gray-200 hover:border-[#003B73] transition-all duration-300 relative">
                 <div className="absolute top-6 right-6 text-6xl font-black text-gray-100">0{idx + 1}</div>
@@ -2199,7 +2199,7 @@ const Home = ({ navigate }) => {
             </div>
             <button onClick={() => navigate('/documents')} className="border border-gray-300 text-[#003B73] px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#003B73] hover:text-white transition-colors flex items-center gap-3">View All <ArrowRight className="h-4 w-4" /></button>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: FileText, title: 'Visa Application Guide', type: 'PDF', size: '2.4 MB' },
               { icon: FolderOpen, title: 'Required Documents Checklist', type: 'Checklist', size: '1.1 MB' },
@@ -2228,7 +2228,7 @@ const Home = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Latest Updates</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">News & Insights</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {newsItems.map((post, i) => (
               <div key={i} className="bg-white border border-gray-200 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:border-[#003B73] hover:shadow-xl">
                 <div className="h-48 overflow-hidden relative"><img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /><div className="absolute top-4 left-4"><span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 px-3 py-1 rounded-full">{post.category}</span></div></div>
@@ -2253,7 +2253,7 @@ const Home = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Education</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Study Abroad</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {studyPrograms.map((prog, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden hover:border-[#003B73] hover:shadow-xl transition-all duration-300 group cursor-pointer">
                 <div className="h-48 overflow-hidden"><img src={prog.image} alt={prog.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /></div>
@@ -2286,7 +2286,7 @@ const Home = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Wealth Management</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Investor Programs</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {investPrograms.map((prog, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#D4A843] hover:shadow-xl transition-all duration-300 group">
                 <div className="flex items-start justify-between mb-6">
@@ -2461,7 +2461,7 @@ const Countries = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Performance</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Regional Placements</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { region: 'Asia Pacific', placements: '18,500+', growth: '+12%' },
               { region: 'Middle East', placements: '12,200+', growth: '+8%' },
@@ -2479,7 +2479,7 @@ const Countries = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Requirements</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Visa Categories</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: PlaneTakeoff, title: 'Visitor Visas', desc: 'Tourist, business, and transit visas for short-term stays across multiple countries.' },
               { icon: Briefcase, title: 'Work Visas', desc: 'Employment passes, skilled worker visas, and work permits for professionals.' },
@@ -2617,7 +2617,7 @@ const Jobs = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Process</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">How to Apply</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { step: '01', title: 'Submit CV', desc: 'Upload your resume and complete the application form online.' },
               { step: '02', title: 'Screening', desc: 'Our team reviews your qualifications and matches you with opportunities.' },
@@ -2712,7 +2712,7 @@ const Documents = () => {
         <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">
           {tabs.map(tab => <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === tab.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{tab.label}</button>)}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {docs[activeTab].map((doc, idx) => (
             <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-8 border border-gray-200 hover:border-[#003B73] transition-all duration-300 hover:shadow-lg group cursor-pointer rounded-2xl">
               <div className="flex items-start justify-between mb-4">
@@ -2778,7 +2778,7 @@ const Documents = () => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Guidance</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Document Tips</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: CheckCircle2, title: 'Accuracy Matters', desc: 'Ensure all information matches your official documents exactly.' },
               { icon: Clock4, title: 'Validity Period', desc: 'Check expiration dates - most documents must be valid for 6+ months.' },
@@ -2852,7 +2852,7 @@ const Profile = () => {
           <div className="p-8">
             {activeTab === 'overview' && (
               <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                   <div className="bg-blue-50 p-6 rounded-xl"><div className="text-3xl font-black text-[#003B73] mb-1">3</div><div className="text-xs text-gray-500 uppercase tracking-wider">Active Applications</div></div>
                   <div className="bg-green-50 p-6 rounded-xl"><div className="text-3xl font-black text-green-600 mb-1">1</div><div className="text-xs text-gray-500 uppercase tracking-wider">Approved</div></div>
                   <div className="bg-yellow-50 p-6 rounded-xl"><div className="text-3xl font-black text-yellow-600 mb-1">2</div><div className="text-xs text-gray-500 uppercase tracking-wider">Pending</div></div>
@@ -2922,7 +2922,7 @@ const Profile = () => {
 
       {/* 3. Quick Actions */}
       <div className="max-w-5xl mx-auto px-6 lg:px-8 mt-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {[
             { icon: Calendar, title: 'Book Consultation', desc: 'Schedule a free consultation with our specialists.' },
             { icon: FileText, title: 'Upload Documents', desc: 'Submit required documents securely.' },
@@ -3045,7 +3045,7 @@ const News = () => {
             </div>
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.slice(1).map((post, i) => (
             <div key={i} className="bg-white border border-gray-200 cursor-pointer group transition-all duration-300 hover:border-[#003B73] hover:shadow-xl rounded-2xl overflow-hidden">
               <div className="h-56 overflow-hidden relative"><img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /><div className="absolute top-4 left-4"><span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 px-3 py-1 rounded-full">{post.category}</span></div></div>
@@ -3075,7 +3075,7 @@ const News = () => {
       {/* 4. Categories Overview */}
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { category: 'Immigration', count: '24', icon: Globe },
               { category: 'Industry', count: '18', icon: Building },
@@ -3098,7 +3098,7 @@ const News = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h3 className="text-3xl font-black text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Editorial Team</h3>
           <p className="text-gray-400 font-light mb-12 max-w-2xl mx-auto">Expert journalists and industry analysts delivering accurate, timely immigration news.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { name: 'Sarah Mitchell', role: 'Senior Editor', specialty: 'Immigration Policy' },
               { name: 'David Chen', role: 'Industry Analyst', specialty: 'Global Markets' },
@@ -3191,7 +3191,7 @@ const Services = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Workflow</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Process</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {['Consultation', 'Assessment', 'Application', 'Processing', 'Delivery'].map((step, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="text-center p-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -3212,7 +3212,7 @@ const Services = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Pricing</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Service Packages</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { name: 'Basic', price: '$500', features: ['Single visa application', 'Document review', 'Email support', 'Standard processing'], popular: false },
               { name: 'Professional', price: '$1,200', features: ['Multiple visa applications', 'Full document preparation', 'Priority support', 'Expedited processing', 'Interview coaching'], popular: true },
@@ -3274,7 +3274,7 @@ const Study = ({ navigate }) => {
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Programs</h4>
           <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Featured Programs</h2>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((prog, idx) => (
             <AnimatedSection key={idx} delay={idx * 100} className="bg-white border border-gray-200 overflow-hidden hover:border-[#003B73] hover:shadow-xl transition-all duration-300 group cursor-pointer rounded-2xl">
               <div className="h-56 overflow-hidden"><img src={prog.image} alt={prog.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /></div>
@@ -3299,7 +3299,7 @@ const Study = ({ navigate }) => {
       {/* 3. Benefits */}
       <div className="bg-gray-50 py-20 mt-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: GraduationCap, title: 'Top Universities', desc: 'Access to world-ranked universities and educational institutions globally.' },
               { icon: DollarSign, title: 'Scholarships', desc: 'Guidance on scholarship applications and financial aid opportunities.' },
@@ -3322,7 +3322,7 @@ const Study = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Application Process</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {['Choose Program', 'Submit Application', 'Get Acceptance', 'Apply for Visa'].map((step, idx) => (
               <div key={idx} className="text-center p-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -3412,7 +3412,7 @@ const Invest = ({ navigate }) => {
       {/* 3. Why Invest */}
       <div className="bg-gray-50 py-20 mt-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { icon: TrendingUp, title: 'High ROI', desc: 'Strong returns on investment with favorable economic conditions.' },
               { icon: ShieldCheck, title: 'Secure', desc: 'Government-backed programs with legal protections.' },
@@ -3435,7 +3435,7 @@ const Invest = ({ navigate }) => {
             <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
             <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Investment Process</h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {['Initial Consultation', 'Due Diligence', 'Investment', 'Residency Approval'].map((step, idx) => (
               <div key={idx} className="text-center p-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -3504,7 +3504,7 @@ const About = () => (
     <div className="bg-gray-50 py-20 mt-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16"><h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What Drives Us</h4><h2 className="text-5xl font-black text-[#003B73] tracking-tight">Core Values</h2></AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {[{ icon: Shield, title: 'Compliance First', desc: 'We maintain rigorous standards to ensure 100% regulatory compliance.' }, { icon: Target, title: 'Precision Matching', desc: 'Our proprietary screening methodology ensures optimal talent-to-role alignment.' }, { icon: Heart, title: 'People Centric', desc: 'We treat every candidate and client with personalized care.' }].map((value, idx) => (
             <AnimatedSection key={idx} delay={idx * 150} className="bg-white p-10 border border-gray-200 hover:border-[#003B73] transition-all duration-300 hover:shadow-xl rounded-2xl">
               <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6"><value.icon className="h-7 w-7 text-[#003B73]" /></div>
@@ -3523,7 +3523,7 @@ const About = () => (
           <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Leadership</h4>
           <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Team</h2>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { name: 'James Lee', role: 'CEO & Founder', specialty: 'Global Strategy' },
             { name: 'Sarah Chen', role: 'COO', specialty: 'Operations' },
@@ -3618,7 +3618,7 @@ const Book = ({ navigate }) => {
           </form>
         </AnimatedSection>
       </div>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-24 grid grid-cols-2 md:grid-cols-3 gap-6">
         {[{i:Phone,t:'Call Us',d:'+65 6123 4567'},{i:Mail,t:'Email',d:'hello@visahobe.sg'},{i:MapPin,t:'Visit',d:'10 Anson Rd, Singapore'}].map((c,idx)=>(
           <AnimatedSection key={idx} delay={idx*100} className="bg-white p-8 border border-gray-200 rounded-2xl text-center hover:shadow-xl transition-shadow">
             <div className="w-14 h-14 mx-auto mb-4 bg-[#003B73] rounded-xl flex items-center justify-center"><c.i className="h-6 w-6 text-[#D4A843]"/></div>
