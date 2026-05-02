@@ -14,9 +14,21 @@ export const Route = createFileRoute("/country/$name")({
 function Pending() {
   return (
     <SiteLayout>
-      <div className="min-h-[70vh] flex flex-col items-center justify-center bg-white">
-        <div className="h-12 w-12 rounded-full border-4 border-[#003B73]/20 border-t-[#003B73] animate-spin mb-4"></div>
-        <p className="text-xs font-bold uppercase tracking-widest text-[#6E7580]">Loading country details…</p>
+      <div className="bg-white">
+        <div className="relative h-[40vh] bg-gradient-to-b from-[#0A1628] to-[#003B73] animate-pulse" />
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-12 space-y-8">
+          <div className="h-4 w-40 bg-gray-200 rounded animate-pulse" />
+          <div className="h-10 w-2/3 bg-gray-200 rounded animate-pulse" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="h-28 bg-gray-100 rounded-xl animate-pulse" />
+            ))}
+          </div>
+          <div className="space-y-4">
+            <div className="h-32 bg-gray-100 rounded-2xl animate-pulse" />
+            <div className="h-32 bg-gray-100 rounded-2xl animate-pulse" />
+          </div>
+        </div>
       </div>
     </SiteLayout>
   );
