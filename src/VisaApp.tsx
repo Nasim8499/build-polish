@@ -397,8 +397,8 @@ const MobileBottomNav = ({ currentPath, navigate }) => {
 const Footer = ({ navigate }) => (
   <footer className="bg-[#0A1628] text-white pt-32 pb-40 lg:pb-12 border-t border-[#D4A843]/30">
     <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
-        <div className="md:col-span-4">
+      <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-20">
+        <div className="col-span-2 md:col-span-4">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-12 h-12 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-xl flex items-center justify-center">
               <Globe className="h-6 w-6 text-white" />
