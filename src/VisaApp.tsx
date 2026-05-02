@@ -314,6 +314,8 @@ const Navbar = ({ currentPath, navigate }) => {
       <aside
         className={`lg:hidden fixed top-0 right-0 z-[70] h-screen w-[85%] max-w-sm bg-[#0A1628] text-white shadow-2xl transform transition-transform duration-300 ease-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
         role="dialog"
+        aria-modal="true"
+        aria-hidden={!drawerOpen}
         aria-label="Site navigation"
       >
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
