@@ -3620,15 +3620,31 @@ const About = () => (
 const Book = ({ navigate }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', date: '', time: '', service: 'consultation', message: '' });
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const [errors, setErrors] = useState({});
+  const validate = (d) => {
+    const e = {};
+    if (!d.name.trim()) e.name = 'Please enter your full name';
+    else if (d.name.trim().length > 100) e.name = 'Name must be under 100 characters';
+    if (!d.email.trim()) e.email = 'Email is required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) e.email = 'Enter a valid email address';
+    if (d.phone && !/^[+\d\s()-]{6,20}$/.test(d.phone)) e.phone = 'Enter a valid phone number';
+    if (!d.date) e.date = 'Choose a preferred date';
+    else if (new Date(d.date) < new Date(new Date().toDateString())) e.date = 'Date cannot be in the past';
+    if (!d.time) e.time = 'Choose a preferred time';
+    if (d.message.length > 1000) e.message = 'Message must be under 1000 characters';
+    return e;
+  };
+  const handleChange = (e) => {
+    const next = { ...formData, [e.target.name]: e.target.value };
+    setFormData(next);
+    if (errors[e.target.name]) setErrors({ ...errors, [e.target.name]: undefined });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.date || !formData.time) {
-      toast.error('Please fill all required fields');
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      toast.error('Please enter a valid email');
+    const eMap = validate(formData);
+    setErrors(eMap);
+    if (Object.keys(eMap).length > 0) {
+      toast.error('Please fix the highlighted fields');
       return;
     }
     setSubmitted(true);
@@ -3639,23 +3655,25 @@ const Book = ({ navigate }) => {
       if (navigate) navigate('/');
     }, 1800);
   };
+  const inputCls = (key) => `w-full px-4 py-3 bg-gray-50 border outline-none transition-colors font-medium text-sm rounded-lg ${errors[key] ? 'border-red-500 focus:border-red-600' : 'border-gray-200 focus:border-[#003B73]'}`;
+  const errMsg = (key) => errors[key] ? <p id={`${key}-error`} className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1"><AlertCircle className="h-3 w-3"/>{errors[key]}</p> : null;
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Book Consultation" subtitle="Schedule" subtitleBelow="Book" />
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 mt-16">
-        <AnimatedSection className="bg-white p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
+      <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
+        <AnimatedSection className="bg-white p-6 sm:p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
           <h3 className="text-2xl font-black text-[#003B73] mb-8 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Secure Your Slot</h3>
           {submitted && <div className="mb-8 p-4 bg-emerald-50 border-l-4 border-emerald-500 text-emerald-700 text-sm font-bold tracking-wide uppercase flex items-center gap-3"><CheckCircle2 className="h-5 w-5"/> Booking Confirmed Successfully</div>}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} noValidate className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Full Name</label><input type="text" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="John Doe" /></div>
-              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Email</label><input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="email@company.com" /></div>
-              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Phone</label><input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="+65 XXXX XXXX" /></div>
-              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Service</label><select name="service" value={formData.service} onChange={handleChange} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg"><option value="consultation">Consultation</option><option value="visa">Visa Processing</option><option value="recruitment">Recruitment</option><option value="study">Study Abroad</option><option value="invest">Investor Visa</option></select></div>
-              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Preferred Date</label><input type="date" name="date" value={formData.date} onChange={handleChange} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" /></div>
-              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Preferred Time</label><input type="time" name="time" value={formData.time} onChange={handleChange} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" /></div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Full Name *</label><input type="text" name="name" value={formData.name} onChange={handleChange} maxLength={100} aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined} className={inputCls('name')} placeholder="John Doe" />{errMsg('name')}</div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Email *</label><input type="email" name="email" value={formData.email} onChange={handleChange} maxLength={255} aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined} className={inputCls('email')} placeholder="email@company.com" />{errMsg('email')}</div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Phone</label><input type="tel" name="phone" value={formData.phone} onChange={handleChange} maxLength={20} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? 'phone-error' : undefined} className={inputCls('phone')} placeholder="+65 XXXX XXXX" />{errMsg('phone')}</div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Service</label><select name="service" value={formData.service} onChange={handleChange} className={inputCls('service')}><option value="consultation">Consultation</option><option value="visa">Visa Processing</option><option value="recruitment">Recruitment</option><option value="study">Study Abroad</option><option value="invest">Investor Visa</option></select></div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Preferred Date *</label><input type="date" name="date" value={formData.date} onChange={handleChange} aria-invalid={!!errors.date} aria-describedby={errors.date ? 'date-error' : undefined} className={inputCls('date')} />{errMsg('date')}</div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Preferred Time *</label><input type="time" name="time" value={formData.time} onChange={handleChange} aria-invalid={!!errors.time} aria-describedby={errors.time ? 'time-error' : undefined} className={inputCls('time')} />{errMsg('time')}</div>
             </div>
-            <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Message</label><textarea name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="Tell us about your needs..."></textarea></div>
+            <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Message <span className="text-gray-400 normal-case font-normal">({formData.message.length}/1000)</span></label><textarea name="message" value={formData.message} onChange={handleChange} maxLength={1000} rows={4} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-error' : undefined} className={inputCls('message')} placeholder="Tell us about your needs..."></textarea>{errMsg('message')}</div>
             <button type="submit" className="w-full bg-gradient-to-r from-[#003B73] to-[#D4A843] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:shadow-2xl transition-all rounded-xl flex items-center justify-center gap-3">Confirm Booking <ArrowRight className="h-4 w-4"/></button>
           </form>
         </AnimatedSection>
