@@ -3694,12 +3694,28 @@ const Book = ({ navigate }) => {
 const Contact = ({ navigate }) => {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [sending, setSending] = useState(false);
-  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const [errors, setErrors] = useState({});
+  const validate = (f) => {
+    const e = {};
+    if (!f.name.trim()) e.name = 'Please enter your full name';
+    else if (f.name.trim().length > 100) e.name = 'Name must be under 100 characters';
+    if (!f.email.trim()) e.email = 'Email is required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) e.email = 'Enter a valid email address';
+    if (f.subject && f.subject.length > 150) e.subject = 'Subject must be under 150 characters';
+    if (!f.message.trim()) e.message = 'Please write a message';
+    else if (f.message.length > 1000) e.message = 'Message must be under 1000 characters';
+    return e;
+  };
+  const onChange = (e) => {
+    const next = { ...form, [e.target.name]: e.target.value };
+    setForm(next);
+    if (errors[e.target.name]) setErrors({ ...errors, [e.target.name]: undefined });
+  };
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) { toast.error('Please complete all required fields'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { toast.error('Please enter a valid email'); return; }
-    if (form.message.length > 1000) { toast.error('Message too long (max 1000 characters)'); return; }
+    const eMap = validate(form);
+    setErrors(eMap);
+    if (Object.keys(eMap).length > 0) { toast.error('Please fix the highlighted fields'); return; }
     setSending(true);
     setTimeout(() => {
       setSending(false);
@@ -3708,21 +3724,23 @@ const Contact = ({ navigate }) => {
       if (navigate) navigate('/');
     }, 900);
   };
+  const inputCls = (key, extra = '') => `w-full px-4 py-3 bg-gray-50 border outline-none transition-colors font-medium text-sm rounded-lg ${extra} ${errors[key] ? 'border-red-500 focus:border-red-600' : 'border-gray-200 focus:border-[#003B73]'}`;
+  const errMsg = (key) => errors[key] ? <p id={`c-${key}-error`} className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1"><AlertCircle className="h-3 w-3"/>{errors[key]}</p> : null;
   return (
     <div className="animate-in fade-in duration-500 pb-24">
       <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Contact Us" subtitle="Get in Touch" subtitleBelow="Contact" />
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <AnimatedSection className="bg-white p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
+          <AnimatedSection className="bg-white p-6 sm:p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
             <h3 className="text-2xl font-black text-[#003B73] mb-2 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Send a Message</h3>
             <p className="text-sm text-gray-500 mb-8">We'll respond within one business day.</p>
-            <form onSubmit={onSubmit} className="space-y-6">
+            <form onSubmit={onSubmit} noValidate className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Full Name *</label><input type="text" name="name" value={form.name} onChange={onChange} maxLength={100} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="John Doe" /></div>
-                <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Email *</label><input type="email" name="email" value={form.email} onChange={onChange} maxLength={255} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="email@company.com" /></div>
+                <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Full Name *</label><input type="text" name="name" value={form.name} onChange={onChange} maxLength={100} aria-invalid={!!errors.name} aria-describedby={errors.name ? 'c-name-error' : undefined} className={inputCls('name')} placeholder="John Doe" />{errMsg('name')}</div>
+                <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Email *</label><input type="email" name="email" value={form.email} onChange={onChange} maxLength={255} aria-invalid={!!errors.email} aria-describedby={errors.email ? 'c-email-error' : undefined} className={inputCls('email')} placeholder="email@company.com" />{errMsg('email')}</div>
               </div>
-              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Subject</label><input type="text" name="subject" value={form.subject} onChange={onChange} maxLength={150} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" placeholder="How can we help?" /></div>
-              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Message * <span className="text-gray-400 normal-case font-normal">({form.message.length}/1000)</span></label><textarea name="message" value={form.message} onChange={onChange} maxLength={1000} rows={6} required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg resize-none" placeholder="Tell us about your needs..."></textarea></div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Subject</label><input type="text" name="subject" value={form.subject} onChange={onChange} maxLength={150} aria-invalid={!!errors.subject} aria-describedby={errors.subject ? 'c-subject-error' : undefined} className={inputCls('subject')} placeholder="How can we help?" />{errMsg('subject')}</div>
+              <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Message * <span className="text-gray-400 normal-case font-normal">({form.message.length}/1000)</span></label><textarea name="message" value={form.message} onChange={onChange} maxLength={1000} rows={6} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'c-message-error' : undefined} className={inputCls('message', 'resize-none')} placeholder="Tell us about your needs..."></textarea>{errMsg('message')}</div>
               <button type="submit" disabled={sending} className="w-full bg-gradient-to-r from-[#003B73] to-[#D4A843] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:shadow-2xl transition-all rounded-xl flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed">{sending ? 'Sending…' : <>Send Message <ArrowRight className="h-4 w-4"/></>}</button>
             </form>
           </AnimatedSection>
