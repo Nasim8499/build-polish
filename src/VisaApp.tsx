@@ -2403,6 +2403,7 @@ const Home = ({ navigate }) => {
 // ====================================================================
 const Countries = ({ navigate }) => {
   const [activeRegion, setActiveRegion] = useState('all');
+  const [query, setQuery] = useState('');
   const regions = [{ id: 'all', label: 'All Regions' }, { id: 'asia', label: 'Asia Pacific' }, { id: 'middle-east', label: 'Middle East' }, { id: 'europe', label: 'Europe' }, { id: 'americas', label: 'Americas' }];
   const destinations = [
     { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800', desc: 'Prime hub for corporate careers, finance, and biotech across Asia.', sectors: ['Finance', 'Tech', 'Healthcare'], hasVisaData: true },
@@ -2419,7 +2420,13 @@ const Countries = ({ navigate }) => {
     { name: 'Cambodia', region: 'asia', image: 'https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800', desc: 'Easy E-class business visa, fast company setup, low cost of living.', sectors: ['Tourism', 'Business', 'NGO'], hasVisaData: false },
     { name: 'USA', region: 'americas', image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800', desc: 'H-1B, O-1 and EB programmes — the worlds largest opportunity market.', sectors: ['Tech', 'Finance', 'Research'], hasVisaData: false },
   ];
-  const filtered = activeRegion === 'all' ? destinations : destinations.filter(d => d.region === activeRegion);
+  const q = query.trim().toLowerCase();
+  const filtered = destinations.filter(d => {
+    const regionOk = activeRegion === 'all' || d.region === activeRegion;
+    if (!regionOk) return false;
+    if (!q) return true;
+    return d.name.toLowerCase().includes(q) || d.sectors.some(s => s.toLowerCase().includes(q)) || d.desc.toLowerCase().includes(q);
+  });
 
   return (
     <div className="animate-in fade-in duration-500 pb-20">
