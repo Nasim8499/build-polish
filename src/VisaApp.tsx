@@ -2435,12 +2435,31 @@ const Countries = ({ navigate }) => {
 
       {/* 2. Region Filter & Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
-        <div className="flex flex-wrap gap-4 mb-12">
-          {regions.map(region => <button key={region.id} onClick={() => setActiveRegion(region.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeRegion === region.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{region.label}</button>)}
+        <div className="mb-6 relative max-w-xl">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" aria-hidden="true" />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search countries, sectors, or keywords…"
+            aria-label="Search countries"
+            className="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium outline-none focus:border-[#003B73] transition-colors"
+          />
         </div>
+        <div className="flex flex-wrap gap-2 sm:gap-4 mb-12">
+          {regions.map(region => <button key={region.id} onClick={() => setActiveRegion(region.id)} className={`px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeRegion === region.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{region.label}</button>)}
+        </div>
+        {filtered.length === 0 ? (
+          <div className="bg-white border border-gray-200 rounded-2xl p-16 text-center">
+            <Globe className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+            <h3 className="text-xl font-black text-[#003B73] mb-2">No countries match your search</h3>
+            <p className="text-sm text-gray-500 mb-6">Try a different keyword or clear the region filter.</p>
+            <button onClick={() => { setQuery(''); setActiveRegion('all'); }} className="bg-[#003B73] text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#D4A843] transition-colors">Reset filters</button>
+          </div>
+        ) : (
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-gray-200 rounded-2xl overflow-hidden">
           {filtered.map((dest, i) => (
-            <div key={i} className="group relative cursor-pointer h-[500px] overflow-hidden bg-gray-100 border-b border-r border-gray-200"
+            <div key={i} className="group relative cursor-pointer h-[320px] sm:h-[500px] overflow-hidden bg-gray-100 border-b border-r border-gray-200"
               onClick={() => {
                 if (dest.hasVisaData && COUNTRY_VISA_DATA[dest.name]) {
                   navigate(`/country/${dest.name}`);
@@ -2450,17 +2469,18 @@ const Countries = ({ navigate }) => {
               }}>
               <img src={dest.image} alt={dest.name} className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent opacity-90"></div>
-              <div className="absolute bottom-0 left-0 w-full p-10 text-white flex flex-col justify-end">
-                <div className="flex flex-wrap gap-2 mb-4">{dest.sectors.map((sector, sIdx) => <span key={sIdx} className="text-xs bg-white/20 px-3 py-1 rounded-full font-medium">{sector}</span>)}</div>
-                <p className="text-sm text-gray-300 font-light leading-relaxed mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">{dest.desc}</p>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-3xl font-bold tracking-tight">{dest.name}</h3>
-                  <button className="bg-[#D4A843] text-white px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#003B73] transition-all duration-300 rounded-lg">Explore</button>
+              <div className="absolute bottom-0 left-0 w-full p-5 sm:p-10 text-white flex flex-col justify-end">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">{dest.sectors.map((sector, sIdx) => <span key={sIdx} className="text-[10px] sm:text-xs bg-white/20 px-2 sm:px-3 py-1 rounded-full font-medium">{sector}</span>)}</div>
+                <p className="hidden sm:block text-sm text-gray-300 font-light leading-relaxed mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">{dest.desc}</p>
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="text-xl sm:text-3xl font-bold tracking-tight">{dest.name}</h3>
+                  <button className="bg-[#D4A843] text-white px-3 sm:px-6 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#003B73] transition-all duration-300 rounded-lg">Explore</button>
                 </div>
               </div>
             </div>
           ))}
         </div>
+        )}
       </div>
 
       {/* 3. Regional Stats */}
