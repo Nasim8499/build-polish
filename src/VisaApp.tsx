@@ -1546,17 +1546,30 @@ const CountryDetail = ({ navigate, countryName }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/70 via-[#003B73]/50 to-[#0A1628]"></div>
         <div className="absolute inset-0 z-10 flex items-end pb-20">
           <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
-            <button onClick={() => navigate('/countries')} className="mb-8 text-white/70 hover:text-white flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-colors group">
+            <nav aria-label="Breadcrumb" className="mb-6">
+              <ol className="flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white/60">
+                <li><button onClick={() => navigate('/')} className="hover:text-[#D4A843] transition-colors">Home</button></li>
+                <li aria-hidden="true">/</li>
+                <li><button onClick={() => navigate('/countries')} className="hover:text-[#D4A843] transition-colors">Countries</button></li>
+                <li aria-hidden="true">/</li>
+                <li className="text-white" aria-current="page">{countryName}</li>
+              </ol>
+            </nav>
+            <button onClick={() => navigate('/countries')} className="mb-6 text-white/70 hover:text-white flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors group">
               <ChevronLeft className="h-4 w-4 transform group-hover:-translate-x-1 transition-transform" /> Back to Countries
             </button>
-            <div className="flex items-center gap-6 mb-6">
-              <span className="text-7xl">{countryData.flag}</span>
+            <div className="flex items-center gap-4 sm:gap-6 mb-6">
+              <span className="text-5xl sm:text-7xl">{countryData.flag}</span>
               <div>
-                <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Categories & Requirements</h4>
-                <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight">{countryName}</h1>
+                <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Categories & Requirements</h4>
+                <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tight">{countryName}</h1>
               </div>
             </div>
-            <p className="text-gray-300 text-lg font-light max-w-3xl leading-relaxed">{countryData.description}</p>
+            <p className="text-gray-300 text-base sm:text-lg font-light max-w-3xl leading-relaxed">{countryData.description}</p>
+            <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur px-3 py-1.5 rounded-full text-[10px] uppercase tracking-widest text-white/80">
+              <Clock className="h-3 w-3 text-[#D4A843]" />
+              Last updated {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+            </div>
           </div>
         </div>
       </div>
