@@ -101,9 +101,9 @@ const ParallaxSection = ({ image, title, subtitle, subtitleBelow }) => (
 // --- HERO SLIDER ---
 const HeroSlider = ({ navigate }) => {
   const slides = [
-    { image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=2000', title: 'Global Opportunities', subtitle: 'Your Gateway to', desc: 'Trusted partner for manpower recruitment and comprehensive visa processing services worldwide.', cta: 'Explore Services' },
-    { image: 'https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?w=2000', title: 'Seamless Transitions', subtitle: 'Experience', desc: 'End-to-end immigration support ensuring full legal compliance for your corporate mobility.', cta: 'Learn More' },
-    { image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=2000', title: 'Expert Consulting', subtitle: 'Strategic', desc: 'Professional guidance for international workforce planning and regulatory compliance.', cta: 'Get Started' }
+    { image: mobilePreview, title: 'Global Opportunities', subtitle: 'Your Gateway to', desc: 'Trusted partner for manpower recruitment and comprehensive visa processing services worldwide.', cta: 'Explore Services' },
+    { image: mobilePreview, title: 'Seamless Transitions', subtitle: 'Experience', desc: 'End-to-end immigration support ensuring full legal compliance for your corporate mobility.', cta: 'Learn More' },
+    { image: mobilePreview, title: 'Expert Consulting', subtitle: 'Strategic', desc: 'Professional guidance for international workforce planning and regulatory compliance.', cta: 'Get Started' }
   ];
   const [current, setCurrent] = useState(0);
   useEffect(() => {
@@ -461,7 +461,7 @@ const COUNTRY_VISA_DATA = {
     currency: 'SGD',
     language: 'English, Malay, Mandarin, Tamil',
     timezone: 'UTC+8',
-    heroImage: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600',
+    heroImage: mobilePreview,
     description: 'Singapore is a global financial hub offering world-class infrastructure, low crime rates, and a thriving business environment. As one of Asia\'s most developed economies, it attracts professionals, students, and investors from around the world.',
     quickFacts: [
       { icon: Building2, label: 'GDP', value: '$466.7B' },
@@ -633,7 +633,7 @@ const COUNTRY_VISA_DATA = {
     currency: 'JPY',
     language: 'Japanese',
     timezone: 'UTC+9',
-    heroImage: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600',
+    heroImage: mobilePreview,
     description: 'Japan offers cutting-edge technology, rich cultural heritage, and world-class living standards. With a strong economy and growing demand for skilled professionals, Japan is increasingly open to international talent.',
     quickFacts: [
       { icon: Building2, label: 'GDP', value: '$4.2T' },
@@ -774,7 +774,7 @@ const COUNTRY_VISA_DATA = {
     currency: 'CAD',
     language: 'English, French',
     timezone: 'UTC-3.5 to UTC-8',
-    heroImage: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=1600',
+    heroImage: mobilePreview,
     description: 'Canada welcomes immigrants with open doors, offering a high quality of life, universal healthcare, and diverse employment opportunities. With programs like Express Entry and Provincial Nominee Programs, Canada is a top destination.',
     quickFacts: [
       { icon: Building2, label: 'GDP', value: '$2.1T' },
@@ -904,7 +904,7 @@ const COUNTRY_VISA_DATA = {
     currency: 'AED',
     language: 'Arabic, English',
     timezone: 'UTC+4',
-    heroImage: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600',
+    heroImage: mobilePreview,
     description: 'The UAE offers tax-free income, world-class infrastructure, and a cosmopolitan lifestyle. Dubai and Abu Dhabi are global business hubs attracting professionals and investors from every continent.',
     quickFacts: [
       { icon: Building2, label: 'GDP', value: '$507B' },
@@ -1045,7 +1045,7 @@ const COUNTRY_VISA_DATA = {
     currency: 'AUD',
     language: 'English',
     timezone: 'UTC+8 to UTC+11',
-    heroImage: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1600',
+    heroImage: mobilePreview,
     description: 'Australia offers a high quality of life, excellent healthcare, and diverse career opportunities. With a strong demand for skilled workers and world-class education, Australia remains a premier destination.',
     quickFacts: [
       { icon: Building2, label: 'GDP', value: '$1.7T' },
@@ -1164,7 +1164,7 @@ const COUNTRY_VISA_DATA = {
     currency: 'GBP',
     language: 'English',
     timezone: 'UTC+0',
-    heroImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1600',
+    heroImage: mobilePreview,
     description: 'The UK is a global leader in finance, technology, education, and culture. With the points-based immigration system, the UK welcomes skilled workers, students, and investors from around the world.',
     quickFacts: [
       { icon: Building2, label: 'GDP', value: '$3.1T' },
@@ -1294,7 +1294,7 @@ const COUNTRY_VISA_DATA = {
     currency: 'Multiple',
     language: 'Arabic, English, others',
     timezone: 'UTC+3 to UTC+4',
-    heroImage: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1600',
+    heroImage: mobilePreview,
     description: 'The Middle East region, particularly the GCC countries, offers tremendous opportunities in construction, energy, hospitality, and technology. With rapid development and tax-free salaries, it attracts workers worldwide.',
     quickFacts: [
       { icon: Building2, label: 'GDP (GCC)', value: '$1.8T' },
@@ -1393,7 +1393,7 @@ const COUNTRY_VISA_DATA = {
     currency: 'EUR / GBP / others',
     language: 'Multiple',
     timezone: 'UTC-1 to UTC+3',
-    heroImage: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1600',
+    heroImage: mobilePreview,
     description: 'Europe offers diverse opportunities across its member states, from tech hubs in Germany to financial centers in the UK. The Schengen Area enables seamless travel across 27 countries.',
     quickFacts: [
       { icon: Building2, label: 'GDP (EU)', value: '$17T' },
@@ -1852,12 +1852,12 @@ const CountryDetail = ({ navigate, countryName }) => {
 // ====================================================================
 const Home = ({ navigate }) => {
   const featuredCountries = [
-    { name: 'Singapore', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600', desc: 'Global financial hub with thriving tech scene.', hasVisaData: true },
-    { name: 'Japan', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600', desc: 'Advanced engineering and specialized manufacturing.', hasVisaData: true },
-    { name: 'Australia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1600', desc: 'Mining, healthcare, and skilled migration pathways.', hasVisaData: false },
-    { name: 'UAE', image: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1600', desc: 'Tax-free opportunities in a booming Gulf economy.', hasVisaData: true },
-    { name: 'Schengen', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1600', desc: '27-country European travel and business zone.', hasVisaData: false },
-    { name: 'Saudi Arabia', image: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1600', desc: 'Vision 2030 megaprojects driving demand.', hasVisaData: true },
+    { name: 'Singapore', image: mobilePreview, desc: 'Global financial hub with thriving tech scene.', hasVisaData: true },
+    { name: 'Japan', image: mobilePreview, desc: 'Advanced engineering and specialized manufacturing.', hasVisaData: true },
+    { name: 'Australia', image: mobilePreview, desc: 'Mining, healthcare, and skilled migration pathways.', hasVisaData: false },
+    { name: 'UAE', image: mobilePreview, desc: 'Tax-free opportunities in a booming Gulf economy.', hasVisaData: true },
+    { name: 'Schengen', image: mobilePreview, desc: '27-country European travel and business zone.', hasVisaData: false },
+    { name: 'Saudi Arabia', image: mobilePreview, desc: 'Vision 2030 megaprojects driving demand.', hasVisaData: true },
   ];
   const [activeFeat, setActiveFeat] = useState(0);
 
@@ -1892,17 +1892,17 @@ const Home = ({ navigate }) => {
   ];
 
   const newsItems = [
-    { date: "Oct 12, 2025", category: "Immigration", title: "Navigating EU Blue Card Regulatory Updates", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600", readTime: "5 min" },
-    { date: "Sep 28, 2025", category: "Industry", title: "Strategic Analysis: Asian Tech Hubs in 2026", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600", readTime: "8 min" },
-    { date: "Sep 15, 2025", category: "Technology", title: "AI Integration in Institutional Recruitment", img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600", readTime: "6 min" },
-    { date: "Sep 05, 2025", category: "Policy", title: "Singapore EP Framework Changes 2025", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600", readTime: "7 min" }
+    { date: "Oct 12, 2025", category: "Immigration", title: "Navigating EU Blue Card Regulatory Updates", img: mobilePreview, readTime: "5 min" },
+    { date: "Sep 28, 2025", category: "Industry", title: "Strategic Analysis: Asian Tech Hubs in 2026", img: mobilePreview, readTime: "8 min" },
+    { date: "Sep 15, 2025", category: "Technology", title: "AI Integration in Institutional Recruitment", img: mobilePreview, readTime: "6 min" },
+    { date: "Sep 05, 2025", category: "Policy", title: "Singapore EP Framework Changes 2025", img: mobilePreview, readTime: "7 min" }
   ];
 
   const studyPrograms = [
-    { title: 'Bachelor in Computer Science', country: 'Singapore', duration: '4 Years', tuition: '$30,000/yr', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600', university: 'NUS' },
-    { title: 'MBA Program', country: 'UK', duration: '2 Years', tuition: '£45,000/yr', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600', university: 'Oxford' },
-    { title: 'Engineering PhD', country: 'Germany', duration: '3-4 Years', tuition: '€15,000/yr', image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600', university: 'TU Munich' },
-    { title: 'Medical Degree', country: 'Australia', duration: '6 Years', tuition: 'AUD 60,000/yr', image: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600', university: 'UNSW' }
+    { title: 'Bachelor in Computer Science', country: 'Singapore', duration: '4 Years', tuition: '$30,000/yr', image: mobilePreview, university: 'NUS' },
+    { title: 'MBA Program', country: 'UK', duration: '2 Years', tuition: '£45,000/yr', image: mobilePreview, university: 'Oxford' },
+    { title: 'Engineering PhD', country: 'Germany', duration: '3-4 Years', tuition: '€15,000/yr', image: mobilePreview, university: 'TU Munich' },
+    { title: 'Medical Degree', country: 'Australia', duration: '6 Years', tuition: 'AUD 60,000/yr', image: mobilePreview, university: 'UNSW' }
   ];
 
   const investPrograms = [
@@ -2019,7 +2019,7 @@ const Home = ({ navigate }) => {
               <button onClick={() => navigate('/about')} className="bg-[#6C5CE7] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors flex items-center gap-3">Learn More <ArrowRight className="h-4 w-4" /></button>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" className="w-full h-[600px] object-cover rounded-3xl" alt="Team" />
+              <img src=mobilePreview className="w-full h-[600px] object-cover rounded-3xl" alt="Team" />
               <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-gradient-to-br from-[#A29BFE]/20 to-[#FD79A8]/20 border-4 border-[#A29BFE] rounded-2xl"></div>
             </div>
           </AnimatedSection>
@@ -2108,7 +2108,7 @@ const Home = ({ navigate }) => {
               </div>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" className="w-full h-[600px] object-cover rounded-3xl" alt="Talent" />
+              <img src=mobilePreview className="w-full h-[600px] object-cover rounded-3xl" alt="Talent" />
               <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-gradient-to-br from-[#A29BFE]/20 to-[#FD79A8]/20 border-4 border-[#A29BFE] rounded-2xl"></div>
             </div>
           </AnimatedSection>
@@ -2148,7 +2148,7 @@ const Home = ({ navigate }) => {
 
       {/* 12. Live Dashboard Preview */}
       <div className="py-24 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-5 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Real-Time Insights</h4>
@@ -2376,7 +2376,7 @@ const Home = ({ navigate }) => {
       {/* 19. Newsletter Signup */}
       <div className="py-20 bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         </div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection>
@@ -2394,7 +2394,7 @@ const Home = ({ navigate }) => {
       {/* 20. Final CTA */}
       <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         </div>
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection>
@@ -2420,19 +2420,19 @@ const Countries = ({ navigate }) => {
   const [query, setQuery] = useState('');
   const regions = [{ id: 'all', label: 'All Regions' }, { id: 'asia', label: 'Asia Pacific' }, { id: 'middle-east', label: 'Middle East' }, { id: 'europe', label: 'Europe' }, { id: 'americas', label: 'Americas' }];
   const destinations = [
-    { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800', desc: 'Prime hub for corporate careers, finance, and biotech across Asia.', sectors: ['Finance', 'Tech', 'Healthcare'], hasVisaData: true },
-    { name: 'Japan', region: 'asia', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800', desc: 'World-leading engineering, robotics, and specified-skilled-worker pathways.', sectors: ['Engineering', 'IT', 'Manufacturing'], hasVisaData: true },
-    { name: 'Australia', region: 'asia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800', desc: 'Skilled migration, mining boom, and a strong healthcare workforce gap.', sectors: ['Mining', 'Healthcare', 'IT'], hasVisaData: false },
-    { name: 'Singapore', region: 'asia', image: 'https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800', desc: 'Employment Pass and Tech.Pass for global professionals.', sectors: ['Finance', 'AI'], hasVisaData: true },
-    { name: 'UAE', region: 'middle-east', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800', desc: 'Tax-free salaries, Golden Visa programme, and Dubai/Abu Dhabi growth.', sectors: ['Construction', 'Hospitality', 'Finance'], hasVisaData: true },
-    { name: 'Saudi Arabia', region: 'middle-east', image: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=800', desc: 'NEOM, Red Sea, and Vision 2030 megaprojects hiring globally.', sectors: ['Construction', 'Energy', 'Tech'], hasVisaData: true },
-    { name: 'Kuwait', region: 'middle-east', image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800', desc: 'Oil & gas, healthcare and education roles with tax-free pay.', sectors: ['Energy', 'Healthcare'], hasVisaData: false },
-    { name: 'Schengen', region: 'europe', image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800', desc: 'Single visa across 27 European countries for tourism and business.', sectors: ['Tourism', 'Business'], hasVisaData: false },
-    { name: 'Serbia', region: 'europe', image: 'https://images.unsplash.com/photo-1574236170880-faaf960c9c7a?w=800', desc: 'Easy work permits, growing IT outsourcing and Balkans gateway.', sectors: ['IT', 'Manufacturing'], hasVisaData: false },
-    { name: 'Moldova', region: 'europe', image: 'https://images.unsplash.com/photo-1601731223237-c1f1f37c6f5d?w=800', desc: 'Affordable European base with EU candidate status and IT growth.', sectors: ['IT', 'Agriculture'], hasVisaData: false },
-    { name: 'Belarus', region: 'europe', image: 'https://images.unsplash.com/photo-1597055181300-e3633a917a1b?w=800', desc: 'Hi-Tech Park residency for IT specialists and entrepreneurs.', sectors: ['IT', 'Engineering'], hasVisaData: false },
-    { name: 'Cambodia', region: 'asia', image: 'https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800', desc: 'Easy E-class business visa, fast company setup, low cost of living.', sectors: ['Tourism', 'Business', 'NGO'], hasVisaData: false },
-    { name: 'USA', region: 'americas', image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800', desc: 'H-1B, O-1 and EB programmes — the worlds largest opportunity market.', sectors: ['Tech', 'Finance', 'Research'], hasVisaData: false },
+    { name: 'Singapore', region: 'asia', image: mobilePreview, desc: 'Prime hub for corporate careers, finance, and biotech across Asia.', sectors: ['Finance', 'Tech', 'Healthcare'], hasVisaData: true },
+    { name: 'Japan', region: 'asia', image: mobilePreview, desc: 'World-leading engineering, robotics, and specified-skilled-worker pathways.', sectors: ['Engineering', 'IT', 'Manufacturing'], hasVisaData: true },
+    { name: 'Australia', region: 'asia', image: mobilePreview, desc: 'Skilled migration, mining boom, and a strong healthcare workforce gap.', sectors: ['Mining', 'Healthcare', 'IT'], hasVisaData: false },
+    { name: 'Singapore', region: 'asia', image: mobilePreview, desc: 'Employment Pass and Tech.Pass for global professionals.', sectors: ['Finance', 'AI'], hasVisaData: true },
+    { name: 'UAE', region: 'middle-east', image: mobilePreview, desc: 'Tax-free salaries, Golden Visa programme, and Dubai/Abu Dhabi growth.', sectors: ['Construction', 'Hospitality', 'Finance'], hasVisaData: true },
+    { name: 'Saudi Arabia', region: 'middle-east', image: mobilePreview, desc: 'NEOM, Red Sea, and Vision 2030 megaprojects hiring globally.', sectors: ['Construction', 'Energy', 'Tech'], hasVisaData: true },
+    { name: 'Kuwait', region: 'middle-east', image: mobilePreview, desc: 'Oil & gas, healthcare and education roles with tax-free pay.', sectors: ['Energy', 'Healthcare'], hasVisaData: false },
+    { name: 'Schengen', region: 'europe', image: mobilePreview, desc: 'Single visa across 27 European countries for tourism and business.', sectors: ['Tourism', 'Business'], hasVisaData: false },
+    { name: 'Serbia', region: 'europe', image: mobilePreview, desc: 'Easy work permits, growing IT outsourcing and Balkans gateway.', sectors: ['IT', 'Manufacturing'], hasVisaData: false },
+    { name: 'Moldova', region: 'europe', image: mobilePreview, desc: 'Affordable European base with EU candidate status and IT growth.', sectors: ['IT', 'Agriculture'], hasVisaData: false },
+    { name: 'Belarus', region: 'europe', image: mobilePreview, desc: 'Hi-Tech Park residency for IT specialists and entrepreneurs.', sectors: ['IT', 'Engineering'], hasVisaData: false },
+    { name: 'Cambodia', region: 'asia', image: mobilePreview, desc: 'Easy E-class business visa, fast company setup, low cost of living.', sectors: ['Tourism', 'Business', 'NGO'], hasVisaData: false },
+    { name: 'USA', region: 'americas', image: mobilePreview, desc: 'H-1B, O-1 and EB programmes — the worlds largest opportunity market.', sectors: ['Tech', 'Finance', 'Research'], hasVisaData: false },
   ];
   const q = query.trim().toLowerCase();
   const filtered = destinations.filter(d => {
@@ -2445,7 +2445,7 @@ const Countries = ({ navigate }) => {
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       {/* 1. Parallax Hero */}
-      <ParallaxSection image="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600" title="Global Sectors" subtitle="Operational Reach" subtitleBelow="Countries" />
+      <ParallaxSection image=mobilePreview title="Global Sectors" subtitle="Operational Reach" subtitleBelow="Countries" />
 
       {/* 2. Region Filter & Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
@@ -2567,7 +2567,7 @@ const Countries = ({ navigate }) => {
 
       {/* 6. CTA */}
       <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Ready to Explore Your Options?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Book a free consultation with our visa specialists today.</p>
@@ -2602,7 +2602,7 @@ const Jobs = ({ navigate }) => {
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       {/* 1. Parallax Hero */}
-      <ParallaxSection image="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1600" title="Career Opportunities" subtitle="Open Positions" subtitleBelow="Jobs" />
+      <ParallaxSection image=mobilePreview title="Career Opportunities" subtitle="Open Positions" subtitleBelow="Jobs" />
 
       {/* 2. Job Listings */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
@@ -2698,7 +2698,7 @@ const Jobs = ({ navigate }) => {
 
       {/* 6. CTA */}
       <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Can't Find Your Role?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Submit your CV and let us find the perfect opportunity for you.</p>
@@ -2748,7 +2748,7 @@ const Documents = () => {
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       {/* 1. Parallax Hero */}
-      <ParallaxSection image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600" title="Document Center" subtitle="Resources" subtitleBelow="Documents" />
+      <ParallaxSection image=mobilePreview title="Document Center" subtitle="Resources" subtitleBelow="Documents" />
 
       {/* 2. Tabs & Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
@@ -2839,7 +2839,7 @@ const Documents = () => {
 
       {/* 6. CTA */}
       <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Need Help With Documents?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Our specialists can review and prepare all your documents.</p>
@@ -2862,7 +2862,7 @@ const Profile = () => {
     email: 'john.doe@email.com',
     phone: '+65 9123 4567',
     location: 'Singapore',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200',
+    avatar: mobilePreview,
     applications: [
       { title: 'Work Permit - Singapore', status: 'Approved', date: 'Oct 15, 2025' },
       { title: 'Student Visa - UK', status: 'In Review', date: 'Oct 20, 2025' },
@@ -3054,19 +3054,19 @@ const News = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const categories = ['all', 'Immigration', 'Industry', 'Technology', 'Policy'];
   const posts = [
-    { date: "Oct 12, 2025", category: "Immigration", title: "Navigating EU Blue Card Regulatory Updates", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600", readTime: "5 min" },
-    { date: "Sep 28, 2025", category: "Industry", title: "Strategic Analysis: Asian Tech Hubs in 2026", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600", readTime: "8 min" },
-    { date: "Sep 15, 2025", category: "Technology", title: "AI Integration in Institutional Recruitment", img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600", readTime: "6 min" },
-    { date: "Sep 05, 2025", category: "Policy", title: "Singapore EP Framework Changes 2025", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600", readTime: "7 min" },
-    { date: "Aug 22, 2025", category: "Immigration", title: "Canada Express Entry Updates", img: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=600", readTime: "4 min" },
-    { date: "Aug 10, 2025", category: "Industry", title: "Healthcare Talent Shortage Report", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600", readTime: "9 min" }
+    { date: "Oct 12, 2025", category: "Immigration", title: "Navigating EU Blue Card Regulatory Updates", img: mobilePreview, readTime: "5 min" },
+    { date: "Sep 28, 2025", category: "Industry", title: "Strategic Analysis: Asian Tech Hubs in 2026", img: mobilePreview, readTime: "8 min" },
+    { date: "Sep 15, 2025", category: "Technology", title: "AI Integration in Institutional Recruitment", img: mobilePreview, readTime: "6 min" },
+    { date: "Sep 05, 2025", category: "Policy", title: "Singapore EP Framework Changes 2025", img: mobilePreview, readTime: "7 min" },
+    { date: "Aug 22, 2025", category: "Immigration", title: "Canada Express Entry Updates", img: mobilePreview, readTime: "4 min" },
+    { date: "Aug 10, 2025", category: "Industry", title: "Healthcare Talent Shortage Report", img: mobilePreview, readTime: "9 min" }
   ];
   const filtered = activeCategory === 'all' ? posts : posts.filter(p => p.category === activeCategory);
 
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       {/* 1. Parallax Hero */}
-      <ParallaxSection image="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600" title="Intelligence" subtitle="News & Briefings" subtitleBelow="News" />
+      <ParallaxSection image=mobilePreview title="Intelligence" subtitle="News & Briefings" subtitleBelow="News" />
 
       {/* 2. Featured Article & Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
@@ -3162,7 +3162,7 @@ const News = () => {
 
       {/* 6. CTA */}
       <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Need Expert Guidance?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Connect with our immigration specialists for personalized advice.</p>
@@ -3180,15 +3180,15 @@ const Services = ({ navigate }) => {
   const [activeTab, setActiveTab] = useState(0);
   const tabs = ['Recruitment', 'Visa Processing', 'Consulting', 'Compliance'];
   const content = [
-    { icon: Users, title: 'Manpower Acquisition', subtitle: 'Strategic Talent Sourcing', desc: 'We execute targeted searches, rigorous screening, and strategic deployment of highly specialized professionals.', features: ['Executive Search & Headhunting', 'Volume Recruitment Solutions', 'Technical Skill Assessment', 'Background Verification', 'Onboarding Support'], image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800' },
-    { icon: Plane, title: 'Immigration Compliance', subtitle: 'Visa & Documentation', desc: 'Our legal processing divisions manage complex visa portfolios end-to-end.', features: ['Work Permit Processing', 'Employment Pass Applications', 'Dependent & Family Visas', 'Visa Renewals & Extensions', 'Appeal Handling'], image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800' },
-    { icon: Briefcase, title: 'Corporate Consulting', subtitle: 'Strategic Advisory', desc: 'Strategic advisory for international workforce mobility and expansion planning.', features: ['Market Entry Strategy', 'Labor Law Compliance Audit', 'Workforce Planning', 'Expatriate Policy Design', 'Risk Assessment'], image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800' },
-    { icon: Shield, title: 'Regulatory Compliance', subtitle: 'Legal Framework', desc: 'Comprehensive legal support ensuring absolute regulatory adherence.', features: ['Policy Monitoring & Alerts', 'Compliance Documentation', 'Audit Preparation', 'Legal Representation', 'Training & Workshops'], image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800' }
+    { icon: Users, title: 'Manpower Acquisition', subtitle: 'Strategic Talent Sourcing', desc: 'We execute targeted searches, rigorous screening, and strategic deployment of highly specialized professionals.', features: ['Executive Search & Headhunting', 'Volume Recruitment Solutions', 'Technical Skill Assessment', 'Background Verification', 'Onboarding Support'], image: mobilePreview },
+    { icon: Plane, title: 'Immigration Compliance', subtitle: 'Visa & Documentation', desc: 'Our legal processing divisions manage complex visa portfolios end-to-end.', features: ['Work Permit Processing', 'Employment Pass Applications', 'Dependent & Family Visas', 'Visa Renewals & Extensions', 'Appeal Handling'], image: mobilePreview },
+    { icon: Briefcase, title: 'Corporate Consulting', subtitle: 'Strategic Advisory', desc: 'Strategic advisory for international workforce mobility and expansion planning.', features: ['Market Entry Strategy', 'Labor Law Compliance Audit', 'Workforce Planning', 'Expatriate Policy Design', 'Risk Assessment'], image: mobilePreview },
+    { icon: Shield, title: 'Regulatory Compliance', subtitle: 'Legal Framework', desc: 'Comprehensive legal support ensuring absolute regulatory adherence.', features: ['Policy Monitoring & Alerts', 'Compliance Documentation', 'Audit Preparation', 'Legal Representation', 'Training & Workshops'], image: mobilePreview }
   ];
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       {/* 1. Parallax Hero */}
-      <ParallaxSection image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600" title="Service Protocols" subtitle="Our Expertise" subtitleBelow="Services" />
+      <ParallaxSection image=mobilePreview title="Service Protocols" subtitle="Our Expertise" subtitleBelow="Services" />
 
       {/* 2. Tabs & Content */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
@@ -3282,7 +3282,7 @@ const Services = ({ navigate }) => {
 
       {/* 6. CTA */}
       <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Ready to Get Started?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Book a consultation and let us handle the rest.</p>
@@ -3298,18 +3298,18 @@ const Services = ({ navigate }) => {
 // ====================================================================
 const Study = ({ navigate }) => {
   const programs = [
-    { title: 'Bachelor in Computer Science', country: 'Singapore', duration: '4 Years', tuition: '$30,000/yr', image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600', university: 'NUS' },
-    { title: 'MBA Program', country: 'UK', duration: '2 Years', tuition: '£45,000/yr', image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600', university: 'Oxford' },
-    { title: 'Engineering PhD', country: 'Germany', duration: '3-4 Years', tuition: '€15,000/yr', image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600', university: 'TU Munich' },
-    { title: 'Medical Degree', country: 'Australia', duration: '6 Years', tuition: 'AUD 60,000/yr', image: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600', university: 'UNSW' },
-    { title: 'Business Analytics', country: 'Canada', duration: '2 Years', tuition: 'CAD 35,000/yr', image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600', university: 'UofT' },
-    { title: 'Fine Arts Master', country: 'Japan', duration: '2 Years', tuition: '¥1,500,000/yr', image: 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?w=600', university: 'Tokyo Univ. of Arts' }
+    { title: 'Bachelor in Computer Science', country: 'Singapore', duration: '4 Years', tuition: '$30,000/yr', image: mobilePreview, university: 'NUS' },
+    { title: 'MBA Program', country: 'UK', duration: '2 Years', tuition: '£45,000/yr', image: mobilePreview, university: 'Oxford' },
+    { title: 'Engineering PhD', country: 'Germany', duration: '3-4 Years', tuition: '€15,000/yr', image: mobilePreview, university: 'TU Munich' },
+    { title: 'Medical Degree', country: 'Australia', duration: '6 Years', tuition: 'AUD 60,000/yr', image: mobilePreview, university: 'UNSW' },
+    { title: 'Business Analytics', country: 'Canada', duration: '2 Years', tuition: 'CAD 35,000/yr', image: mobilePreview, university: 'UofT' },
+    { title: 'Fine Arts Master', country: 'Japan', duration: '2 Years', tuition: '¥1,500,000/yr', image: mobilePreview, university: 'Tokyo Univ. of Arts' }
   ];
 
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       {/* 1. Parallax Hero */}
-      <ParallaxSection image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600" title="Study Abroad" subtitle="Education Programs" subtitleBelow="Study" />
+      <ParallaxSection image=mobilePreview title="Study Abroad" subtitle="Education Programs" subtitleBelow="Study" />
 
       {/* 2. Programs Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
@@ -3397,7 +3397,7 @@ const Study = ({ navigate }) => {
 
       {/* 6. CTA */}
       <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Start Your Academic Journey</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Book a free consultation with our education advisors.</p>
@@ -3421,7 +3421,7 @@ const Invest = ({ navigate }) => {
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       {/* 1. Parallax Hero */}
-      <ParallaxSection image="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600" title="Investment Immigration" subtitle="Investor Programs" subtitleBelow="Invest" />
+      <ParallaxSection image=mobilePreview title="Investment Immigration" subtitle="Investor Programs" subtitleBelow="Invest" />
 
       {/* 2. Programs Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
@@ -3508,7 +3508,7 @@ const Invest = ({ navigate }) => {
 
       {/* 6. CTA */}
       <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url(mobilePreview)] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Explore Investment Options</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Schedule a consultation with our investment immigration specialists.</p>
@@ -3525,7 +3525,7 @@ const Invest = ({ navigate }) => {
 const About = () => (
   <div className="animate-in fade-in duration-500 pb-20">
     {/* 1. Parallax Hero */}
-    <ParallaxSection image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600" title="Firm Profile" subtitle="About Us" subtitleBelow="About" />
+    <ParallaxSection image=mobilePreview title="Firm Profile" subtitle="About Us" subtitleBelow="About" />
 
     {/* 2. Executive Summary */}
     <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
@@ -3539,7 +3539,7 @@ const About = () => (
             <div className="bg-white p-8"><h4 className="font-black text-xl text-[#6C5CE7] mb-2 uppercase tracking-wide">Excellence</h4><p className="text-sm text-gray-500 font-light">Uncompromising institutional standards.</p></div>
           </div>
         </div>
-        <div className="relative"><div className="absolute inset-0 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] translate-x-4 translate-y-4 rounded-2xl"></div><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800" className="relative z-10 w-full h-[600px] object-cover rounded-2xl" alt="Team" /></div>
+        <div className="relative"><div className="absolute inset-0 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] translate-x-4 translate-y-4 rounded-2xl"></div><img src=mobilePreview className="relative z-10 w-full h-[600px] object-cover rounded-2xl" alt="Team" /></div>
       </AnimatedSection>
     </div>
 
@@ -3601,7 +3601,7 @@ const About = () => (
 
     {/* 6. CTA */}
     <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
+      <div className="absolute inset-0 opacity-10 bg-[url(mobilePreview)] bg-cover bg-center"></div>
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Learn More About Us</h2>
         <p className="text-gray-300 text-lg mb-8 font-light">Get in touch to discover how we can help you achieve your global goals.</p>
@@ -3660,7 +3660,7 @@ const Book = ({ navigate }) => {
   const errMsg = (key) => errors[key] ? <p id={`${key}-error`} className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1"><AlertCircle className="h-3 w-3"/>{errors[key]}</p> : null;
   return (
     <div className="animate-in fade-in duration-500 pb-20">
-      <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Book Consultation" subtitle="Schedule" subtitleBelow="Book" />
+      <ParallaxSection image=mobilePreview title="Book Consultation" subtitle="Schedule" subtitleBelow="Book" />
       <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <AnimatedSection className="bg-white p-6 sm:p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
           <h3 className="text-2xl font-black text-[#6C5CE7] mb-8 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Secure Your Slot</h3>
@@ -3729,7 +3729,7 @@ const Contact = ({ navigate }) => {
   const errMsg = (key) => errors[key] ? <p id={`c-${key}-error`} className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1"><AlertCircle className="h-3 w-3"/>{errors[key]}</p> : null;
   return (
     <div className="animate-in fade-in duration-500 pb-24">
-      <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Contact Us" subtitle="Get in Touch" subtitleBelow="Contact" />
+      <ParallaxSection image=mobilePreview title="Contact Us" subtitle="Get in Touch" subtitleBelow="Contact" />
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <AnimatedSection className="bg-white p-6 sm:p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
