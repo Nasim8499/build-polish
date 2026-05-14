@@ -1,5 +1,6 @@
 // @ts-nocheck
 /* eslint-disable */
+import mobilePreview from '@/assets/mobile-preview.png';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { toast } from 'sonner';
 import {
