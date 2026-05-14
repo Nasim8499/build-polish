@@ -15,7 +15,7 @@ function Pending() {
   return (
     <SiteLayout>
       <div className="bg-white">
-        <div className="relative h-[40vh] bg-gradient-to-b from-[#0A1628] to-[#003B73] animate-pulse" />
+        <div className="relative h-[40vh] bg-gradient-to-b from-[#2D1B69] to-[#6C5CE7] animate-pulse" />
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-12 space-y-8">
           <div className="h-4 w-40 bg-gray-200 rounded animate-pulse" />
           <div className="h-10 w-2/3 bg-gray-200 rounded animate-pulse" />
@@ -39,11 +39,11 @@ function ErrorView({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <SiteLayout>
       <div className="min-h-[70vh] flex flex-col items-center justify-center bg-white px-6 text-center">
-        <h2 className="text-2xl font-black text-[#003B73] mb-3">Something went wrong</h2>
+        <h2 className="text-2xl font-black text-[#6C5CE7] mb-3">Something went wrong</h2>
         <p className="text-sm text-[#6E7580] mb-6 max-w-md">{error?.message || "We couldn't load this country page."}</p>
         <button
           onClick={() => { router.invalidate(); reset(); }}
-          className="bg-[#003B73] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#E63946] transition-colors rounded"
+          className="bg-[#6C5CE7] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#6C5CE7] transition-colors rounded"
         >
           Try Again
         </button>
@@ -57,7 +57,7 @@ function NotFoundView() {
   return (
     <SiteLayout>
       <div className="min-h-[70vh] flex flex-col items-center justify-center bg-white px-6 text-center">
-        <h2 className="text-2xl font-black text-[#003B73] mb-3">Country "{decodeURIComponent(name)}" not found</h2>
+        <h2 className="text-2xl font-black text-[#6C5CE7] mb-3">Country "{decodeURIComponent(name)}" not found</h2>
         <p className="text-sm text-[#6E7580]">Please pick another destination from the Countries page.</p>
       </div>
     </SiteLayout>
