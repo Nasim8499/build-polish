@@ -30,7 +30,7 @@ import {
 // --- BRAND CONFIG ---
 const BRAND = {
   name: 'VisaHOBe Pte. Ltd.',
-  colors: { primary: '#003B73', red1: '#E63946', red2: '#F1573D', gray: '#6E7580', gold: '#D4A843', dark: '#0A1628' }
+  colors: { primary: '#6C5CE7', red1: '#6C5CE7', red2: '#FD79A8', gray: '#6E7580', gold: '#A29BFE', dark: '#2D1B69' }
 };
 
 // --- ANIMATED SECTION ---
@@ -79,14 +79,14 @@ const CounterAnimation = ({ end, duration = 2000, suffix = '' }) => {
 // --- PARALLAX SECTION ---
 const ParallaxSection = ({ image, title, subtitle, subtitleBelow }) => (
   <div className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover" style={{ backgroundImage: `url(${image})` }}>
-    <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/90 via-[#003B73]/70 to-[#0A1628]/90"></div>
+    <div className="absolute inset-0 bg-gradient-to-b from-[#2D1B69]/90 via-[#6C5CE7]/70 to-[#2D1B69]/90"></div>
     <div className="relative z-10 text-center text-white px-4 max-w-4xl">
       <div className="flex items-center justify-center gap-4 mb-8">
-        <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#D4A843]"></div>
-        <div className="w-3 h-3 rounded-full bg-[#D4A843] animate-pulse"></div>
-        <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4A843]"></div>
+        <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#A29BFE]"></div>
+        <div className="w-3 h-3 rounded-full bg-[#A29BFE] animate-pulse"></div>
+        <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#A29BFE]"></div>
       </div>
-      <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-sm mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>{subtitle}</h4>
+      <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-sm mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>{subtitle}</h4>
       <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6">{title}</h2>
       {subtitleBelow && (
         <div className="mt-8 flex justify-center gap-2 text-xs text-gray-400 uppercase tracking-widest">
@@ -110,25 +110,25 @@ const HeroSlider = ({ navigate }) => {
     return () => clearInterval(timer);
   }, [slides.length]);
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-[#0A1628]">
+    <div className="relative h-screen w-full overflow-hidden bg-[#2D1B69]">
       {slides.map((slide, index) => (
         <div key={index} className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#003B73]/70 to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2D1B69]/95 via-[#6C5CE7]/70 to-transparent z-10"></div>
           <img src={slide.image} alt={slide.title} className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-80" />
           <div className="absolute inset-0 z-20 flex items-center">
             <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full mt-16">
-              <div className="max-w-3xl border-l-4 border-[#D4A843] pl-8">
-                <div className="inline-flex items-center gap-3 mb-8 text-[#D4A843] text-xs font-bold tracking-[0.3em] uppercase" style={{ fontFamily: 'Playfair Display, serif' }}><Globe className="h-4 w-4" /> Connecting Global Talent</div>
+              <div className="max-w-3xl border-l-4 border-[#A29BFE] pl-8">
+                <div className="inline-flex items-center gap-3 mb-8 text-[#A29BFE] text-xs font-bold tracking-[0.3em] uppercase" style={{ fontFamily: 'Playfair Display, serif' }}><Globe className="h-4 w-4" /> Connecting Global Talent</div>
                 <h1 className="text-6xl md:text-8xl font-black text-white mb-6 leading-none tracking-tight">
                   <span className="block text-3xl md:text-5xl font-light text-white/80 mb-4 tracking-normal" style={{ fontFamily: 'Playfair Display, serif' }}>{slide.subtitle}</span>{slide.title}
                 </h1>
                 <p className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl font-light border-t border-white/20 pt-6 mt-6">{slide.desc}</p>
                 <div className="flex gap-4">
-                  <button onClick={() => navigate('/services')} className="group relative overflow-hidden bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase transition-all duration-300">
+                  <button onClick={() => navigate('/services')} className="group relative overflow-hidden bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase transition-all duration-300">
                     <span className="relative z-10 flex items-center">{slide.cta} <ArrowRight className="ml-3 h-4 w-4 transform group-hover:translate-x-1 transition-transform" /></span>
-                    <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-[#D4A843] to-[#F1573D] transition-all duration-500 ease-out group-hover:w-full z-0"></div>
+                    <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-[#A29BFE] to-[#FD79A8] transition-all duration-500 ease-out group-hover:w-full z-0"></div>
                   </button>
-                  <button onClick={() => navigate('/contact')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#003B73] transition-all duration-300">Contact Us</button>
+                  <button onClick={() => navigate('/contact')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#6C5CE7] transition-all duration-300">Contact Us</button>
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@ const HeroSlider = ({ navigate }) => {
       ))}
       <div className="absolute bottom-12 left-6 lg:left-auto lg:right-12 z-30 flex gap-4 items-center">
         <span className="text-white/50 text-xs font-bold tracking-widest">0{current + 1}</span>
-        <div className="flex gap-2">{slides.map((_, idx) => <button key={idx} onClick={() => setCurrent(idx)} className={`h-[2px] transition-all duration-500 ${current === idx ? 'w-16 bg-[#D4A843]' : 'w-8 bg-white/30 hover:bg-white/60'}`} />)}</div>
+        <div className="flex gap-2">{slides.map((_, idx) => <button key={idx} onClick={() => setCurrent(idx)} className={`h-[2px] transition-all duration-500 ${current === idx ? 'w-16 bg-[#A29BFE]' : 'w-8 bg-white/30 hover:bg-white/60'}`} />)}</div>
         <span className="text-white/50 text-xs font-bold tracking-widest">0{slides.length}</span>
       </div>
       <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-30 animate-bounce"><ChevronDown className="h-8 w-8 text-white/50" /></div>
@@ -149,9 +149,9 @@ const HeroSlider = ({ navigate }) => {
 const PartnersMarquee = () => {
   const partners = ["TechCorp Global", "Nexus Industries", "MediHealth Group", "BuildRight Const.", "FinServe Int.", "AeroSpace Tech", "Global Logistics", "Prime Energy", "EcoPower Solutions", "MedTech Innovations"];
   return (
-    <div className="bg-[#0A1628] py-10 overflow-hidden relative flex items-center border-y border-white/5">
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0A1628] to-transparent z-10"></div>
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0A1628] to-transparent z-10"></div>
+    <div className="bg-[#2D1B69] py-10 overflow-hidden relative flex items-center border-y border-white/5">
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#2D1B69] to-transparent z-10"></div>
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#2D1B69] to-transparent z-10"></div>
       <div className="flex w-fit animate-marquee whitespace-nowrap">{[...partners, ...partners, ...partners].map((partner, idx) => <div key={idx} className="mx-12 text-lg font-bold text-white/30 uppercase tracking-[0.2em] flex items-center"><Building className="mr-4 h-5 w-5 opacity-50" /> {partner}</div>)}</div>
     </div>
   );
@@ -175,8 +175,8 @@ const TestimonialsCarousel = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 z-10 relative">
         <div className="flex flex-col md:flex-row gap-12 items-end mb-16">
           <div className="md:w-1/3">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Testimonials</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight leading-tight">Client<br/>Perspectives</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Testimonials</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight leading-tight">Client<br/>Perspectives</h2>
           </div>
           <div className="md:w-2/3 border-l border-gray-200 pl-8"><p className="text-gray-500 font-light leading-relaxed">Discover why industry leaders trust our rigorous processes and global network.</p></div>
         </div>
@@ -186,14 +186,14 @@ const TestimonialsCarousel = () => {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-0 border-t border-gray-200">
                 {[test, testimonials[(idx + 1) % testimonials.length], testimonials[(idx + 2) % testimonials.length]].map((t, i) => (
                   <div key={`${idx}-${i}`} className={`p-12 ${i !== 2 ? 'md:border-r' : ''} border-b md:border-b-0 border-gray-200 hover:bg-gray-50 transition-colors`}>
-                    <Quote className="h-10 w-10 text-[#D4A843] mb-8 opacity-20" />
+                    <Quote className="h-10 w-10 text-[#A29BFE] mb-8 opacity-20" />
                     <p className="text-xl leading-relaxed mb-12 font-light text-gray-700" style={{ fontFamily: 'Playfair Display, serif' }}>"{t.text}"</p>
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-[#003B73] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-[#6C5CE7] rounded-full flex items-center justify-center">
                         <span className="text-white font-bold text-lg">{t.author.charAt(0)}</span>
                       </div>
                       <div>
-                        <h4 className="font-bold text-[#003B73] text-sm uppercase tracking-wider">{t.author}</h4>
+                        <h4 className="font-bold text-[#6C5CE7] text-sm uppercase tracking-wider">{t.author}</h4>
                         <p className="text-[#6E7580] text-xs font-medium uppercase tracking-wider mt-1">{t.role}</p>
                       </div>
                     </div>
@@ -203,7 +203,7 @@ const TestimonialsCarousel = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center gap-3 mt-12">{testimonials.map((_, idx) => <button key={idx} onClick={() => setActiveIndex(idx)} className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeIndex ? 'bg-[#D4A843] scale-125' : 'bg-gray-300 hover:bg-gray-400'}`} />)}</div>
+        <div className="flex justify-center gap-3 mt-12">{testimonials.map((_, idx) => <button key={idx} onClick={() => setActiveIndex(idx)} className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeIndex ? 'bg-[#A29BFE] scale-125' : 'bg-gray-300 hover:bg-gray-400'}`} />)}</div>
       </div>
     </section>
   );
@@ -215,8 +215,8 @@ const FAQItem = ({ question, answer }) => {
   return (
     <div className="border-b border-gray-200">
       <button onClick={() => setIsOpen(!isOpen)} className="w-full py-8 flex items-center justify-between text-left group">
-        <h4 className="text-lg font-bold text-[#003B73] group-hover:text-[#D4A843] transition-colors pr-8" style={{ fontFamily: 'Playfair Display, serif' }}>{question}</h4>
-        <ChevronRight className={`h-5 w-5 text-[#D4A843] transform transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
+        <h4 className="text-lg font-bold text-[#6C5CE7] group-hover:text-[#A29BFE] transition-colors pr-8" style={{ fontFamily: 'Playfair Display, serif' }}>{question}</h4>
+        <ChevronRight className={`h-5 w-5 text-[#A29BFE] transform transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
       </button>
       <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-96 opacity-100 pb-8' : 'max-h-0 opacity-0'}`}><p className="text-gray-500 leading-relaxed font-light">{answer}</p></div>
     </div>
@@ -260,11 +260,11 @@ const Navbar = ({ currentPath, navigate }) => {
           <div className="flex justify-between items-center gap-3">
             <div className="flex items-center cursor-pointer shrink-0" onClick={() => handleNavigate('/')}>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
+                <div className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-[#A29BFE] to-[#FD79A8] rounded-lg flex items-center justify-center">
                   <Globe className="h-5 w-5 text-white" />
                 </div>
-                <div className="flex flex-col border-l border-[#003B73]/30 pl-3">
-                  <span className="font-black text-lg sm:text-xl lg:text-2xl leading-none tracking-tight text-[#003B73]">VisaHOBe</span>
+                <div className="flex flex-col border-l border-[#6C5CE7]/30 pl-3">
+                  <span className="font-black text-lg sm:text-xl lg:text-2xl leading-none tracking-tight text-[#6C5CE7]">VisaHOBe</span>
                   <span className="text-[8px] lg:text-[9px] font-bold tracking-[0.3em] uppercase mt-1 text-[#6E7580]">Pte. Ltd.</span>
                 </div>
               </div>
@@ -277,25 +277,25 @@ const Navbar = ({ currentPath, navigate }) => {
                     <button
                       key={path}
                       onClick={() => handleNavigate(path)}
-                      className={`text-[11px] lg:text-xs font-bold tracking-widest uppercase transition-colors duration-200 relative py-2 whitespace-nowrap ${active ? 'text-[#D4A843]' : 'text-[#003B73] hover:text-[#D4A843]'}`}
+                      className={`text-[11px] lg:text-xs font-bold tracking-widest uppercase transition-colors duration-200 relative py-2 whitespace-nowrap ${active ? 'text-[#A29BFE]' : 'text-[#6C5CE7] hover:text-[#A29BFE]'}`}
                     >
                       {label}
-                      {active && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4A843]"></span>}
+                      {active && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#A29BFE]"></span>}
                     </button>
                   );
                 })}
               </div>
             </div>
             <div className="hidden lg:flex gap-2 shrink-0">
-              <button onClick={() => handleNavigate('/profile')} className="px-5 py-2.5 font-bold text-xs tracking-widest uppercase transition-all border border-[#003B73] text-[#003B73] hover:bg-[#003B73] hover:text-white rounded">Profile</button>
-              <button onClick={() => handleNavigate('/book')} className="px-5 py-2.5 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase hover:shadow-lg transition-all rounded">Book</button>
+              <button onClick={() => handleNavigate('/profile')} className="px-5 py-2.5 font-bold text-xs tracking-widest uppercase transition-all border border-[#6C5CE7] text-[#6C5CE7] hover:bg-[#6C5CE7] hover:text-white rounded">Profile</button>
+              <button onClick={() => handleNavigate('/book')} className="px-5 py-2.5 bg-gradient-to-r from-[#A29BFE] to-[#FD79A8] text-white font-bold text-xs tracking-widest uppercase hover:shadow-lg transition-all rounded">Book</button>
             </div>
             <button
               type="button"
               aria-label="Open menu"
               aria-expanded={drawerOpen}
               onClick={() => setDrawerOpen(true)}
-              className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-[#003B73]/20 text-[#003B73] hover:bg-[#003B73] hover:text-white transition-colors"
+              className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-[#6C5CE7]/20 text-[#6C5CE7] hover:bg-[#6C5CE7] hover:text-white transition-colors"
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -312,7 +312,7 @@ const Navbar = ({ currentPath, navigate }) => {
 
       {/* Mobile drawer */}
       <aside
-        className={`lg:hidden fixed top-0 right-0 z-[70] h-screen w-[85%] max-w-sm bg-[#0A1628] text-white shadow-2xl transform transition-transform duration-300 ease-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`lg:hidden fixed top-0 right-0 z-[70] h-screen w-[85%] max-w-sm bg-[#2D1B69] text-white shadow-2xl transform transition-transform duration-300 ease-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
         role="dialog"
         aria-modal="true"
         aria-hidden={!drawerOpen}
@@ -320,7 +320,7 @@ const Navbar = ({ currentPath, navigate }) => {
       >
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-lg flex items-center justify-center">
+            <div className="w-9 h-9 bg-gradient-to-br from-[#A29BFE] to-[#FD79A8] rounded-lg flex items-center justify-center">
               <Globe className="h-5 w-5 text-white" />
             </div>
             <div className="flex flex-col">
@@ -345,7 +345,7 @@ const Navbar = ({ currentPath, navigate }) => {
                 <button
                   key={path}
                   onClick={() => handleNavigate(path)}
-                  className={`flex items-center justify-between px-4 py-4 text-sm font-bold tracking-widest uppercase transition-colors ${active ? 'text-[#D4A843]' : 'text-white hover:text-[#D4A843]'}`}
+                  className={`flex items-center justify-between px-4 py-4 text-sm font-bold tracking-widest uppercase transition-colors ${active ? 'text-[#A29BFE]' : 'text-white hover:text-[#A29BFE]'}`}
                 >
                   <span>{label}</span>
                   <ChevronRight className="h-4 w-4 opacity-50" />
@@ -354,8 +354,8 @@ const Navbar = ({ currentPath, navigate }) => {
             })}
           </nav>
           <div className="px-6 mt-6 flex flex-col gap-3">
-            <button onClick={() => handleNavigate('/profile')} className="w-full px-5 py-3 font-bold text-xs tracking-widest uppercase border border-white/30 text-white hover:bg-white hover:text-[#003B73] rounded transition-colors">Profile</button>
-            <button onClick={() => handleNavigate('/book')} className="w-full px-5 py-3 bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white font-bold text-xs tracking-widest uppercase rounded">Book Now</button>
+            <button onClick={() => handleNavigate('/profile')} className="w-full px-5 py-3 font-bold text-xs tracking-widest uppercase border border-white/30 text-white hover:bg-white hover:text-[#6C5CE7] rounded transition-colors">Profile</button>
+            <button onClick={() => handleNavigate('/book')} className="w-full px-5 py-3 bg-gradient-to-r from-[#A29BFE] to-[#FD79A8] text-white font-bold text-xs tracking-widest uppercase rounded">Book Now</button>
           </div>
           <div className="px-6 mt-8 text-[10px] tracking-[0.25em] uppercase text-gray-500">
             © {new Date().getFullYear()} VisaHOBe Pte. Ltd.
@@ -376,13 +376,13 @@ const MobileBottomNav = ({ currentPath, navigate }) => {
     { path: '/profile', icon: User, label: 'Profile' }
   ];
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 w-full bg-[#0A1628] border-t border-white/10 z-50 pb-safe">
+    <div className="lg:hidden fixed bottom-0 left-0 w-full bg-[#2D1B69] border-t border-white/10 z-50 pb-safe">
       <div className="flex justify-around items-center h-16 px-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = currentPath === tab.path || (tab.path === '/countries' && currentPath.startsWith('/country'));
           return (
-            <button key={tab.path} onClick={() => navigate(tab.path)} className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-[#D4A843]' : 'text-gray-500'}`}>
+            <button key={tab.path} onClick={() => navigate(tab.path)} className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-[#A29BFE]' : 'text-gray-500'}`}>
               <Icon className="h-5 w-5" />
               <span className="text-[10px] font-bold tracking-wider uppercase">{tab.label}</span>
             </button>
@@ -395,12 +395,12 @@ const MobileBottomNav = ({ currentPath, navigate }) => {
 
 // --- FOOTER ---
 const Footer = ({ navigate }) => (
-  <footer className="bg-[#0A1628] text-white pt-32 pb-40 lg:pb-12 border-t border-[#D4A843]/30">
+  <footer className="bg-[#2D1B69] text-white pt-32 pb-40 lg:pb-12 border-t border-[#A29BFE]/30">
     <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-20">
         <div className="col-span-2 md:col-span-4">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#A29BFE] to-[#FD79A8] rounded-xl flex items-center justify-center">
               <Globe className="h-6 w-6 text-white" />
             </div>
             <div className="flex flex-col border-l border-white/20 pl-4">
@@ -411,30 +411,30 @@ const Footer = ({ navigate }) => (
           <p className="text-gray-400 text-sm leading-relaxed font-light pr-4 mb-6">Global leaders in manpower recruitment and comprehensive visa agency services. Connecting talent with opportunities worldwide since 2010.</p>
           <div className="flex gap-4">
             {['Facebook', 'Twitter', 'LinkedIn', 'Instagram'].map((social, idx) => (
-              <button key={idx} className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#D4A843] transition-colors">
+              <button key={idx} className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#A29BFE] transition-colors">
                 <span className="text-xs font-bold">{social.charAt(0)}</span>
               </button>
             ))}
           </div>
         </div>
         <div className="md:col-span-2 md:col-start-6">
-          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-8 text-[#D4A843]" style={{ fontFamily: 'Playfair Display, serif' }}>Company</h4>
+          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-8 text-[#A29BFE]" style={{ fontFamily: 'Playfair Display, serif' }}>Company</h4>
           <ul className="space-y-4">
-            {['About Us', 'Our Team', 'Careers', 'Press', 'Contact'].map((item) => <li key={item}><button onClick={() => navigate(`/${item.toLowerCase().replace(' ', '')}`)} className="text-gray-300 hover:text-[#D4A843] transition-colors text-sm flex items-center gap-3 font-medium"><ChevronRight className="h-3 w-3" />{item}</button></li>)}
+            {['About Us', 'Our Team', 'Careers', 'Press', 'Contact'].map((item) => <li key={item}><button onClick={() => navigate(`/${item.toLowerCase().replace(' ', '')}`)} className="text-gray-300 hover:text-[#A29BFE] transition-colors text-sm flex items-center gap-3 font-medium"><ChevronRight className="h-3 w-3" />{item}</button></li>)}
           </ul>
         </div>
         <div className="md:col-span-2">
-          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-8 text-[#D4A843]" style={{ fontFamily: 'Playfair Display, serif' }}>Services</h4>
+          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-8 text-[#A29BFE]" style={{ fontFamily: 'Playfair Display, serif' }}>Services</h4>
           <ul className="space-y-4">
-            {['Work Visas', 'Study Visas', 'Business Visas', 'PR Applications', 'Recruitment'].map((item) => <li key={item}><button onClick={() => navigate('/services')} className="text-gray-300 hover:text-[#D4A843] transition-colors text-sm flex items-center gap-3 font-medium"><ChevronRight className="h-3 w-3" />{item}</button></li>)}
+            {['Work Visas', 'Study Visas', 'Business Visas', 'PR Applications', 'Recruitment'].map((item) => <li key={item}><button onClick={() => navigate('/services')} className="text-gray-300 hover:text-[#A29BFE] transition-colors text-sm flex items-center gap-3 font-medium"><ChevronRight className="h-3 w-3" />{item}</button></li>)}
           </ul>
         </div>
         <div className="md:col-span-3">
-          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-8 text-[#D4A843]" style={{ fontFamily: 'Playfair Display, serif' }}>Corporate HQ</h4>
+          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-8 text-[#A29BFE]" style={{ fontFamily: 'Playfair Display, serif' }}>Corporate HQ</h4>
           <ul className="space-y-6">
-            <li className="flex items-start gap-4 text-sm text-gray-300 font-light"><MapPin className="h-5 w-5 text-[#D4A843] shrink-0" /><span className="leading-relaxed">10 Anson Road, #22-02<br/>International Plaza<br/>Singapore 079903</span></li>
-            <li className="flex items-center gap-4 text-sm text-gray-300 font-light"><Phone className="h-5 w-5 text-[#D4A843] shrink-0" /><span>+65 6222 1234</span></li>
-            <li className="flex items-center gap-4 text-sm text-gray-300 font-light"><Mail className="h-5 w-5 text-[#D4A843] shrink-0" /><span>info@visahobe.com</span></li>
+            <li className="flex items-start gap-4 text-sm text-gray-300 font-light"><MapPin className="h-5 w-5 text-[#A29BFE] shrink-0" /><span className="leading-relaxed">10 Anson Road, #22-02<br/>International Plaza<br/>Singapore 079903</span></li>
+            <li className="flex items-center gap-4 text-sm text-gray-300 font-light"><Phone className="h-5 w-5 text-[#A29BFE] shrink-0" /><span>+65 6222 1234</span></li>
+            <li className="flex items-center gap-4 text-sm text-gray-300 font-light"><Mail className="h-5 w-5 text-[#A29BFE] shrink-0" /><span>info@visahobe.com</span></li>
           </ul>
         </div>
       </div>
@@ -472,7 +472,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Visitor',
         icon: PlaneTakeoff,
-        color: '#003B73',
+        color: '#6C5CE7',
         bgGradient: 'from-blue-50 to-blue-100/50',
         borderColor: 'border-blue-200',
         visas: [
@@ -503,7 +503,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Work',
         icon: Briefcase,
-        color: '#E63946',
+        color: '#6C5CE7',
         bgGradient: 'from-red-50 to-red-100/50',
         borderColor: 'border-red-200',
         visas: [
@@ -556,7 +556,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Study',
         icon: GraduationCap,
-        color: '#7C3AED',
+        color: '#6C5CE7',
         bgGradient: 'from-purple-50 to-purple-100/50',
         borderColor: 'border-purple-200',
         visas: [
@@ -644,7 +644,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Visitor',
         icon: PlaneTakeoff,
-        color: '#003B73',
+        color: '#6C5CE7',
         bgGradient: 'from-blue-50 to-blue-100/50',
         borderColor: 'border-blue-200',
         visas: [
@@ -675,7 +675,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Work',
         icon: Briefcase,
-        color: '#E63946',
+        color: '#6C5CE7',
         bgGradient: 'from-red-50 to-red-100/50',
         borderColor: 'border-red-200',
         visas: [
@@ -717,7 +717,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Study',
         icon: GraduationCap,
-        color: '#7C3AED',
+        color: '#6C5CE7',
         bgGradient: 'from-purple-50 to-purple-100/50',
         borderColor: 'border-purple-200',
         visas: [
@@ -785,7 +785,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Visitor',
         icon: PlaneTakeoff,
-        color: '#003B73',
+        color: '#6C5CE7',
         bgGradient: 'from-blue-50 to-blue-100/50',
         borderColor: 'border-blue-200',
         visas: [
@@ -816,7 +816,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Work',
         icon: Briefcase,
-        color: '#E63946',
+        color: '#6C5CE7',
         bgGradient: 'from-red-50 to-red-100/50',
         borderColor: 'border-red-200',
         visas: [
@@ -847,7 +847,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Study',
         icon: GraduationCap,
-        color: '#7C3AED',
+        color: '#6C5CE7',
         bgGradient: 'from-purple-50 to-purple-100/50',
         borderColor: 'border-purple-200',
         visas: [
@@ -915,7 +915,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Visitor',
         icon: PlaneTakeoff,
-        color: '#003B73',
+        color: '#6C5CE7',
         bgGradient: 'from-blue-50 to-blue-100/50',
         borderColor: 'border-blue-200',
         visas: [
@@ -946,7 +946,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Work',
         icon: Briefcase,
-        color: '#E63946',
+        color: '#6C5CE7',
         bgGradient: 'from-red-50 to-red-100/50',
         borderColor: 'border-red-200',
         visas: [
@@ -1056,7 +1056,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Visitor',
         icon: PlaneTakeoff,
-        color: '#003B73',
+        color: '#6C5CE7',
         bgGradient: 'from-blue-50 to-blue-100/50',
         borderColor: 'border-blue-200',
         visas: [
@@ -1087,7 +1087,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Work',
         icon: Briefcase,
-        color: '#E63946',
+        color: '#6C5CE7',
         bgGradient: 'from-red-50 to-red-100/50',
         borderColor: 'border-red-200',
         visas: [
@@ -1118,7 +1118,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Study',
         icon: GraduationCap,
-        color: '#7C3AED',
+        color: '#6C5CE7',
         bgGradient: 'from-purple-50 to-purple-100/50',
         borderColor: 'border-purple-200',
         visas: [
@@ -1175,7 +1175,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Visitor',
         icon: PlaneTakeoff,
-        color: '#003B73',
+        color: '#6C5CE7',
         bgGradient: 'from-blue-50 to-blue-100/50',
         borderColor: 'border-blue-200',
         visas: [
@@ -1206,7 +1206,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Work',
         icon: Briefcase,
-        color: '#E63946',
+        color: '#6C5CE7',
         bgGradient: 'from-red-50 to-red-100/50',
         borderColor: 'border-red-200',
         visas: [
@@ -1248,7 +1248,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Study',
         icon: GraduationCap,
-        color: '#7C3AED',
+        color: '#6C5CE7',
         bgGradient: 'from-purple-50 to-purple-100/50',
         borderColor: 'border-purple-200',
         visas: [
@@ -1305,7 +1305,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Visitor',
         icon: PlaneTakeoff,
-        color: '#003B73',
+        color: '#6C5CE7',
         bgGradient: 'from-blue-50 to-blue-100/50',
         borderColor: 'border-blue-200',
         visas: [
@@ -1336,7 +1336,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Work',
         icon: Briefcase,
-        color: '#E63946',
+        color: '#6C5CE7',
         bgGradient: 'from-red-50 to-red-100/50',
         borderColor: 'border-red-200',
         visas: [
@@ -1404,7 +1404,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Visitor',
         icon: PlaneTakeoff,
-        color: '#003B73',
+        color: '#6C5CE7',
         bgGradient: 'from-blue-50 to-blue-100/50',
         borderColor: 'border-blue-200',
         visas: [
@@ -1435,7 +1435,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Work',
         icon: Briefcase,
-        color: '#E63946',
+        color: '#6C5CE7',
         bgGradient: 'from-red-50 to-red-100/50',
         borderColor: 'border-red-200',
         visas: [
@@ -1466,7 +1466,7 @@ const COUNTRY_VISA_DATA = {
       {
         category: 'Study',
         icon: GraduationCap,
-        color: '#7C3AED',
+        color: '#6C5CE7',
         bgGradient: 'from-purple-50 to-purple-100/50',
         borderColor: 'border-purple-200',
         visas: [
@@ -1527,9 +1527,9 @@ const CountryDetail = ({ navigate, countryName }) => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <AlertCircle className="h-16 w-16 text-[#E63946] mx-auto mb-6" />
-          <h2 className="text-2xl font-black text-[#003B73] mb-4">Country Not Found</h2>
-          <button onClick={() => navigate('/countries')} className="bg-[#003B73] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#E63946] transition-colors">Back to Countries</button>
+          <AlertCircle className="h-16 w-16 text-[#6C5CE7] mx-auto mb-6" />
+          <h2 className="text-2xl font-black text-[#6C5CE7] mb-4">Country Not Found</h2>
+          <button onClick={() => navigate('/countries')} className="bg-[#6C5CE7] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#6C5CE7] transition-colors">Back to Countries</button>
         </div>
       </div>
     );
@@ -1543,14 +1543,14 @@ const CountryDetail = ({ navigate, countryName }) => {
       {/* Hero */}
       <div className="relative h-[70vh] overflow-hidden">
         <img src={countryData.heroImage} alt={countryName} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/70 via-[#003B73]/50 to-[#0A1628]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#2D1B69]/70 via-[#6C5CE7]/50 to-[#2D1B69]"></div>
         <div className="absolute inset-0 z-10 flex items-end pb-20">
           <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
             <nav aria-label="Breadcrumb" className="mb-6">
               <ol className="flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white/60">
-                <li><button onClick={() => navigate('/')} className="hover:text-[#D4A843] transition-colors">Home</button></li>
+                <li><button onClick={() => navigate('/')} className="hover:text-[#A29BFE] transition-colors">Home</button></li>
                 <li aria-hidden="true">/</li>
-                <li><button onClick={() => navigate('/countries')} className="hover:text-[#D4A843] transition-colors">Countries</button></li>
+                <li><button onClick={() => navigate('/countries')} className="hover:text-[#A29BFE] transition-colors">Countries</button></li>
                 <li aria-hidden="true">/</li>
                 <li className="text-white" aria-current="page">{countryName}</li>
               </ol>
@@ -1561,13 +1561,13 @@ const CountryDetail = ({ navigate, countryName }) => {
             <div className="flex items-center gap-4 sm:gap-6 mb-6">
               <span className="text-5xl sm:text-7xl">{countryData.flag}</span>
               <div>
-                <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Categories & Requirements</h4>
+                <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Categories & Requirements</h4>
                 <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tight">{countryName}</h1>
               </div>
             </div>
             <p className="text-gray-300 text-base sm:text-lg font-light max-w-3xl leading-relaxed">{countryData.description}</p>
             <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur px-3 py-1.5 rounded-full text-[10px] uppercase tracking-widest text-white/80">
-              <Clock className="h-3 w-3 text-[#D4A843]" />
+              <Clock className="h-3 w-3 text-[#A29BFE]" />
               Last updated {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
             </div>
           </div>
@@ -1575,12 +1575,12 @@ const CountryDetail = ({ navigate, countryName }) => {
       </div>
 
       {/* Quick Facts */}
-      <div className="bg-[#0A1628] py-16 border-b border-white/10">
+      <div className="bg-[#2D1B69] py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {countryData.quickFacts.map((fact, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#D4A843]/50 transition-all duration-300 group">
-                <fact.icon className="h-10 w-10 text-[#D4A843] mb-4 group-hover:scale-110 transition-transform" />
+              <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-8 hover:border-[#A29BFE]/50 transition-all duration-300 group">
+                <fact.icon className="h-10 w-10 text-[#A29BFE] mb-4 group-hover:scale-110 transition-transform" />
                 <div className="text-3xl font-black text-white mb-1">{fact.value}</div>
                 <div className="text-xs text-gray-400 uppercase tracking-wider">{fact.label}</div>
               </div>
@@ -1595,8 +1595,8 @@ const CountryDetail = ({ navigate, countryName }) => {
           <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <AnimatedSection className="mb-12">
               <div className="flex items-center gap-3 mb-2">
-                <Star className="h-8 w-8 text-[#D4A843]" />
-                <h3 className="text-3xl font-black text-[#003B73]" style={{ fontFamily: 'Playfair Display, serif' }}>Most Popular Visas</h3>
+                <Star className="h-8 w-8 text-[#A29BFE]" />
+                <h3 className="text-3xl font-black text-[#6C5CE7]" style={{ fontFamily: 'Playfair Display, serif' }}>Most Popular Visas</h3>
               </div>
               <p className="text-gray-500 font-light ml-11">Quick access to the most frequently applied visa programs</p>
             </AnimatedSection>
@@ -1604,24 +1604,24 @@ const CountryDetail = ({ navigate, countryName }) => {
               {popularVisas.map((visa, idx) => {
                 const category = countryData.visaTypes.find(cat => cat.visas.includes(visa));
                 return (
-                  <div key={idx} className="bg-white rounded-2xl border-2 border-[#D4A843]/20 p-8 hover:border-[#D4A843] hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  <div key={idx} className="bg-white rounded-2xl border-2 border-[#A29BFE]/20 p-8 hover:border-[#A29BFE] hover:shadow-2xl transition-all duration-300 cursor-pointer"
                     onClick={() => {
                       const catIdx = countryData.visaTypes.findIndex(cat => cat.visas.includes(visa));
                       if (catIdx !== -1) setActiveCategory(catIdx);
                     }}>
                     <div className="flex items-start justify-between mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-[#D4A843]/10 to-[#D4A843]/5 rounded-xl flex items-center justify-center">
-                        {category && React.createElement(category.icon, { className: 'h-7 w-7 text-[#D4A843]' })}
+                      <div className="w-14 h-14 bg-gradient-to-br from-[#A29BFE]/10 to-[#A29BFE]/5 rounded-xl flex items-center justify-center">
+                        {category && React.createElement(category.icon, { className: 'h-7 w-7 text-[#A29BFE]' })}
                       </div>
-                      <span className="bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full flex items-center gap-1">
+                      <span className="bg-gradient-to-r from-[#A29BFE] to-[#FD79A8] text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full flex items-center gap-1">
                         <Star className="h-3 w-3" /> Popular
                       </span>
                     </div>
-                    <h4 className="text-xl font-bold text-[#003B73] mb-3">{visa.name}</h4>
+                    <h4 className="text-xl font-bold text-[#6C5CE7] mb-3">{visa.name}</h4>
                     <p className="text-gray-500 text-sm mb-6 line-clamp-2 leading-relaxed">{visa.description}</p>
                     <div className="flex items-center justify-between text-xs">
                       <span className="flex items-center gap-1 text-gray-400"><Clock className="h-3 w-3" />{visa.processing}</span>
-                      <span className="font-bold text-[#003B73] text-lg">{visa.price}</span>
+                      <span className="font-bold text-[#6C5CE7] text-lg">{visa.price}</span>
                     </div>
                   </div>
                 );
@@ -1638,8 +1638,8 @@ const CountryDetail = ({ navigate, countryName }) => {
             {countryData.visaTypes.map((cat, idx) => (
               <button key={idx} onClick={() => setActiveCategory(idx)}
                 className={`flex-shrink-0 flex items-center gap-3 px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 ${activeCategory === idx
-                  ? 'bg-gradient-to-r from-[#003B73] to-[#177BBB] text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-[#003B73]'
+                  ? 'bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-[#6C5CE7]'
                 }`}>
                 <cat.icon className="h-5 w-5" />
                 {cat.category}
@@ -1657,7 +1657,7 @@ const CountryDetail = ({ navigate, countryName }) => {
             <div className="mb-16">
               <div className="flex items-center gap-4 mb-3">
                 {React.createElement(countryData.visaTypes[activeCategory].icon, { className: 'h-10 w-10', style: { color: countryData.visaTypes[activeCategory].color } })}
-                <h2 className="text-4xl md:text-5xl font-black text-[#003B73]" style={{ fontFamily: 'Playfair Display, serif' }}>{countryData.visaTypes[activeCategory].category} Visas</h2>
+                <h2 className="text-4xl md:text-5xl font-black text-[#6C5CE7]" style={{ fontFamily: 'Playfair Display, serif' }}>{countryData.visaTypes[activeCategory].category} Visas</h2>
               </div>
               <p className="text-gray-500 font-light ml-14 text-lg">All available {countryData.visaTypes[activeCategory].category.toLowerCase()} visa options for {countryName}</p>
             </div>
@@ -1666,38 +1666,38 @@ const CountryDetail = ({ navigate, countryName }) => {
           <div className="space-y-8">
             {countryData.visaTypes[activeCategory].visas.map((visa, idx) => (
               <AnimatedSection key={idx} delay={idx * 100}>
-                <div className={`rounded-3xl border-2 ${expandedVisa === idx ? 'border-[#003B73] shadow-2xl' : 'border-gray-200 hover:border-[#003B73]/50'} transition-all duration-500 overflow-hidden`}>
+                <div className={`rounded-3xl border-2 ${expandedVisa === idx ? 'border-[#6C5CE7] shadow-2xl' : 'border-gray-200 hover:border-[#6C5CE7]/50'} transition-all duration-500 overflow-hidden`}>
                   <div className={`bg-gradient-to-r ${countryData.visaTypes[activeCategory].bgGradient} p-10 md:p-12`}>
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-4">
                           {visa.popular && (
-                            <span className="bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full flex items-center gap-1">
+                            <span className="bg-gradient-to-r from-[#A29BFE] to-[#FD79A8] text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full flex items-center gap-1">
                               <Star className="h-3 w-3" /> Popular
                             </span>
                           )}
                           <span className="text-gray-400 text-xs font-medium">{countryData.visaTypes[activeCategory].category} Visa</span>
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-black text-[#003B73] mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>{visa.name}</h3>
+                        <h3 className="text-2xl md:text-3xl font-black text-[#6C5CE7] mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>{visa.name}</h3>
                         <p className="text-gray-600 font-light leading-relaxed max-w-2xl">{visa.description}</p>
                       </div>
                       <div className="flex flex-col sm:flex-row gap-4">
                         <div className="bg-white/80 backdrop-blur rounded-xl px-6 py-4 text-center min-w-[140px]">
                           <div className="text-[10px] text-gray-400 uppercase tracking-wider mb-2">Processing</div>
-                          <div className="text-sm font-bold text-[#003B73]">{visa.processing}</div>
+                          <div className="text-sm font-bold text-[#6C5CE7]">{visa.processing}</div>
                         </div>
                         <div className="bg-white/80 backdrop-blur rounded-xl px-6 py-4 text-center min-w-[140px]">
                           <div className="text-[10px] text-gray-400 uppercase tracking-wider mb-2">Fee</div>
-                          <div className="text-sm font-bold text-[#D4A843] text-lg">{visa.price}</div>
+                          <div className="text-sm font-bold text-[#A29BFE] text-lg">{visa.price}</div>
                         </div>
                         <div className="bg-white/80 backdrop-blur rounded-xl px-6 py-4 text-center min-w-[140px]">
                           <div className="text-[10px] text-gray-400 uppercase tracking-wider mb-2">Duration</div>
-                          <div className="text-sm font-bold text-[#003B73]">{visa.duration}</div>
+                          <div className="text-sm font-bold text-[#6C5CE7]">{visa.duration}</div>
                         </div>
                       </div>
                     </div>
                     <button onClick={() => setExpandedVisa(expandedVisa === idx ? null : idx)}
-                      className="mt-8 w-full lg:w-auto bg-gradient-to-r from-[#003B73] to-[#177BBB] text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:from-[#D4A843] hover:to-[#F1573D] transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">
+                      className="mt-8 w-full lg:w-auto bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:from-[#A29BFE] hover:to-[#FD79A8] transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">
                       {expandedVisa === idx ? (
                         <>Hide Details <ChevronUp className="h-4 w-4" /></>
                       ) : (
@@ -1710,14 +1710,14 @@ const CountryDetail = ({ navigate, countryName }) => {
                     <div className="p-10 md:p-12 bg-white">
                       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                         <div className="lg:col-span-2">
-                          <h4 className="text-xl font-bold text-[#003B73] mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
-                            <ClipboardList className="h-6 w-6 text-[#D4A843]" />
+                          <h4 className="text-xl font-bold text-[#6C5CE7] mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+                            <ClipboardList className="h-6 w-6 text-[#A29BFE]" />
                             Requirements
                           </h4>
                           <div className="space-y-4">
                             {visa.requirements.map((req, rIdx) => (
                               <div key={rIdx} className="flex items-start gap-4 p-5 bg-gray-50 rounded-xl hover:bg-blue-50/50 transition-colors group">
-                                <div className="w-10 h-10 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:from-[#D4A843] group-hover:to-[#F1573D] transition-all">
+                                <div className="w-10 h-10 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:from-[#A29BFE] group-hover:to-[#FD79A8] transition-all">
                                   <span className="text-xs font-bold text-white">{rIdx + 1}</span>
                                 </div>
                                 <span className="text-gray-700 font-medium text-sm leading-relaxed pt-2">{req}</span>
@@ -1751,7 +1751,7 @@ const CountryDetail = ({ navigate, countryName }) => {
                           </div>
 
                           <button onClick={() => navigate('/book')}
-                            className="w-full bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white py-5 text-xs font-bold uppercase tracking-widest hover:from-[#003B73] hover:to-[#177BBB] transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">
+                            className="w-full bg-gradient-to-r from-[#A29BFE] to-[#FD79A8] text-white py-5 text-xs font-bold uppercase tracking-widest hover:from-[#6C5CE7] hover:to-[#8B7FE8] transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">
                             Apply for This Visa <ArrowRight className="h-4 w-4" />
                           </button>
                         </div>
@@ -1769,14 +1769,14 @@ const CountryDetail = ({ navigate, countryName }) => {
       <div className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h3 className="text-4xl font-black text-[#003B73] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>All Visa Types for {countryName}</h3>
+            <h3 className="text-4xl font-black text-[#6C5CE7] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>All Visa Types for {countryName}</h3>
             <p className="text-gray-500 font-light max-w-2xl mx-auto text-lg">Complete overview of all available visa categories and their respective programs</p>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {allVisas.map((visa, idx) => {
               const category = countryData.visaTypes.find(cat => cat.visas.includes(visa));
               return (
-                <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-200 hover:border-[#003B73] hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-200 hover:border-[#6C5CE7] hover:shadow-lg transition-all duration-300 cursor-pointer group"
                   onClick={() => {
                     const catIdx = countryData.visaTypes.findIndex(cat => cat.visas.includes(visa));
                     setActiveCategory(catIdx);
@@ -1784,10 +1784,10 @@ const CountryDetail = ({ navigate, countryName }) => {
                     setExpandedVisa(vIdx);
                     window.scrollTo({ top: 500, behavior: 'smooth' });
                   }}>
-                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#003B73] transition-colors">
+                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#6C5CE7] transition-colors">
                     {category && React.createElement(category.icon, { className: 'h-6 w-6 text-gray-400 group-hover:text-white transition-colors' })}
                   </div>
-                  <h4 className="text-xs font-bold text-[#003B73] mb-2 line-clamp-2 leading-tight">{visa.name}</h4>
+                  <h4 className="text-xs font-bold text-[#6C5CE7] mb-2 line-clamp-2 leading-tight">{visa.name}</h4>
                   <p className="text-[10px] text-gray-400">{visa.duration}</p>
                 </div>
               );
@@ -1797,12 +1797,12 @@ const CountryDetail = ({ navigate, countryName }) => {
       </div>
 
       {/* Country Quick Info & CTA */}
-      <div className="bg-[#0A1628] py-20">
+      <div className="bg-[#2D1B69] py-20">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-10">
               <h4 className="text-white font-bold text-xl mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
-                <Info className="h-6 w-6 text-[#D4A843]" />
+                <Info className="h-6 w-6 text-[#A29BFE]" />
                 Country Quick Facts
               </h4>
               <div className="space-y-6">
@@ -1826,15 +1826,15 @@ const CountryDetail = ({ navigate, countryName }) => {
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-10 flex flex-col justify-center">
               <h4 className="text-white font-bold text-xl mb-4 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
-                <MessageCircle className="h-6 w-6 text-[#D4A843]" />
+                <MessageCircle className="h-6 w-6 text-[#A29BFE]" />
                 Need Help?
               </h4>
               <p className="text-gray-400 text-sm font-light mb-8 leading-relaxed">Our visa specialists are ready to assist you with your {countryName} visa application. Book a free consultation today.</p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={() => navigate('/book')} className="bg-gradient-to-r from-[#D4A843] to-[#F1573D] text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:from-[#003B73] hover:to-[#177BBB] transition-all duration-300 flex items-center justify-center gap-2 rounded-xl">
+                <button onClick={() => navigate('/book')} className="bg-gradient-to-r from-[#A29BFE] to-[#FD79A8] text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:from-[#6C5CE7] hover:to-[#8B7FE8] transition-all duration-300 flex items-center justify-center gap-2 rounded-xl">
                   <Calendar className="h-4 w-4" /> Book Consultation
                 </button>
-                <button onClick={() => navigate('/contact')} className="border border-white/30 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#003B73] transition-all duration-300 flex items-center justify-center gap-2 rounded-xl">
+                <button onClick={() => navigate('/contact')} className="border border-white/30 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#6C5CE7] transition-all duration-300 flex items-center justify-center gap-2 rounded-xl">
                   <Phone className="h-4 w-4" /> Contact Us
                 </button>
               </div>
@@ -1950,25 +1950,25 @@ const Home = ({ navigate }) => {
       <div className="bg-white py-24 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Track Record</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Numbers That Speak</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Track Record</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Numbers That Speak</h2>
           </AnimatedSection>
           <AnimatedSection>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-0 text-center divide-x divide-y md:divide-y-0 divide-gray-200 border-y md:border border-gray-200">
-              <div className="p-12 hover:bg-gray-50 transition-colors"><div className="text-6xl font-black text-[#003B73] mb-4 tracking-tighter"><CounterAnimation end={15} suffix="+" /></div><div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">Years Experience</div></div>
-              <div className="p-12 hover:bg-gray-50 transition-colors"><div className="text-6xl font-black text-[#003B73] mb-4 tracking-tighter"><CounterAnimation end={50} suffix="k+" /></div><div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">Visas Processed</div></div>
-              <div className="p-12 hover:bg-gray-50 transition-colors"><div className="text-6xl font-black text-[#003B73] mb-4 tracking-tighter"><CounterAnimation end={120} suffix="+" /></div><div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">Corporate Partners</div></div>
-              <div className="p-12 hover:bg-gray-50 transition-colors"><div className="text-6xl font-black text-[#003B73] mb-4 tracking-tighter"><CounterAnimation end={25} /></div><div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">Global Offices</div></div>
+              <div className="p-12 hover:bg-gray-50 transition-colors"><div className="text-6xl font-black text-[#6C5CE7] mb-4 tracking-tighter"><CounterAnimation end={15} suffix="+" /></div><div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">Years Experience</div></div>
+              <div className="p-12 hover:bg-gray-50 transition-colors"><div className="text-6xl font-black text-[#6C5CE7] mb-4 tracking-tighter"><CounterAnimation end={50} suffix="k+" /></div><div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">Visas Processed</div></div>
+              <div className="p-12 hover:bg-gray-50 transition-colors"><div className="text-6xl font-black text-[#6C5CE7] mb-4 tracking-tighter"><CounterAnimation end={120} suffix="+" /></div><div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">Corporate Partners</div></div>
+              <div className="p-12 hover:bg-gray-50 transition-colors"><div className="text-6xl font-black text-[#6C5CE7] mb-4 tracking-tighter"><CounterAnimation end={25} /></div><div className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">Global Offices</div></div>
             </div>
           </AnimatedSection>
         </div>
       </div>
 
       {/* 4. Featured Countries Slider */}
-      <div className="bg-[#0A1628] py-24">
+      <div className="bg-[#2D1B69] py-24">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Featured Destinations</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Featured Destinations</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Top Countries</h2>
           </AnimatedSection>
           <div className="relative overflow-hidden rounded-3xl border border-white/10">
@@ -1976,7 +1976,7 @@ const Home = ({ navigate }) => {
               {featuredCountries.map((country, idx) => (
                 <div key={idx} className="w-full flex-shrink-0 h-[500px] relative">
                   <img src={country.image} alt={country.name} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2D1B69] via-transparent to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-12 text-white">
                     <h3 className="text-5xl font-black mb-4">{country.name}</h3>
                     <p className="text-lg text-gray-300 font-light max-w-lg">{country.desc}</p>
@@ -1986,14 +1986,14 @@ const Home = ({ navigate }) => {
                       } else {
                         navigate('/countries');
                       }
-                    }} className="mt-6 text-[#D4A843] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:text-white transition-colors">Explore Visas <ArrowRight className="h-4 w-4" /></button>
+                    }} className="mt-6 text-[#A29BFE] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:text-white transition-colors">Explore Visas <ArrowRight className="h-4 w-4" /></button>
                   </div>
                 </div>
               ))}
             </div>
             <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3">
               {featuredCountries.map((_, idx) => (
-                <button key={idx} onClick={() => setActiveFeat(idx)} className={`h-1 rounded-full transition-all duration-300 ${idx === activeFeat ? 'w-12 bg-[#D4A843]' : 'w-6 bg-white/30 hover:bg-white/60'}`} />
+                <button key={idx} onClick={() => setActiveFeat(idx)} className={`h-1 rounded-full transition-all duration-300 ${idx === activeFeat ? 'w-12 bg-[#A29BFE]' : 'w-6 bg-white/30 hover:bg-white/60'}`} />
               ))}
             </div>
           </div>
@@ -2005,21 +2005,21 @@ const Home = ({ navigate }) => {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>About Us</h4>
-              <h2 className="text-5xl font-black text-[#003B73] mb-8 tracking-tight leading-tight">Connecting Talent<br/>With Opportunity</h2>
+              <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>About Us</h4>
+              <h2 className="text-5xl font-black text-[#6C5CE7] mb-8 tracking-tight leading-tight">Connecting Talent<br/>With Opportunity</h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8 font-light">Founded in 2010, VisaHOBe Pte. Ltd. has established itself as a premier institutional manpower recruitment and visa agency. We bridge the gap between global talent and industry-leading organizations across 25+ countries.</p>
               <div className="flex flex-wrap gap-6 mb-8">
                 {['Integrity First', 'Global Reach', 'Expert Team', 'Fast Processing'].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-sm font-bold text-[#003B73]">
-                    <CheckCircle2 className="h-4 w-4 text-[#D4A843]" />{item}
+                  <div key={idx} className="flex items-center gap-2 text-sm font-bold text-[#6C5CE7]">
+                    <CheckCircle2 className="h-4 w-4 text-[#A29BFE]" />{item}
                   </div>
                 ))}
               </div>
-              <button onClick={() => navigate('/about')} className="bg-[#003B73] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors flex items-center gap-3">Learn More <ArrowRight className="h-4 w-4" /></button>
+              <button onClick={() => navigate('/about')} className="bg-[#6C5CE7] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors flex items-center gap-3">Learn More <ArrowRight className="h-4 w-4" /></button>
             </div>
             <div className="relative">
               <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" className="w-full h-[600px] object-cover rounded-3xl" alt="Team" />
-              <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-gradient-to-br from-[#D4A843]/20 to-[#F1573D]/20 border-4 border-[#D4A843] rounded-2xl"></div>
+              <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-gradient-to-br from-[#A29BFE]/20 to-[#FD79A8]/20 border-4 border-[#A29BFE] rounded-2xl"></div>
             </div>
           </AnimatedSection>
         </div>
@@ -2029,16 +2029,16 @@ const Home = ({ navigate }) => {
       <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What We Offer</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Services</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What We Offer</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Our Services</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, idx) => (
-              <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-[#003B73] hover:shadow-xl transition-all duration-500 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6 group-hover:from-[#D4A843] group-hover:to-[#F1573D] transition-all duration-300">
-                  <service.icon className="h-7 w-7 text-[#003B73] group-hover:text-white transition-colors duration-300" />
+              <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-[#6C5CE7] hover:shadow-xl transition-all duration-500 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#6C5CE7]/10 to-[#6C5CE7]/5 rounded-xl flex items-center justify-center mb-6 group-hover:from-[#A29BFE] group-hover:to-[#FD79A8] transition-all duration-300">
+                  <service.icon className="h-7 w-7 text-[#6C5CE7] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-[#003B73] mb-3">{service.title}</h3>
+                <h3 className="text-xl font-bold text-[#6C5CE7] mb-3">{service.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{service.desc}</p>
               </AnimatedSection>
             ))}
@@ -2050,18 +2050,18 @@ const Home = ({ navigate }) => {
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Solutions</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Visa Categories</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Visa Solutions</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Visa Categories</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {visaCategories.map((visa, idx) => (
-              <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-[#003B73] hover:shadow-xl transition-all duration-500 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6 group-hover:from-[#D4A843] group-hover:to-[#F1573D] transition-colors duration-300">
-                  <visa.icon className="h-7 w-7 text-[#003B73] group-hover:text-white transition-colors duration-300" />
+              <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-[#6C5CE7] hover:shadow-xl transition-all duration-500 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#6C5CE7]/10 to-[#6C5CE7]/5 rounded-xl flex items-center justify-center mb-6 group-hover:from-[#A29BFE] group-hover:to-[#FD79A8] transition-colors duration-300">
+                  <visa.icon className="h-7 w-7 text-[#6C5CE7] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-bold text-[#003B73] mb-3">{visa.title}</h3>
+                <h3 className="text-xl font-bold text-[#6C5CE7] mb-3">{visa.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4 font-light">{visa.desc}</p>
-                <p className="text-[#D4A843] text-xs font-bold uppercase tracking-widest">{visa.count}</p>
+                <p className="text-[#A29BFE] text-xs font-bold uppercase tracking-widest">{visa.count}</p>
               </AnimatedSection>
             ))}
           </div>
@@ -2072,15 +2072,15 @@ const Home = ({ navigate }) => {
       <div className="bg-gray-50 py-24">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Methodology</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">How We Work</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Methodology</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">How We Work</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {howWeWork.map((step, idx) => (
-              <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-10 rounded-2xl border border-gray-200 hover:border-[#003B73] transition-all duration-300 relative">
+              <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-10 rounded-2xl border border-gray-200 hover:border-[#6C5CE7] transition-all duration-300 relative">
                 <div className="absolute top-6 right-6 text-6xl font-black text-gray-100">0{idx + 1}</div>
-                <step.icon className="h-10 w-10 text-[#D4A843] mb-6" />
-                <h3 className="text-xl font-bold text-[#003B73] mb-4">{step.title}</h3>
+                <step.icon className="h-10 w-10 text-[#A29BFE] mb-6" />
+                <h3 className="text-xl font-bold text-[#6C5CE7] mb-4">{step.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed font-light">{step.desc}</p>
               </AnimatedSection>
             ))}
@@ -2093,14 +2093,14 @@ const Home = ({ navigate }) => {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Network</h4>
-              <h2 className="text-5xl font-black text-[#003B73] mb-8 tracking-tight">Global Talent Pool</h2>
+              <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Network</h4>
+              <h2 className="text-5xl font-black text-[#6C5CE7] mb-8 tracking-tight">Global Talent Pool</h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-10 font-light">Access to a vast network of pre-qualified professionals across multiple sectors, ready for international deployment.</p>
               <div className="grid grid-cols-2 gap-6">
                 {talentStats.map((stat, idx) => (
                   <div key={idx} className="p-6 border border-gray-200 rounded-xl">
-                    <stat.icon className="h-8 w-8 text-[#D4A843] mb-3" />
-                    <div className="text-2xl font-black text-[#003B73] mb-1">{stat.value}</div>
+                    <stat.icon className="h-8 w-8 text-[#A29BFE] mb-3" />
+                    <div className="text-2xl font-black text-[#6C5CE7] mb-1">{stat.value}</div>
                     <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
                   </div>
                 ))}
@@ -2108,34 +2108,34 @@ const Home = ({ navigate }) => {
             </div>
             <div className="relative">
               <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" className="w-full h-[600px] object-cover rounded-3xl" alt="Talent" />
-              <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-gradient-to-br from-[#D4A843]/20 to-[#F1573D]/20 border-4 border-[#D4A843] rounded-2xl"></div>
+              <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-gradient-to-br from-[#A29BFE]/20 to-[#FD79A8]/20 border-4 border-[#A29BFE] rounded-2xl"></div>
             </div>
           </AnimatedSection>
         </div>
       </div>
 
       {/* 10. Success Stories */}
-      <div className="bg-[#0A1628] py-24">
+      <div className="bg-[#2D1B69] py-24">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-20">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Impact</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Impact</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Success Stories</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="p-10 border border-white/10 rounded-2xl hover:border-[#D4A843]/50 transition-all">
-              <div className="text-6xl font-black text-[#D4A843] mb-4"><CounterAnimation end={50000} suffix="+" /></div>
+            <div className="p-10 border border-white/10 rounded-2xl hover:border-[#A29BFE]/50 transition-all">
+              <div className="text-6xl font-black text-[#A29BFE] mb-4"><CounterAnimation end={50000} suffix="+" /></div>
               <div className="text-xs text-gray-400 uppercase tracking-widest">Visas Issued</div>
             </div>
-            <div className="p-10 border border-white/10 rounded-2xl hover:border-[#D4A843]/50 transition-all">
-              <div className="text-6xl font-black text-[#D4A843] mb-4"><CounterAnimation end={15} suffix="+" /></div>
+            <div className="p-10 border border-white/10 rounded-2xl hover:border-[#A29BFE]/50 transition-all">
+              <div className="text-6xl font-black text-[#A29BFE] mb-4"><CounterAnimation end={15} suffix="+" /></div>
               <div className="text-xs text-gray-400 uppercase tracking-widest">Countries</div>
             </div>
-            <div className="p-10 border border-white/10 rounded-2xl hover:border-[#D4A843]/50 transition-all">
-              <div className="text-6xl font-black text-[#D4A843] mb-4"><CounterAnimation end={99} suffix="%" /></div>
+            <div className="p-10 border border-white/10 rounded-2xl hover:border-[#A29BFE]/50 transition-all">
+              <div className="text-6xl font-black text-[#A29BFE] mb-4"><CounterAnimation end={99} suffix="%" /></div>
               <div className="text-xs text-gray-400 uppercase tracking-widest">Approval Rate</div>
             </div>
-            <div className="p-10 border border-white/10 rounded-2xl hover:border-[#D4A843]/50 transition-all">
-              <div className="text-6xl font-black text-[#D4A843] mb-4"><CounterAnimation end={4} suffix="k+" /></div>
+            <div className="p-10 border border-white/10 rounded-2xl hover:border-[#A29BFE]/50 transition-all">
+              <div className="text-6xl font-black text-[#A29BFE] mb-4"><CounterAnimation end={4} suffix="k+" /></div>
               <div className="text-xs text-gray-400 uppercase tracking-widest">Happy Clients</div>
             </div>
           </div>
@@ -2146,11 +2146,11 @@ const Home = ({ navigate }) => {
       <TestimonialsCarousel />
 
       {/* 12. Live Dashboard Preview */}
-      <div className="py-24 bg-gradient-to-br from-[#003B73] to-[#177BBB] relative overflow-hidden">
+      <div className="py-24 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600')] bg-cover bg-center"></div>
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Real-Time Insights</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Real-Time Insights</h4>
             <h2 className="text-5xl font-black text-white tracking-tight mb-4">Live Dashboard Preview</h2>
             <p className="text-gray-300 font-light max-w-2xl mx-auto text-lg">Track your application status, view processing metrics, and access real-time updates through our secure client dashboard.</p>
           </AnimatedSection>
@@ -2171,15 +2171,15 @@ const Home = ({ navigate }) => {
                 { label: 'Avg Processing', value: '14 days', color: 'bg-purple-100' }
               ].map((stat, idx) => (
                 <div key={idx} className={`${stat.color} p-6 rounded-xl`}>
-                  <div className="text-3xl font-black text-[#003B73] mb-1">{stat.value}</div>
+                  <div className="text-3xl font-black text-[#6C5CE7] mb-1">{stat.value}</div>
                   <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
                 </div>
               ))}
             </div>
             <div className="p-8 border-t">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold text-[#003B73]">Recent Activity</h3>
-                <button onClick={() => navigate('/dashboard')} className="text-[#D4A843] text-xs font-bold uppercase tracking-widest flex items-center gap-2">View All <ArrowRight className="h-3 w-3" /></button>
+                <h3 className="text-lg font-bold text-[#6C5CE7]">Recent Activity</h3>
+                <button onClick={() => navigate('/dashboard')} className="text-[#A29BFE] text-xs font-bold uppercase tracking-widest flex items-center gap-2">View All <ArrowRight className="h-3 w-3" /></button>
               </div>
               <div className="space-y-4">
                 {[
@@ -2209,10 +2209,10 @@ const Home = ({ navigate }) => {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
-              <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Resources</h4>
-              <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Document Hub</h2>
+              <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Resources</h4>
+              <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Document Hub</h2>
             </div>
-            <button onClick={() => navigate('/documents')} className="border border-gray-300 text-[#003B73] px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#003B73] hover:text-white transition-colors flex items-center gap-3">View All <ArrowRight className="h-4 w-4" /></button>
+            <button onClick={() => navigate('/documents')} className="border border-gray-300 text-[#6C5CE7] px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#6C5CE7] hover:text-white transition-colors flex items-center gap-3">View All <ArrowRight className="h-4 w-4" /></button>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
@@ -2220,12 +2220,12 @@ const Home = ({ navigate }) => {
               { icon: FolderOpen, title: 'Required Documents Checklist', type: 'Checklist', size: '1.1 MB' },
               { icon: Shield, title: 'Compliance Handbook', type: 'Guide', size: '3.8 MB' }
             ].map((doc, idx) => (
-              <div key={idx} className="bg-gray-50 p-8 border border-gray-200 hover:border-[#003B73] transition-all duration-300 rounded-2xl group cursor-pointer">
+              <div key={idx} className="bg-gray-50 p-8 border border-gray-200 hover:border-[#6C5CE7] transition-all duration-300 rounded-2xl group cursor-pointer">
                 <div className="flex items-start justify-between mb-4">
-                  <doc.icon className="h-10 w-10 text-[#D4A843]" />
-                  <Download className="h-5 w-5 text-gray-400 group-hover:text-[#003B73] transition-colors" />
+                  <doc.icon className="h-10 w-10 text-[#A29BFE]" />
+                  <Download className="h-5 w-5 text-gray-400 group-hover:text-[#6C5CE7] transition-colors" />
                 </div>
-                <h3 className="text-lg font-bold text-[#003B73] mb-2">{doc.title}</h3>
+                <h3 className="text-lg font-bold text-[#6C5CE7] mb-2">{doc.title}</h3>
                 <div className="flex items-center gap-4 text-xs text-gray-500">
                   <span className="bg-gray-200 px-2 py-1 rounded">{doc.type}</span>
                   <span>{doc.size}</span>
@@ -2240,23 +2240,23 @@ const Home = ({ navigate }) => {
       <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Latest Updates</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">News & Insights</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Latest Updates</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">News & Insights</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {newsItems.map((post, i) => (
-              <div key={i} className="bg-white border border-gray-200 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:border-[#003B73] hover:shadow-xl">
-                <div className="h-48 overflow-hidden relative"><img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /><div className="absolute top-4 left-4"><span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 px-3 py-1 rounded-full">{post.category}</span></div></div>
+              <div key={i} className="bg-white border border-gray-200 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:border-[#6C5CE7] hover:shadow-xl">
+                <div className="h-48 overflow-hidden relative"><img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /><div className="absolute top-4 left-4"><span className="text-[#A29BFE] text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 px-3 py-1 rounded-full">{post.category}</span></div></div>
                 <div className="p-6">
-                  <div className="flex items-center gap-3 mb-3"><span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase">{post.date}</span><span className="text-gray-400 text-xs font-medium flex items-center gap-1"><Clock className="h-3 w-3"/>{post.readTime}</span></div>
-                  <h3 className="text-sm font-black text-[#003B73] leading-snug tracking-tight mb-4 group-hover:text-[#D4A843] transition-colors">{post.title}</h3>
-                  <div className="mt-4 h-px w-8 bg-[#003B73] group-hover:w-full transition-all duration-500"></div>
+                  <div className="flex items-center gap-3 mb-3"><span className="text-[#A29BFE] text-[10px] font-bold tracking-[0.2em] uppercase">{post.date}</span><span className="text-gray-400 text-xs font-medium flex items-center gap-1"><Clock className="h-3 w-3"/>{post.readTime}</span></div>
+                  <h3 className="text-sm font-black text-[#6C5CE7] leading-snug tracking-tight mb-4 group-hover:text-[#A29BFE] transition-colors">{post.title}</h3>
+                  <div className="mt-4 h-px w-8 bg-[#6C5CE7] group-hover:w-full transition-all duration-500"></div>
                 </div>
               </div>
             ))}
           </div>
           <div className="text-center mt-12">
-            <button onClick={() => navigate('/news')} className="bg-[#003B73] text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors flex items-center justify-center gap-3 mx-auto">View All Articles <ArrowRight className="h-4 w-4" /></button>
+            <button onClick={() => navigate('/news')} className="bg-[#6C5CE7] text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors flex items-center justify-center gap-3 mx-auto">View All Articles <ArrowRight className="h-4 w-4" /></button>
           </div>
         </div>
       </div>
@@ -2265,51 +2265,51 @@ const Home = ({ navigate }) => {
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Education</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Study Abroad</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Education</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Study Abroad</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {studyPrograms.map((prog, idx) => (
-              <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden hover:border-[#003B73] hover:shadow-xl transition-all duration-300 group cursor-pointer">
+              <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden hover:border-[#6C5CE7] hover:shadow-xl transition-all duration-300 group cursor-pointer">
                 <div className="h-48 overflow-hidden"><img src={prog.image} alt={prog.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /></div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[#D4A843] text-xs font-bold uppercase tracking-wider">{prog.university}</span>
+                    <span className="text-[#A29BFE] text-xs font-bold uppercase tracking-wider">{prog.university}</span>
                     <span className="text-gray-300">|</span>
                     <span className="text-gray-500 text-xs">{prog.country}</span>
                   </div>
-                  <h3 className="text-sm font-bold text-[#003B73] mb-3">{prog.title}</h3>
+                  <h3 className="text-sm font-bold text-[#6C5CE7] mb-3">{prog.title}</h3>
                   <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
                     <span className="flex items-center gap-1"><Clock className="h-3 w-3"/>{prog.duration}</span>
                     <span className="flex items-center gap-1"><DollarSign className="h-3 w-3"/>{prog.tuition}</span>
                   </div>
-                  <button onClick={() => navigate('/study')} className="w-full bg-gray-200 text-[#003B73] py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#003B73] hover:text-white transition-colors rounded-lg">Apply Now</button>
+                  <button onClick={() => navigate('/study')} className="w-full bg-gray-200 text-[#6C5CE7] py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#6C5CE7] hover:text-white transition-colors rounded-lg">Apply Now</button>
                 </div>
               </AnimatedSection>
             ))}
           </div>
           <div className="text-center mt-12">
-            <button onClick={() => navigate('/study')} className="border border-gray-300 text-[#003B73] px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#003B73] hover:text-white transition-colors flex items-center justify-center gap-3 mx-auto">Explore All Programs <ArrowRight className="h-4 w-4" /></button>
+            <button onClick={() => navigate('/study')} className="border border-gray-300 text-[#6C5CE7] px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#6C5CE7] hover:text-white transition-colors flex items-center justify-center gap-3 mx-auto">Explore All Programs <ArrowRight className="h-4 w-4" /></button>
           </div>
         </div>
       </div>
 
       {/* 16. Investment Programs Preview */}
-      <div className="py-24 bg-[#0A1628]">
+      <div className="py-24 bg-[#2D1B69]">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Wealth Management</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Wealth Management</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Investor Programs</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {investPrograms.map((prog, idx) => (
-              <AnimatedSection key={idx} delay={idx * 100} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#D4A843] hover:shadow-xl transition-all duration-300 group">
+              <AnimatedSection key={idx} delay={idx * 100} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#A29BFE] hover:shadow-xl transition-all duration-300 group">
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h3 className="text-lg font-bold text-white mb-2">{prog.title}</h3>
-                    <div className="text-[#D4A843] text-sm font-bold">{prog.investment}</div>
+                    <div className="text-[#A29BFE] text-sm font-bold">{prog.investment}</div>
                   </div>
-                  <Wallet className="h-8 w-8 text-gray-400 group-hover:text-[#D4A843] transition-colors" />
+                  <Wallet className="h-8 w-8 text-gray-400 group-hover:text-[#A29BFE] transition-colors" />
                 </div>
                 <div className="mb-6">
                   <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Key Benefits</h4>
@@ -2318,7 +2318,7 @@ const Home = ({ navigate }) => {
                 <div className="flex items-center justify-between text-xs text-gray-400 mb-4">
                   <span className="flex items-center gap-1"><Clock className="h-3 w-3"/>{prog.processing}</span>
                 </div>
-                <button onClick={() => navigate('/invest')} className="w-full border border-white/20 text-white py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#D4A843] hover:border-[#D4A843] transition-colors rounded-lg">Learn More</button>
+                <button onClick={() => navigate('/invest')} className="w-full border border-white/20 text-white py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#A29BFE] hover:border-[#A29BFE] transition-colors rounded-lg">Learn More</button>
               </AnimatedSection>
             ))}
           </div>
@@ -2329,28 +2329,28 @@ const Home = ({ navigate }) => {
       <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Career Opportunities</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Latest Jobs</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Career Opportunities</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Latest Jobs</h2>
           </AnimatedSection>
           <div className="space-y-4">
             {jobListings.map((job, i) => (
-              <div key={i} className="bg-white border border-gray-200 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center hover:border-[#003B73] transition-all duration-300 hover:shadow-lg rounded-xl">
+              <div key={i} className="bg-white border border-gray-200 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center hover:border-[#6C5CE7] transition-all duration-300 hover:shadow-lg rounded-xl">
                 <div className="mb-4 md:mb-0 w-full">
-                  <h3 className="text-lg font-bold text-[#003B73] mb-3 tracking-tight">{job.title}</h3>
+                  <h3 className="text-lg font-bold text-[#6C5CE7] mb-3 tracking-tight">{job.title}</h3>
                   <div className="flex flex-wrap gap-4 text-xs text-gray-500 font-bold uppercase tracking-widest">
-                    <span className="flex items-center gap-1"><Briefcase className="h-3 w-3 text-[#D4A843]"/>{job.dept}</span>
-                    <span className="flex items-center gap-1"><MapPin className="h-3 w-3 text-[#D4A843]"/>{job.loc}</span>
-                    <span className="text-[#003B73] border border-[#003B73] px-2 py-0.5 rounded">{job.type}</span>
-                    <span className="flex items-center gap-1"><DollarSign className="h-3 w-3 text-[#D4A843]"/>{job.salary}</span>
+                    <span className="flex items-center gap-1"><Briefcase className="h-3 w-3 text-[#A29BFE]"/>{job.dept}</span>
+                    <span className="flex items-center gap-1"><MapPin className="h-3 w-3 text-[#A29BFE]"/>{job.loc}</span>
+                    <span className="text-[#6C5CE7] border border-[#6C5CE7] px-2 py-0.5 rounded">{job.type}</span>
+                    <span className="flex items-center gap-1"><DollarSign className="h-3 w-3 text-[#A29BFE]"/>{job.salary}</span>
                     <span className="flex items-center gap-1"><Clock className="h-3 w-3 text-gray-400"/>{job.posted}</span>
                   </div>
                 </div>
-                <button onClick={() => navigate('/jobs')} className="w-full md:w-auto bg-[#003B73] text-white px-6 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors flex items-center justify-center gap-2 rounded-lg">Apply Now <ArrowRight className="h-3 w-3" /></button>
+                <button onClick={() => navigate('/jobs')} className="w-full md:w-auto bg-[#6C5CE7] text-white px-6 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors flex items-center justify-center gap-2 rounded-lg">Apply Now <ArrowRight className="h-3 w-3" /></button>
               </div>
             ))}
           </div>
           <div className="text-center mt-12">
-            <button onClick={() => navigate('/jobs')} className="bg-[#003B73] text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors flex items-center justify-center gap-3 mx-auto">View All Positions <ArrowRight className="h-4 w-4" /></button>
+            <button onClick={() => navigate('/jobs')} className="bg-[#6C5CE7] text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors flex items-center justify-center gap-3 mx-auto">View All Positions <ArrowRight className="h-4 w-4" /></button>
           </div>
         </div>
       </div>
@@ -2359,8 +2359,8 @@ const Home = ({ navigate }) => {
       <div className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Common Questions</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">FAQ</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Common Questions</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">FAQ</h2>
           </AnimatedSection>
           <AnimatedSection className="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-12">
             <FAQItem question="What industries do you specialize in?" answer="Technology, healthcare, construction, engineering, finance, and hospitality across 25+ countries." />
@@ -2373,36 +2373,36 @@ const Home = ({ navigate }) => {
       </div>
 
       {/* 19. Newsletter Signup */}
-      <div className="py-20 bg-gradient-to-r from-[#003B73] to-[#177BBB] relative overflow-hidden">
+      <div className="py-20 bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         </div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection>
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>Stay Informed</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>Stay Informed</h4>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight">Subscribe to Our Newsletter</h2>
             <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto font-light">Get the latest visa updates, immigration news, and exclusive opportunities delivered to your inbox.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-              <input type="email" placeholder="Enter your email address" className="flex-1 px-6 py-4 bg-white/10 border border-white/20 text-white placeholder-gray-400 outline-none focus:border-[#D4A843] transition-colors rounded-xl" />
-              <button className="bg-[#D4A843] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#003B73] transition-all duration-300 rounded-xl flex items-center justify-center gap-2">Subscribe <ArrowRight className="h-4 w-4" /></button>
+              <input type="email" placeholder="Enter your email address" className="flex-1 px-6 py-4 bg-white/10 border border-white/20 text-white placeholder-gray-400 outline-none focus:border-[#A29BFE] transition-colors rounded-xl" />
+              <button className="bg-[#A29BFE] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#6C5CE7] transition-all duration-300 rounded-xl flex items-center justify-center gap-2">Subscribe <ArrowRight className="h-4 w-4" /></button>
             </div>
           </AnimatedSection>
         </div>
       </div>
 
       {/* 20. Final CTA */}
-      <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-24 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         </div>
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection>
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>Start Your Journey</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>Start Your Journey</h4>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight">Ready to Expand Your Global Horizons?</h2>
             <p className="text-gray-300 text-lg mb-12 max-w-3xl mx-auto font-light">Connect with our specialists today and discover how VisaHOBe can streamline your international recruitment and visa processing needs.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate('/book')} className="bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#D4A843] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
-              <button onClick={() => navigate('/contact')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#003B73] transition-all duration-300 rounded-xl">Contact Us</button>
+              <button onClick={() => navigate('/book')} className="bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#A29BFE] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
+              <button onClick={() => navigate('/contact')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#6C5CE7] transition-all duration-300 rounded-xl">Contact Us</button>
             </div>
           </AnimatedSection>
         </div>
@@ -2456,18 +2456,18 @@ const Countries = ({ navigate }) => {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search countries, sectors, or keywords…"
             aria-label="Search countries"
-            className="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium outline-none focus:border-[#003B73] transition-colors"
+            className="w-full pl-11 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium outline-none focus:border-[#6C5CE7] transition-colors"
           />
         </div>
         <div className="flex flex-wrap gap-2 sm:gap-4 mb-12">
-          {regions.map(region => <button key={region.id} onClick={() => setActiveRegion(region.id)} className={`px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeRegion === region.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{region.label}</button>)}
+          {regions.map(region => <button key={region.id} onClick={() => setActiveRegion(region.id)} className={`px-4 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeRegion === region.id ? 'bg-[#6C5CE7] text-white' : 'bg-white text-gray-500 hover:text-[#6C5CE7] hover:bg-gray-50 border border-gray-200'}`}>{region.label}</button>)}
         </div>
         {filtered.length === 0 ? (
           <div className="bg-white border border-gray-200 rounded-2xl p-16 text-center">
             <Globe className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-black text-[#003B73] mb-2">No countries match your search</h3>
+            <h3 className="text-xl font-black text-[#6C5CE7] mb-2">No countries match your search</h3>
             <p className="text-sm text-gray-500 mb-6">Try a different keyword or clear the region filter.</p>
-            <button onClick={() => { setQuery(''); setActiveRegion('all'); }} className="bg-[#003B73] text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#D4A843] transition-colors">Reset filters</button>
+            <button onClick={() => { setQuery(''); setActiveRegion('all'); }} className="bg-[#6C5CE7] text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#A29BFE] transition-colors">Reset filters</button>
           </div>
         ) : (
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-gray-200 rounded-2xl overflow-hidden">
@@ -2481,13 +2481,13 @@ const Countries = ({ navigate }) => {
                 }
               }}>
               <img src={dest.image} alt={dest.name} className="absolute inset-0 w-full h-full object-cover grayscale opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent opacity-90"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2D1B69] via-transparent to-transparent opacity-90"></div>
               <div className="absolute bottom-0 left-0 w-full p-5 sm:p-10 text-white flex flex-col justify-end">
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">{dest.sectors.map((sector, sIdx) => <span key={sIdx} className="text-[10px] sm:text-xs bg-white/20 px-2 sm:px-3 py-1 rounded-full font-medium">{sector}</span>)}</div>
                 <p className="hidden sm:block text-sm text-gray-300 font-light leading-relaxed mb-4 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">{dest.desc}</p>
                 <div className="flex items-center justify-between gap-2">
                   <h3 className="text-xl sm:text-3xl font-bold tracking-tight">{dest.name}</h3>
-                  <button className="bg-[#D4A843] text-white px-3 sm:px-6 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#003B73] transition-all duration-300 rounded-lg">Explore</button>
+                  <button className="bg-[#A29BFE] text-white px-3 sm:px-6 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#6C5CE7] transition-all duration-300 rounded-lg">Explore</button>
                 </div>
               </div>
             </div>
@@ -2500,8 +2500,8 @@ const Countries = ({ navigate }) => {
       <div className="bg-gray-50 py-24 mt-32">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Performance</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Regional Placements</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Performance</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Regional Placements</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -2509,7 +2509,7 @@ const Countries = ({ navigate }) => {
               { region: 'Middle East', placements: '12,200+', growth: '+8%' },
               { region: 'Europe', placements: '9,800+', growth: '+15%' },
               { region: 'Americas', placements: '7,500+', growth: '+10%' }
-            ].map((stat, idx) => <div key={idx} className="bg-white p-8 border border-gray-200 hover:border-[#003B73] transition-all duration-300 rounded-2xl"><h3 className="text-lg font-bold text-[#003B73] mb-4">{stat.region}</h3><div className="text-4xl font-black text-[#003B73] mb-2">{stat.placements}</div><div className="flex items-center gap-2 text-[#D4A843] font-bold text-sm"><TrendingUp className="h-4 w-4" />{stat.growth} YoY Growth</div></div>)}
+            ].map((stat, idx) => <div key={idx} className="bg-white p-8 border border-gray-200 hover:border-[#6C5CE7] transition-all duration-300 rounded-2xl"><h3 className="text-lg font-bold text-[#6C5CE7] mb-4">{stat.region}</h3><div className="text-4xl font-black text-[#6C5CE7] mb-2">{stat.placements}</div><div className="flex items-center gap-2 text-[#A29BFE] font-bold text-sm"><TrendingUp className="h-4 w-4" />{stat.growth} YoY Growth</div></div>)}
           </div>
         </div>
       </div>
@@ -2518,8 +2518,8 @@ const Countries = ({ navigate }) => {
       <div className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Requirements</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Visa Categories</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Requirements</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Visa Categories</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
@@ -2530,9 +2530,9 @@ const Countries = ({ navigate }) => {
               { icon: Landmark, title: 'Investor Visas', desc: 'Business investment, entrepreneur, and high-net-worth individual programs.' },
               { icon: UsersRound, title: 'Family Visas', desc: 'Spouse, dependent, and family reunification visas with full support.' }
             ].map((item, idx) => (
-              <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 p-8 border border-gray-200 hover:border-[#003B73] transition-all duration-300 rounded-2xl group">
-                <item.icon className="h-10 w-10 text-[#D4A843] mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-bold text-[#003B73] mb-3">{item.title}</h3>
+              <AnimatedSection key={idx} delay={idx * 100} className="bg-gray-50 p-8 border border-gray-200 hover:border-[#6C5CE7] transition-all duration-300 rounded-2xl group">
+                <item.icon className="h-10 w-10 text-[#A29BFE] mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-bold text-[#6C5CE7] mb-3">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </AnimatedSection>
             ))}
@@ -2541,10 +2541,10 @@ const Countries = ({ navigate }) => {
       </div>
 
       {/* 5. Why Choose Us */}
-      <div className="py-24 bg-[#0A1628]">
+      <div className="py-24 bg-[#2D1B69]">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Advantages</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Advantages</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Why Choose Us</h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -2554,8 +2554,8 @@ const Countries = ({ navigate }) => {
               { icon: Users, title: 'Expert Team', desc: 'Our team of immigration specialists has decades of combined experience in global mobility.' },
               { icon: Globe, title: 'Global Network', desc: 'Offices in 25+ countries provide localized support and deep understanding of regional requirements.' }
             ].map((item, idx) => (
-              <AnimatedSection key={idx} delay={idx * 100} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#D4A843]/50 transition-all">
-                <item.icon className="h-10 w-10 text-[#D4A843] mb-4" />
+              <AnimatedSection key={idx} delay={idx * 100} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#A29BFE]/50 transition-all">
+                <item.icon className="h-10 w-10 text-[#A29BFE] mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
               </AnimatedSection>
@@ -2565,14 +2565,14 @@ const Countries = ({ navigate }) => {
       </div>
 
       {/* 6. CTA */}
-      <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Ready to Explore Your Options?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Book a free consultation with our visa specialists today.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => navigate('/book')} className="bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#D4A843] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
-            <button onClick={() => navigate('/contact')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#003B73] transition-all duration-300 rounded-xl">Contact Us</button>
+            <button onClick={() => navigate('/book')} className="bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#A29BFE] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
+            <button onClick={() => navigate('/contact')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#6C5CE7] transition-all duration-300 rounded-xl">Contact Us</button>
           </div>
         </div>
       </div>
@@ -2606,28 +2606,28 @@ const Jobs = ({ navigate }) => {
       {/* 2. Job Listings */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-          <h2 className="text-3xl font-black text-[#003B73]" style={{ fontFamily: 'Playfair Display, serif' }}>Available Positions</h2>
+          <h2 className="text-3xl font-black text-[#6C5CE7]" style={{ fontFamily: 'Playfair Display, serif' }}>Available Positions</h2>
           <div className="flex flex-wrap gap-3">
-            {departments.map(dept => <button key={dept} onClick={() => setFilter(dept)} className={`px-4 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${filter === dept ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-100 border border-gray-200'}`}>{dept === 'all' ? 'All' : dept}</button>)}
+            {departments.map(dept => <button key={dept} onClick={() => setFilter(dept)} className={`px-4 py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${filter === dept ? 'bg-[#6C5CE7] text-white' : 'bg-white text-gray-500 hover:text-[#6C5CE7] hover:bg-gray-100 border border-gray-200'}`}>{dept === 'all' ? 'All' : dept}</button>)}
           </div>
         </div>
         <div className="space-y-4">
           {filteredJobs.map((job, i) => (
-            <div key={i} className="bg-white border border-gray-200 p-8 flex flex-col md:flex-row justify-between items-start md:items-center hover:border-[#003B73] transition-all duration-300 hover:shadow-lg rounded-xl">
+            <div key={i} className="bg-white border border-gray-200 p-8 flex flex-col md:flex-row justify-between items-start md:items-center hover:border-[#6C5CE7] transition-all duration-300 hover:shadow-lg rounded-xl">
               <div className="mb-6 md:mb-0 w-full">
                 <div className="flex items-center gap-3 mb-4">
-                  <job.icon className="h-8 w-8 text-[#D4A843]" />
-                  <h3 className="text-xl font-bold text-[#003B73] tracking-tight">{job.title}</h3>
+                  <job.icon className="h-8 w-8 text-[#A29BFE]" />
+                  <h3 className="text-xl font-bold text-[#6C5CE7] tracking-tight">{job.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-4 text-xs text-gray-500 font-bold uppercase tracking-widest">
-                  <span className="flex items-center gap-1"><Briefcase className="h-3 w-3 text-[#D4A843]"/>{job.dept}</span>
-                  <span className="flex items-center gap-1"><MapPin className="h-3 w-3 text-[#D4A843]"/>{job.loc}</span>
-                  <span className="text-[#003B73] border border-[#003B73] px-2 py-0.5 rounded">{job.type}</span>
-                  <span className="flex items-center gap-1"><DollarSign className="h-3 w-3 text-[#D4A843]"/>{job.salary}</span>
+                  <span className="flex items-center gap-1"><Briefcase className="h-3 w-3 text-[#A29BFE]"/>{job.dept}</span>
+                  <span className="flex items-center gap-1"><MapPin className="h-3 w-3 text-[#A29BFE]"/>{job.loc}</span>
+                  <span className="text-[#6C5CE7] border border-[#6C5CE7] px-2 py-0.5 rounded">{job.type}</span>
+                  <span className="flex items-center gap-1"><DollarSign className="h-3 w-3 text-[#A29BFE]"/>{job.salary}</span>
                   <span className="flex items-center gap-1"><Clock className="h-3 w-3 text-gray-400"/>{job.posted}</span>
                 </div>
               </div>
-              <button onClick={() => navigate('/book')} className="w-full md:w-auto bg-[#003B73] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors flex items-center justify-center gap-2 rounded-lg">Apply Now <ArrowRight className="h-4 w-4" /></button>
+              <button onClick={() => navigate('/book')} className="w-full md:w-auto bg-[#6C5CE7] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors flex items-center justify-center gap-2 rounded-lg">Apply Now <ArrowRight className="h-4 w-4" /></button>
             </div>
           ))}
         </div>
@@ -2644,7 +2644,7 @@ const Jobs = ({ navigate }) => {
               { label: 'Placements/Month', value: '50+' }
             ].map((stat, idx) => (
               <div key={idx} className="p-6">
-                <div className="text-4xl font-black text-[#003B73] mb-2">{stat.value}</div>
+                <div className="text-4xl font-black text-[#6C5CE7] mb-2">{stat.value}</div>
                 <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
@@ -2656,8 +2656,8 @@ const Jobs = ({ navigate }) => {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Process</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">How to Apply</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Process</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">How to Apply</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -2667,10 +2667,10 @@ const Jobs = ({ navigate }) => {
               { step: '04', title: 'Placement', desc: 'Successful placement with visa processing and relocation support.' }
             ].map((item, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <span className="text-3xl font-black text-white">{item.step}</span>
                 </div>
-                <h3 className="text-lg font-bold text-[#003B73] mb-3">{item.title}</h3>
+                <h3 className="text-lg font-bold text-[#6C5CE7] mb-3">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </AnimatedSection>
             ))}
@@ -2679,12 +2679,12 @@ const Jobs = ({ navigate }) => {
       </div>
 
       {/* 5. Testimonials */}
-      <div className="py-20 bg-[#0A1628]">
+      <div className="py-20 bg-[#2D1B69]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <Quote className="h-12 w-12 text-[#D4A843] mx-auto mb-8 opacity-30" />
+          <Quote className="h-12 w-12 text-[#A29BFE] mx-auto mb-8 opacity-30" />
           <h3 className="text-2xl md:text-3xl font-black text-white mb-8 leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>"VisaHOBe found me the perfect engineering role in Australia within 3 weeks. The entire process was seamless."</h3>
           <div className="flex items-center justify-center gap-4">
-            <div className="w-14 h-14 bg-[#D4A843] rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 bg-[#A29BFE] rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xl">MK</span>
             </div>
             <div className="text-left">
@@ -2696,14 +2696,14 @@ const Jobs = ({ navigate }) => {
       </div>
 
       {/* 6. CTA */}
-      <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Can't Find Your Role?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Submit your CV and let us find the perfect opportunity for you.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => navigate('/contact')} className="bg-[#D4A843] text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#003B73] transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">Submit Your CV <ArrowRight className="h-4 w-4" /></button>
-            <button onClick={() => navigate('/book')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#003B73] transition-all duration-300 rounded-xl">Book Consultation</button>
+            <button onClick={() => navigate('/contact')} className="bg-[#A29BFE] text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#6C5CE7] transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">Submit Your CV <ArrowRight className="h-4 w-4" /></button>
+            <button onClick={() => navigate('/book')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#6C5CE7] transition-all duration-300 rounded-xl">Book Consultation</button>
           </div>
         </div>
       </div>
@@ -2752,16 +2752,16 @@ const Documents = () => {
       {/* 2. Tabs & Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">
-          {tabs.map(tab => <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === tab.id ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{tab.label}</button>)}
+          {tabs.map(tab => <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === tab.id ? 'bg-[#6C5CE7] text-white' : 'bg-white text-gray-500 hover:text-[#6C5CE7] hover:bg-gray-50 border border-gray-200'}`}>{tab.label}</button>)}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {docs[activeTab].map((doc, idx) => (
-            <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-8 border border-gray-200 hover:border-[#003B73] transition-all duration-300 hover:shadow-lg group cursor-pointer rounded-2xl">
+            <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-8 border border-gray-200 hover:border-[#6C5CE7] transition-all duration-300 hover:shadow-lg group cursor-pointer rounded-2xl">
               <div className="flex items-start justify-between mb-4">
-                <doc.icon className="h-10 w-10 text-[#D4A843]" />
-                <Download className="h-5 w-5 text-gray-400 group-hover:text-[#003B73] transition-colors" />
+                <doc.icon className="h-10 w-10 text-[#A29BFE]" />
+                <Download className="h-5 w-5 text-gray-400 group-hover:text-[#6C5CE7] transition-colors" />
               </div>
-              <h3 className="text-lg font-bold text-[#003B73] mb-2">{doc.title}</h3>
+              <h3 className="text-lg font-bold text-[#6C5CE7] mb-2">{doc.title}</h3>
               <div className="flex items-center gap-4 text-xs text-gray-500">
                 <span className="bg-gray-200 px-2 py-1 rounded">{doc.type}</span>
                 <span>{doc.size || doc.items}</span>
@@ -2774,12 +2774,12 @@ const Documents = () => {
       {/* 3. Upload Section */}
       <div className="bg-gray-50 py-20 mt-20">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <Upload className="h-16 w-16 text-[#D4A843] mx-auto mb-6" />
-          <h3 className="text-3xl font-black text-[#003B73] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Upload Your Documents</h3>
+          <Upload className="h-16 w-16 text-[#A29BFE] mx-auto mb-6" />
+          <h3 className="text-3xl font-black text-[#6C5CE7] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Upload Your Documents</h3>
           <p className="text-gray-500 font-light mb-8">Securely upload your documents for review by our visa specialists.</p>
-          <div className="border-2 border-dashed border-gray-300 rounded-2xl p-12 hover:border-[#003B73] transition-colors cursor-pointer">
+          <div className="border-2 border-dashed border-gray-300 rounded-2xl p-12 hover:border-[#6C5CE7] transition-colors cursor-pointer">
             <p className="text-gray-400 mb-4">Drag and drop files here, or click to browse</p>
-            <button className="bg-[#003B73] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors rounded-lg">Select Files</button>
+            <button className="bg-[#6C5CE7] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors rounded-lg">Select Files</button>
           </div>
         </div>
       </div>
@@ -2788,8 +2788,8 @@ const Documents = () => {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Downloads</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Most Downloaded</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Downloads</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Most Downloaded</h2>
           </AnimatedSection>
           <div className="space-y-4">
             {[
@@ -2798,15 +2798,15 @@ const Documents = () => {
               { title: 'CV/Resume Template', downloads: '6,800+', type: 'DOCX' },
               { title: 'Interview Preparation Guide', downloads: '5,400+', type: 'PDF' }
             ].map((doc, idx) => (
-              <div key={idx} className="flex items-center justify-between p-6 bg-gray-50 border border-gray-200 rounded-xl hover:border-[#003B73] transition-colors">
+              <div key={idx} className="flex items-center justify-between p-6 bg-gray-50 border border-gray-200 rounded-xl hover:border-[#6C5CE7] transition-colors">
                 <div className="flex items-center gap-4">
-                  <FileText className="h-8 w-8 text-[#D4A843]" />
+                  <FileText className="h-8 w-8 text-[#A29BFE]" />
                   <div>
-                    <h4 className="font-bold text-[#003B73]">{doc.title}</h4>
+                    <h4 className="font-bold text-[#6C5CE7]">{doc.title}</h4>
                     <p className="text-xs text-gray-400">{doc.downloads} downloads • {doc.type}</p>
                   </div>
                 </div>
-                <button className="text-[#003B73] text-xs font-bold uppercase tracking-widest hover:text-[#D4A843] transition-colors flex items-center gap-2">Download <Download className="h-3 w-3" /></button>
+                <button className="text-[#6C5CE7] text-xs font-bold uppercase tracking-widest hover:text-[#A29BFE] transition-colors flex items-center gap-2">Download <Download className="h-3 w-3" /></button>
               </div>
             ))}
           </div>
@@ -2814,10 +2814,10 @@ const Documents = () => {
       </div>
 
       {/* 5. Tips */}
-      <div className="py-20 bg-[#0A1628]">
+      <div className="py-20 bg-[#2D1B69]">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Guidance</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Guidance</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Document Tips</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
@@ -2826,8 +2826,8 @@ const Documents = () => {
               { icon: Clock4, title: 'Validity Period', desc: 'Check expiration dates - most documents must be valid for 6+ months.' },
               { icon: ShieldCheck, title: 'Attestation', desc: 'Some countries require notarized or apostilled documents.' }
             ].map((tip, idx) => (
-              <AnimatedSection key={idx} delay={idx * 100} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#D4A843]/50 transition-all">
-                <tip.icon className="h-10 w-10 text-[#D4A843] mb-4" />
+              <AnimatedSection key={idx} delay={idx * 100} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#A29BFE]/50 transition-all">
+                <tip.icon className="h-10 w-10 text-[#A29BFE] mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">{tip.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{tip.desc}</p>
               </AnimatedSection>
@@ -2837,12 +2837,12 @@ const Documents = () => {
       </div>
 
       {/* 6. CTA */}
-      <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Need Help With Documents?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Our specialists can review and prepare all your documents.</p>
-          <button onClick={() => navigate('/book')} className="bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#D4A843] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Book Document Review <ArrowRight className="h-4 w-4" /></button>
+          <button onClick={() => navigate('/book')} className="bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#A29BFE] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Book Document Review <ArrowRight className="h-4 w-4" /></button>
         </div>
       </div>
     </div>
@@ -2872,7 +2872,7 @@ const Profile = () => {
   return (
     <div className="animate-in fade-in duration-500 pb-20 bg-gray-50 min-h-screen">
       {/* 1. Profile Header */}
-      <div className="bg-[#003B73] pt-32 pb-16">
+      <div className="bg-[#6C5CE7] pt-32 pb-16">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="flex items-center gap-6">
             <img src={user.avatar} alt={user.name} className="w-24 h-24 rounded-full border-4 border-white/20" />
@@ -2889,18 +2889,18 @@ const Profile = () => {
       <div className="max-w-5xl mx-auto px-6 lg:px-8 -mt-8">
         <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xl">
           <div className="flex border-b border-gray-200">
-            {tabs.map(tab => <button key={tab} onClick={() => setActiveTab(tab)} className={`flex-1 py-4 text-xs font-bold uppercase tracking-widest transition-all ${activeTab === tab ? 'bg-[#003B73] text-white' : 'text-gray-500 hover:text-[#003B73]'}`}>{tab}</button>)}
+            {tabs.map(tab => <button key={tab} onClick={() => setActiveTab(tab)} className={`flex-1 py-4 text-xs font-bold uppercase tracking-widest transition-all ${activeTab === tab ? 'bg-[#6C5CE7] text-white' : 'text-gray-500 hover:text-[#6C5CE7]'}`}>{tab}</button>)}
           </div>
           <div className="p-8">
             {activeTab === 'overview' && (
               <div className="space-y-8">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                  <div className="bg-blue-50 p-6 rounded-xl"><div className="text-3xl font-black text-[#003B73] mb-1">3</div><div className="text-xs text-gray-500 uppercase tracking-wider">Active Applications</div></div>
+                  <div className="bg-blue-50 p-6 rounded-xl"><div className="text-3xl font-black text-[#6C5CE7] mb-1">3</div><div className="text-xs text-gray-500 uppercase tracking-wider">Active Applications</div></div>
                   <div className="bg-green-50 p-6 rounded-xl"><div className="text-3xl font-black text-green-600 mb-1">1</div><div className="text-xs text-gray-500 uppercase tracking-wider">Approved</div></div>
                   <div className="bg-yellow-50 p-6 rounded-xl"><div className="text-3xl font-black text-yellow-600 mb-1">2</div><div className="text-xs text-gray-500 uppercase tracking-wider">Pending</div></div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#003B73] mb-4">Recent Applications</h3>
+                  <h3 className="text-lg font-bold text-[#6C5CE7] mb-4">Recent Applications</h3>
                   <div className="space-y-4">
                     {user.applications.map((app, idx) => (
                       <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
@@ -2920,7 +2920,7 @@ const Profile = () => {
                 {user.applications.map((app, idx) => (
                   <div key={idx} className="p-6 border border-gray-200 rounded-lg">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-bold text-[#003B73]">{app.title}</h4>
+                      <h4 className="font-bold text-[#6C5CE7]">{app.title}</h4>
                       <span className={`text-xs font-bold uppercase px-3 py-1 rounded ${app.status === 'Approved' ? 'bg-green-100 text-green-700' : app.status === 'In Review' ? 'bg-yellow-100 text-yellow-700' : 'bg-blue-100 text-blue-700'}`}>{app.status}</span>
                     </div>
                     <p className="text-sm text-gray-500">{app.date}</p>
@@ -2933,10 +2933,10 @@ const Profile = () => {
                 {['Passport Copy', 'Academic Certificates', 'Employment Letters', 'Medical Reports'].map((doc, idx) => (
                   <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <div className="flex items-center gap-3">
-                      <FileText className="h-5 w-5 text-[#D4A843]" />
+                      <FileText className="h-5 w-5 text-[#A29BFE]" />
                       <span className="font-medium text-gray-700">{doc}</span>
                     </div>
-                    <button className="text-[#003B73] text-xs font-bold uppercase tracking-widest hover:text-[#D4A843] transition-colors">Upload</button>
+                    <button className="text-[#6C5CE7] text-xs font-bold uppercase tracking-widest hover:text-[#A29BFE] transition-colors">Upload</button>
                   </div>
                 ))}
               </div>
@@ -2945,17 +2945,17 @@ const Profile = () => {
               <div className="space-y-6">
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Full Name</label>
-                  <input type="text" defaultValue={user.name} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" />
+                  <input type="text" defaultValue={user.name} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#6C5CE7] transition-colors font-medium text-sm rounded-lg" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Email</label>
-                  <input type="email" defaultValue={user.email} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" />
+                  <input type="email" defaultValue={user.email} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#6C5CE7] transition-colors font-medium text-sm rounded-lg" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Phone</label>
-                  <input type="tel" defaultValue={user.phone} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#003B73] transition-colors font-medium text-sm rounded-lg" />
+                  <input type="tel" defaultValue={user.phone} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 outline-none focus:border-[#6C5CE7] transition-colors font-medium text-sm rounded-lg" />
                 </div>
-                <button className="w-full bg-[#003B73] text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors rounded-lg">Save Changes</button>
+                <button className="w-full bg-[#6C5CE7] text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors rounded-lg">Save Changes</button>
               </div>
             )}
           </div>
@@ -2970,9 +2970,9 @@ const Profile = () => {
             { icon: FileText, title: 'Upload Documents', desc: 'Submit required documents securely.' },
             { icon: MessageCircle, title: 'Contact Support', desc: 'Get help with your applications.' }
           ].map((action, idx) => (
-            <div key={idx} className="bg-white p-6 border border-gray-200 rounded-xl hover:border-[#003B73] transition-colors cursor-pointer">
-              <action.icon className="h-8 w-8 text-[#D4A843] mb-4" />
-              <h4 className="font-bold text-[#003B73] mb-2">{action.title}</h4>
+            <div key={idx} className="bg-white p-6 border border-gray-200 rounded-xl hover:border-[#6C5CE7] transition-colors cursor-pointer">
+              <action.icon className="h-8 w-8 text-[#A29BFE] mb-4" />
+              <h4 className="font-bold text-[#6C5CE7] mb-2">{action.title}</h4>
               <p className="text-xs text-gray-500">{action.desc}</p>
             </div>
           ))}
@@ -2982,7 +2982,7 @@ const Profile = () => {
       {/* 4. Activity Feed */}
       <div className="max-w-5xl mx-auto px-6 lg:px-8 mt-8">
         <div className="bg-white p-8 border border-gray-200 rounded-2xl">
-          <h3 className="text-lg font-bold text-[#003B73] mb-6">Recent Activity</h3>
+          <h3 className="text-lg font-bold text-[#6C5CE7] mb-6">Recent Activity</h3>
           <div className="space-y-4">
             {[
               { action: 'Application Submitted', detail: 'Work Permit - Singapore', time: '2 days ago' },
@@ -2990,7 +2990,7 @@ const Profile = () => {
               { action: 'Profile Updated', detail: 'Phone number changed', time: '1 week ago' }
             ].map((item, idx) => (
               <div key={idx} className="flex items-center gap-4 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-                <div className="w-2 h-2 rounded-full bg-[#003B73]"></div>
+                <div className="w-2 h-2 rounded-full bg-[#6C5CE7]"></div>
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-800">{item.action}</p>
                   <p className="text-xs text-gray-400">{item.detail}</p>
@@ -3005,7 +3005,7 @@ const Profile = () => {
       {/* 5. Notifications */}
       <div className="max-w-5xl mx-auto px-6 lg:px-8 mt-8">
         <div className="bg-white p-8 border border-gray-200 rounded-2xl">
-          <h3 className="text-lg font-bold text-[#003B73] mb-6">Notifications</h3>
+          <h3 className="text-lg font-bold text-[#6C5CE7] mb-6">Notifications</h3>
           <div className="space-y-4">
             {[
               { msg: 'Your Work Permit application has been approved!', type: 'success' },
@@ -3023,21 +3023,21 @@ const Profile = () => {
       {/* 6. Account Security */}
       <div className="max-w-5xl mx-auto px-6 lg:px-8 mt-8">
         <div className="bg-white p-8 border border-gray-200 rounded-2xl">
-          <h3 className="text-lg font-bold text-[#003B73] mb-6">Account Security</h3>
+          <h3 className="text-lg font-bold text-[#6C5CE7] mb-6">Account Security</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
               <div className="flex items-center gap-3">
-                <Lock className="h-5 w-5 text-[#D4A843]" />
+                <Lock className="h-5 w-5 text-[#A29BFE]" />
                 <span className="text-sm font-medium text-gray-700">Two-Factor Authentication</span>
               </div>
-              <button className="text-xs font-bold text-[#003B73] uppercase">Enable</button>
+              <button className="text-xs font-bold text-[#6C5CE7] uppercase">Enable</button>
             </div>
             <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
               <div className="flex items-center gap-3">
-                <Key className="h-5 w-5 text-[#D4A843]" />
+                <Key className="h-5 w-5 text-[#A29BFE]" />
                 <span className="text-sm font-medium text-gray-700">Change Password</span>
               </div>
-              <button className="text-xs font-bold text-[#003B73] uppercase">Update</button>
+              <button className="text-xs font-bold text-[#6C5CE7] uppercase">Update</button>
             </div>
           </div>
         </div>
@@ -3069,32 +3069,32 @@ const News = () => {
 
       {/* 2. Featured Article & Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
-        <div className="flex flex-wrap gap-4 mb-12">{categories.map(cat => <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeCategory === cat ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{cat}</button>)}</div>
+        <div className="flex flex-wrap gap-4 mb-12">{categories.map(cat => <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeCategory === cat ? 'bg-[#6C5CE7] text-white' : 'bg-white text-gray-500 hover:text-[#6C5CE7] hover:bg-gray-50 border border-gray-200'}`}>{cat}</button>)}</div>
         {filtered.length > 0 && (
           <div className="mb-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-gray-200 rounded-2xl overflow-hidden">
               <div className="h-[400px] lg:h-auto"><img src={filtered[0].img} alt={filtered[0].title} className="w-full h-full object-cover" /></div>
               <div className="p-12 flex flex-col justify-center bg-white">
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase bg-[#D4A843]/10 px-3 py-1 rounded-full">{filtered[0].category}</span>
+                  <span className="text-[#A29BFE] text-[10px] font-bold tracking-[0.2em] uppercase bg-[#A29BFE]/10 px-3 py-1 rounded-full">{filtered[0].category}</span>
                   <span className="text-gray-400 text-xs font-medium">{filtered[0].date}</span>
                   <span className="text-gray-400 text-xs font-medium flex items-center gap-1"><Clock className="h-3 w-3"/>{filtered[0].readTime} read</span>
                 </div>
-                <h3 className="text-3xl font-black text-[#003B73] leading-snug tracking-tight mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>{filtered[0].title}</h3>
+                <h3 className="text-3xl font-black text-[#6C5CE7] leading-snug tracking-tight mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>{filtered[0].title}</h3>
                 <p className="text-gray-500 leading-relaxed mb-8">Stay informed with the latest regulatory changes, industry trends, and strategic insights.</p>
-                <button className="text-[#003B73] font-bold text-xs uppercase tracking-widest flex items-center gap-3 hover:text-[#D4A843] transition-colors">Read Article <ArrowRight className="h-4 w-4" /></button>
+                <button className="text-[#6C5CE7] font-bold text-xs uppercase tracking-widest flex items-center gap-3 hover:text-[#A29BFE] transition-colors">Read Article <ArrowRight className="h-4 w-4" /></button>
               </div>
             </div>
           </div>
         )}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.slice(1).map((post, i) => (
-            <div key={i} className="bg-white border border-gray-200 cursor-pointer group transition-all duration-300 hover:border-[#003B73] hover:shadow-xl rounded-2xl overflow-hidden">
-              <div className="h-56 overflow-hidden relative"><img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /><div className="absolute top-4 left-4"><span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 px-3 py-1 rounded-full">{post.category}</span></div></div>
+            <div key={i} className="bg-white border border-gray-200 cursor-pointer group transition-all duration-300 hover:border-[#6C5CE7] hover:shadow-xl rounded-2xl overflow-hidden">
+              <div className="h-56 overflow-hidden relative"><img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /><div className="absolute top-4 left-4"><span className="text-[#A29BFE] text-[10px] font-bold tracking-[0.2em] uppercase bg-white/90 px-3 py-1 rounded-full">{post.category}</span></div></div>
               <div className="p-8">
-                <div className="flex items-center gap-4 mb-4"><span className="text-[#D4A843] text-[10px] font-bold tracking-[0.2em] uppercase">{post.date}</span><span className="text-gray-400 text-xs font-medium flex items-center gap-1"><Clock className="h-3 w-3"/>{post.readTime}</span></div>
-                <h3 className="text-xl font-black text-[#003B73] leading-snug tracking-tight mb-4 group-hover:text-[#D4A843] transition-colors">{post.title}</h3>
-                <div className="mt-6 h-px w-12 bg-[#003B73] group-hover:w-full transition-all duration-500"></div>
+                <div className="flex items-center gap-4 mb-4"><span className="text-[#A29BFE] text-[10px] font-bold tracking-[0.2em] uppercase">{post.date}</span><span className="text-gray-400 text-xs font-medium flex items-center gap-1"><Clock className="h-3 w-3"/>{post.readTime}</span></div>
+                <h3 className="text-xl font-black text-[#6C5CE7] leading-snug tracking-tight mb-4 group-hover:text-[#A29BFE] transition-colors">{post.title}</h3>
+                <div className="mt-6 h-px w-12 bg-[#6C5CE7] group-hover:w-full transition-all duration-500"></div>
               </div>
             </div>
           ))}
@@ -3104,12 +3104,12 @@ const News = () => {
       {/* 3. Subscribe Section */}
       <div className="bg-gray-50 py-20 mt-20">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <Bell className="h-16 w-16 text-[#D4A843] mx-auto mb-6" />
-          <h3 className="text-3xl font-black text-[#003B73] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Stay Updated</h3>
+          <Bell className="h-16 w-16 text-[#A29BFE] mx-auto mb-6" />
+          <h3 className="text-3xl font-black text-[#6C5CE7] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Stay Updated</h3>
           <p className="text-gray-500 font-light mb-8">Subscribe to receive the latest news and updates directly in your inbox.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-            <input type="email" placeholder="Enter your email" className="flex-1 px-6 py-4 bg-white border border-gray-200 outline-none focus:border-[#003B73] transition-colors rounded-xl" />
-            <button className="bg-[#003B73] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors rounded-xl">Subscribe</button>
+            <input type="email" placeholder="Enter your email" className="flex-1 px-6 py-4 bg-white border border-gray-200 outline-none focus:border-[#6C5CE7] transition-colors rounded-xl" />
+            <button className="bg-[#6C5CE7] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors rounded-xl">Subscribe</button>
           </div>
         </div>
       </div>
@@ -3124,10 +3124,10 @@ const News = () => {
               { category: 'Technology', count: '15', icon: Monitor },
               { category: 'Policy', count: '21', icon: Shield }
             ].map((cat, idx) => (
-              <div key={idx} className="text-center p-6 border border-gray-200 rounded-2xl hover:border-[#003B73] transition-colors">
-                <cat.icon className="h-10 w-10 text-[#D4A843] mx-auto mb-4" />
-                <h4 className="text-lg font-bold text-[#003B73] mb-2">{cat.category}</h4>
-                <p className="text-3xl font-black text-[#003B73]">{cat.count}</p>
+              <div key={idx} className="text-center p-6 border border-gray-200 rounded-2xl hover:border-[#6C5CE7] transition-colors">
+                <cat.icon className="h-10 w-10 text-[#A29BFE] mx-auto mb-4" />
+                <h4 className="text-lg font-bold text-[#6C5CE7] mb-2">{cat.category}</h4>
+                <p className="text-3xl font-black text-[#6C5CE7]">{cat.count}</p>
                 <p className="text-xs text-gray-400 uppercase tracking-wider">Articles</p>
               </div>
             ))}
@@ -3136,7 +3136,7 @@ const News = () => {
       </div>
 
       {/* 5. Editorial Team */}
-      <div className="py-20 bg-[#0A1628]">
+      <div className="py-20 bg-[#2D1B69]">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
           <h3 className="text-3xl font-black text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Our Editorial Team</h3>
           <p className="text-gray-400 font-light mb-12 max-w-2xl mx-auto">Expert journalists and industry analysts delivering accurate, timely immigration news.</p>
@@ -3146,12 +3146,12 @@ const News = () => {
               { name: 'David Chen', role: 'Industry Analyst', specialty: 'Global Markets' },
               { name: 'Emily Roberts', role: 'Tech Correspondent', specialty: 'AI & Recruitment' }
             ].map((member, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#D4A843]/50 transition-all">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#D4A843] to-[#F1573D] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div key={idx} className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-[#A29BFE]/50 transition-all">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#A29BFE] to-[#FD79A8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-2xl">{member.name.split(' ').map(n => n[0]).join('')}</span>
                 </div>
                 <h4 className="text-lg font-bold text-white mb-1">{member.name}</h4>
-                <p className="text-[#D4A843] text-sm mb-2">{member.role}</p>
+                <p className="text-[#A29BFE] text-sm mb-2">{member.role}</p>
                 <p className="text-gray-400 text-xs">{member.specialty}</p>
               </div>
             ))}
@@ -3160,12 +3160,12 @@ const News = () => {
       </div>
 
       {/* 6. CTA */}
-      <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Need Expert Guidance?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Connect with our immigration specialists for personalized advice.</p>
-          <button onClick={() => navigate('/contact')} className="bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#D4A843] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Contact Our Team <ArrowRight className="h-4 w-4" /></button>
+          <button onClick={() => navigate('/contact')} className="bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#A29BFE] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Contact Our Team <ArrowRight className="h-4 w-4" /></button>
         </div>
       </div>
     </div>
@@ -3191,17 +3191,17 @@ const Services = ({ navigate }) => {
 
       {/* 2. Tabs & Content */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
-        <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">{tabs.map((tab, idx) => <button key={idx} onClick={() => setActiveTab(idx)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === idx ? 'bg-[#003B73] text-white' : 'bg-white text-gray-500 hover:text-[#003B73] hover:bg-gray-50 border border-gray-200'}`}>{tab}</button>)}</div>
+        <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-4">{tabs.map((tab, idx) => <button key={idx} onClick={() => setActiveTab(idx)} className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-lg ${activeTab === idx ? 'bg-[#6C5CE7] text-white' : 'bg-white text-gray-500 hover:text-[#6C5CE7] hover:bg-gray-50 border border-gray-200'}`}>{tab}</button>)}</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
-            <div className="border-l-4 border-[#D4A843] pl-6 mb-8">
-              {React.createElement(content[activeTab].icon, { className: 'h-8 w-8 text-[#003B73] mb-6' })}
-              <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>{content[activeTab].subtitle}</h4>
-              <h2 className="text-4xl font-black text-[#003B73] tracking-tight">{content[activeTab].title}</h2>
+            <div className="border-l-4 border-[#A29BFE] pl-6 mb-8">
+              {React.createElement(content[activeTab].icon, { className: 'h-8 w-8 text-[#6C5CE7] mb-6' })}
+              <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>{content[activeTab].subtitle}</h4>
+              <h2 className="text-4xl font-black text-[#6C5CE7] tracking-tight">{content[activeTab].title}</h2>
             </div>
             <p className="text-gray-500 text-lg leading-relaxed mb-10 font-light">{content[activeTab].desc}</p>
-            <ul className="space-y-4 mb-12">{content[activeTab].features.map((feature, fIdx) => <li key={fIdx} className="flex items-center gap-3 text-gray-600"><CheckCircle2 className="h-5 w-5 text-[#D4A843] shrink-0" /><span className="font-medium">{feature}</span></li>)}</ul>
-            <button onClick={() => navigate('/book')} className="bg-[#003B73] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors flex items-center gap-3 rounded-xl">Request Consultation <ArrowRight className="h-4 w-4" /></button>
+            <ul className="space-y-4 mb-12">{content[activeTab].features.map((feature, fIdx) => <li key={fIdx} className="flex items-center gap-3 text-gray-600"><CheckCircle2 className="h-5 w-5 text-[#A29BFE] shrink-0" /><span className="font-medium">{feature}</span></li>)}</ul>
+            <button onClick={() => navigate('/book')} className="bg-[#6C5CE7] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors flex items-center gap-3 rounded-xl">Request Consultation <ArrowRight className="h-4 w-4" /></button>
           </div>
           <img src={content[activeTab].image} className="w-full h-[500px] object-cover rounded-2xl border border-gray-200" alt={content[activeTab].title} />
         </div>
@@ -3218,7 +3218,7 @@ const Services = ({ navigate }) => {
               { label: 'Client Satisfaction', value: '4.9/5' }
             ].map((stat, idx) => (
               <div key={idx} className="p-6">
-                <div className="text-4xl font-black text-[#003B73] mb-2">{stat.value}</div>
+                <div className="text-4xl font-black text-[#6C5CE7] mb-2">{stat.value}</div>
                 <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
@@ -3230,16 +3230,16 @@ const Services = ({ navigate }) => {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Workflow</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Process</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Workflow</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Our Process</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {['Consultation', 'Assessment', 'Application', 'Processing', 'Delivery'].map((step, idx) => (
               <AnimatedSection key={idx} delay={idx * 100} className="text-center p-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">{idx + 1}</span>
                 </div>
-                <h4 className="font-bold text-[#003B73]">{step}</h4>
+                <h4 className="font-bold text-[#6C5CE7]">{step}</h4>
                 {idx < 4 && <div className="hidden md:block h-px w-full bg-gray-200 mt-8 absolute"></div>}
               </AnimatedSection>
             ))}
@@ -3248,10 +3248,10 @@ const Services = ({ navigate }) => {
       </div>
 
       {/* 5. Pricing */}
-      <div className="py-20 bg-[#0A1628]">
+      <div className="py-20 bg-[#2D1B69]">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Pricing</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Pricing</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Service Packages</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
@@ -3260,7 +3260,7 @@ const Services = ({ navigate }) => {
               { name: 'Professional', price: '$1,200', features: ['Multiple visa applications', 'Full document preparation', 'Priority support', 'Expedited processing', 'Interview coaching'], popular: true },
               { name: 'Enterprise', price: 'Custom', features: ['Unlimited applications', 'Dedicated account manager', '24/7 support', 'Fastest processing', 'Compliance audit', 'Training programs'], popular: false }
             ].map((plan, idx) => (
-              <div key={idx} className={`p-8 rounded-2xl ${plan.popular ? 'bg-gradient-to-br from-[#D4A843] to-[#F1573D] text-white' : 'bg-white/5 border border-white/10 text-white'}`}>
+              <div key={idx} className={`p-8 rounded-2xl ${plan.popular ? 'bg-gradient-to-br from-[#A29BFE] to-[#FD79A8] text-white' : 'bg-white/5 border border-white/10 text-white'}`}>
                 {plan.popular && <span className="text-xs font-bold uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full">Most Popular</span>}
                 <h3 className="text-2xl font-black mb-2 mt-4">{plan.name}</h3>
                 <div className="text-4xl font-black mb-6">{plan.price}</div>
@@ -3272,7 +3272,7 @@ const Services = ({ navigate }) => {
                     </li>
                   ))}
                 </ul>
-                <button onClick={() => navigate('/book')} className={`w-full py-3 text-xs font-bold uppercase tracking-widest rounded-lg ${plan.popular ? 'bg-white text-[#003B73] hover:bg-gray-100' : 'bg-[#003B73] text-white hover:bg-[#D4A843]'} transition-colors`}>Get Started</button>
+                <button onClick={() => navigate('/book')} className={`w-full py-3 text-xs font-bold uppercase tracking-widest rounded-lg ${plan.popular ? 'bg-white text-[#6C5CE7] hover:bg-gray-100' : 'bg-[#6C5CE7] text-white hover:bg-[#A29BFE]'} transition-colors`}>Get Started</button>
               </div>
             ))}
           </div>
@@ -3280,12 +3280,12 @@ const Services = ({ navigate }) => {
       </div>
 
       {/* 6. CTA */}
-      <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Ready to Get Started?</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Book a consultation and let us handle the rest.</p>
-          <button onClick={() => navigate('/book')} className="bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#D4A843] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
+          <button onClick={() => navigate('/book')} className="bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#A29BFE] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
         </div>
       </div>
     </div>
@@ -3313,25 +3313,25 @@ const Study = ({ navigate }) => {
       {/* 2. Programs Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <AnimatedSection className="text-center mb-16">
-          <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Programs</h4>
-          <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Featured Programs</h2>
+          <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Programs</h4>
+          <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Featured Programs</h2>
         </AnimatedSection>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programs.map((prog, idx) => (
-            <AnimatedSection key={idx} delay={idx * 100} className="bg-white border border-gray-200 overflow-hidden hover:border-[#003B73] hover:shadow-xl transition-all duration-300 group cursor-pointer rounded-2xl">
+            <AnimatedSection key={idx} delay={idx * 100} className="bg-white border border-gray-200 overflow-hidden hover:border-[#6C5CE7] hover:shadow-xl transition-all duration-300 group cursor-pointer rounded-2xl">
               <div className="h-56 overflow-hidden"><img src={prog.image} alt={prog.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" /></div>
               <div className="p-8">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[#D4A843] text-xs font-bold uppercase tracking-wider">{prog.university}</span>
+                  <span className="text-[#A29BFE] text-xs font-bold uppercase tracking-wider">{prog.university}</span>
                   <span className="text-gray-300">|</span>
                   <span className="text-gray-500 text-xs">{prog.country}</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#003B73] mb-4">{prog.title}</h3>
+                <h3 className="text-xl font-bold text-[#6C5CE7] mb-4">{prog.title}</h3>
                 <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
                   <span className="flex items-center gap-1"><Clock className="h-4 w-4"/>{prog.duration}</span>
                   <span className="flex items-center gap-1"><DollarSign className="h-4 w-4"/>{prog.tuition}</span>
                 </div>
-                <button onClick={() => navigate('/book')} className="w-full bg-gray-100 text-[#003B73] py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#003B73] hover:text-white transition-colors rounded-lg">Apply Now</button>
+                <button onClick={() => navigate('/book')} className="w-full bg-gray-100 text-[#6C5CE7] py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#6C5CE7] hover:text-white transition-colors rounded-lg">Apply Now</button>
               </div>
             </AnimatedSection>
           ))}
@@ -3347,9 +3347,9 @@ const Study = ({ navigate }) => {
               { icon: DollarSign, title: 'Scholarships', desc: 'Guidance on scholarship applications and financial aid opportunities.' },
               { icon: Globe, title: 'Global Network', desc: 'Connect with alumni and students from around the world.' }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 border border-gray-200 rounded-2xl hover:border-[#003B73] transition-colors">
-                <item.icon className="h-10 w-10 text-[#D4A843] mb-4" />
-                <h3 className="text-xl font-bold text-[#003B73] mb-3">{item.title}</h3>
+              <div key={idx} className="bg-white p-8 border border-gray-200 rounded-2xl hover:border-[#6C5CE7] transition-colors">
+                <item.icon className="h-10 w-10 text-[#A29BFE] mb-4" />
+                <h3 className="text-xl font-bold text-[#6C5CE7] mb-3">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -3361,16 +3361,16 @@ const Study = ({ navigate }) => {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Application Process</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Application Process</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {['Choose Program', 'Submit Application', 'Get Acceptance', 'Apply for Visa'].map((step, idx) => (
               <div key={idx} className="text-center p-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">{idx + 1}</span>
                 </div>
-                <h4 className="font-bold text-[#003B73]">{step}</h4>
+                <h4 className="font-bold text-[#6C5CE7]">{step}</h4>
               </div>
             ))}
           </div>
@@ -3378,12 +3378,12 @@ const Study = ({ navigate }) => {
       </div>
 
       {/* 5. Student Testimonials */}
-      <div className="py-20 bg-[#0A1628]">
+      <div className="py-20 bg-[#2D1B69]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <Quote className="h-12 w-12 text-[#D4A843] mx-auto mb-8 opacity-30" />
+          <Quote className="h-12 w-12 text-[#A29BFE] mx-auto mb-8 opacity-30" />
           <h3 className="text-2xl md:text-3xl font-black text-white mb-8 leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>"VisaHOBe made my dream of studying at Oxford a reality. They handled everything from application to visa."</h3>
           <div className="flex items-center justify-center gap-4">
-            <div className="w-14 h-14 bg-[#D4A843] rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 bg-[#A29BFE] rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xl">LS</span>
             </div>
             <div className="text-left">
@@ -3395,12 +3395,12 @@ const Study = ({ navigate }) => {
       </div>
 
       {/* 6. CTA */}
-      <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Start Your Academic Journey</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Book a free consultation with our education advisors.</p>
-          <button onClick={() => navigate('/book')} className="bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#D4A843] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
+          <button onClick={() => navigate('/book')} className="bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#A29BFE] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
         </div>
       </div>
     </div>
@@ -3425,27 +3425,27 @@ const Invest = ({ navigate }) => {
       {/* 2. Programs Grid */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <AnimatedSection className="text-center mb-16">
-          <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Opportunities</h4>
-          <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Investor Visa Programs</h2>
+          <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Opportunities</h4>
+          <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Investor Visa Programs</h2>
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {programs.map((prog, idx) => (
-            <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-10 border border-gray-200 hover:border-[#003B73] hover:shadow-xl transition-all duration-300 group rounded-2xl">
+            <AnimatedSection key={idx} delay={idx * 100} className="bg-white p-10 border border-gray-200 hover:border-[#6C5CE7] hover:shadow-xl transition-all duration-300 group rounded-2xl">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl font-black text-[#003B73] mb-2">{prog.title}</h3>
-                  <div className="text-[#D4A843] text-lg font-bold">{prog.investment}</div>
+                  <h3 className="text-2xl font-black text-[#6C5CE7] mb-2">{prog.title}</h3>
+                  <div className="text-[#A29BFE] text-lg font-bold">{prog.investment}</div>
                 </div>
-                <Wallet className="h-10 w-10 text-gray-300 group-hover:text-[#D4A843] transition-colors" />
+                <Wallet className="h-10 w-10 text-gray-300 group-hover:text-[#A29BFE] transition-colors" />
               </div>
               <div className="mb-6">
                 <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Key Benefits</h4>
-                <div className="flex flex-wrap gap-2">{prog.benefits.map((benefit, bIdx) => <span key={bIdx} className="bg-blue-50 text-[#003B73] px-3 py-1 text-xs font-medium rounded-lg">{benefit}</span>)}</div>
+                <div className="flex flex-wrap gap-2">{prog.benefits.map((benefit, bIdx) => <span key={bIdx} className="bg-blue-50 text-[#6C5CE7] px-3 py-1 text-xs font-medium rounded-lg">{benefit}</span>)}</div>
               </div>
               <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
                 <span className="flex items-center gap-1"><Clock className="h-4 w-4"/>{prog.processing}</span>
               </div>
-              <button onClick={() => navigate('/book')} className="w-full bg-[#003B73] text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#D4A843] transition-colors flex items-center justify-center gap-2 rounded-lg">Learn More <ArrowRight className="h-4 w-4" /></button>
+              <button onClick={() => navigate('/book')} className="w-full bg-[#6C5CE7] text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#A29BFE] transition-colors flex items-center justify-center gap-2 rounded-lg">Learn More <ArrowRight className="h-4 w-4" /></button>
             </AnimatedSection>
           ))}
         </div>
@@ -3460,9 +3460,9 @@ const Invest = ({ navigate }) => {
               { icon: ShieldCheck, title: 'Secure', desc: 'Government-backed programs with legal protections.' },
               { icon: Globe, title: 'Global Access', desc: 'Residency in top-tier countries with global mobility.' }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 border border-gray-200 rounded-2xl hover:border-[#003B73] transition-colors">
-                <item.icon className="h-10 w-10 text-[#D4A843] mb-4" />
-                <h3 className="text-xl font-bold text-[#003B73] mb-3">{item.title}</h3>
+              <div key={idx} className="bg-white p-8 border border-gray-200 rounded-2xl hover:border-[#6C5CE7] transition-colors">
+                <item.icon className="h-10 w-10 text-[#A29BFE] mb-4" />
+                <h3 className="text-xl font-bold text-[#6C5CE7] mb-3">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -3474,16 +3474,16 @@ const Invest = ({ navigate }) => {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
-            <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Investment Process</h2>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Steps</h4>
+            <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Investment Process</h2>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {['Initial Consultation', 'Due Diligence', 'Investment', 'Residency Approval'].map((step, idx) => (
               <div key={idx} className="text-center p-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">{idx + 1}</span>
                 </div>
-                <h4 className="font-bold text-[#003B73]">{step}</h4>
+                <h4 className="font-bold text-[#6C5CE7]">{step}</h4>
               </div>
             ))}
           </div>
@@ -3491,10 +3491,10 @@ const Invest = ({ navigate }) => {
       </div>
 
       {/* 5. FAQ */}
-      <div className="py-20 bg-[#0A1628]">
+      <div className="py-20 bg-[#2D1B69]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>FAQ</h4>
+            <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>FAQ</h4>
             <h2 className="text-5xl font-black text-white tracking-tight">Common Questions</h2>
           </AnimatedSection>
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
@@ -3506,12 +3506,12 @@ const Invest = ({ navigate }) => {
       </div>
 
       {/* 6. CTA */}
-      <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Explore Investment Options</h2>
           <p className="text-gray-300 text-lg mb-8 font-light">Schedule a consultation with our investment immigration specialists.</p>
-          <button onClick={() => navigate('/book')} className="bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#D4A843] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
+          <button onClick={() => navigate('/book')} className="bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#A29BFE] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 mx-auto rounded-xl">Book Consultation <ArrowRight className="h-4 w-4" /></button>
         </div>
       </div>
     </div>
@@ -3530,27 +3530,27 @@ const About = () => (
     <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
       <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div>
-          <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Corporate History</h4>
-          <h2 className="text-5xl font-black text-[#003B73] mb-8 tracking-tight">Executive Summary</h2>
+          <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Corporate History</h4>
+          <h2 className="text-5xl font-black text-[#6C5CE7] mb-8 tracking-tight">Executive Summary</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-6 font-light">Founded with a vision to bridge the gap between global talent and industry-leading organizations, VisaHOBe Pte. Ltd. has established itself as a premier institutional manpower recruitment and visa agency.</p>
           <div className="grid grid-cols-2 gap-px bg-gray-200 border border-gray-200 rounded-2xl overflow-hidden">
-            <div className="bg-white p-8"><h4 className="font-black text-xl text-[#003B73] mb-2 uppercase tracking-wide">Integrity</h4><p className="text-sm text-gray-500 font-light">Transparent, auditable processes.</p></div>
-            <div className="bg-white p-8"><h4 className="font-black text-xl text-[#003B73] mb-2 uppercase tracking-wide">Excellence</h4><p className="text-sm text-gray-500 font-light">Uncompromising institutional standards.</p></div>
+            <div className="bg-white p-8"><h4 className="font-black text-xl text-[#6C5CE7] mb-2 uppercase tracking-wide">Integrity</h4><p className="text-sm text-gray-500 font-light">Transparent, auditable processes.</p></div>
+            <div className="bg-white p-8"><h4 className="font-black text-xl text-[#6C5CE7] mb-2 uppercase tracking-wide">Excellence</h4><p className="text-sm text-gray-500 font-light">Uncompromising institutional standards.</p></div>
           </div>
         </div>
-        <div className="relative"><div className="absolute inset-0 bg-gradient-to-br from-[#003B73] to-[#177BBB] translate-x-4 translate-y-4 rounded-2xl"></div><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800" className="relative z-10 w-full h-[600px] object-cover rounded-2xl" alt="Team" /></div>
+        <div className="relative"><div className="absolute inset-0 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] translate-x-4 translate-y-4 rounded-2xl"></div><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800" className="relative z-10 w-full h-[600px] object-cover rounded-2xl" alt="Team" /></div>
       </AnimatedSection>
     </div>
 
     {/* 3. Core Values */}
     <div className="bg-gray-50 py-20 mt-20">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-16"><h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What Drives Us</h4><h2 className="text-5xl font-black text-[#003B73] tracking-tight">Core Values</h2></AnimatedSection>
+        <AnimatedSection className="text-center mb-16"><h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>What Drives Us</h4><h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Core Values</h2></AnimatedSection>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {[{ icon: Shield, title: 'Compliance First', desc: 'We maintain rigorous standards to ensure 100% regulatory compliance.' }, { icon: Target, title: 'Precision Matching', desc: 'Our proprietary screening methodology ensures optimal talent-to-role alignment.' }, { icon: Heart, title: 'People Centric', desc: 'We treat every candidate and client with personalized care.' }].map((value, idx) => (
-            <AnimatedSection key={idx} delay={idx * 150} className="bg-white p-10 border border-gray-200 hover:border-[#003B73] transition-all duration-300 hover:shadow-xl rounded-2xl">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#003B73]/10 to-[#003B73]/5 rounded-xl flex items-center justify-center mb-6"><value.icon className="h-7 w-7 text-[#003B73]" /></div>
-              <h3 className="text-xl font-bold text-[#003B73] mb-4 tracking-tight">{value.title}</h3>
+            <AnimatedSection key={idx} delay={idx * 150} className="bg-white p-10 border border-gray-200 hover:border-[#6C5CE7] transition-all duration-300 hover:shadow-xl rounded-2xl">
+              <div className="w-14 h-14 bg-gradient-to-br from-[#6C5CE7]/10 to-[#6C5CE7]/5 rounded-xl flex items-center justify-center mb-6"><value.icon className="h-7 w-7 text-[#6C5CE7]" /></div>
+              <h3 className="text-xl font-bold text-[#6C5CE7] mb-4 tracking-tight">{value.title}</h3>
               <p className="text-gray-500 leading-relaxed font-light">{value.desc}</p>
             </AnimatedSection>
           ))}
@@ -3562,8 +3562,8 @@ const About = () => (
     <div className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
-          <h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Leadership</h4>
-          <h2 className="text-5xl font-black text-[#003B73] tracking-tight">Our Team</h2>
+          <h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Leadership</h4>
+          <h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">Our Team</h2>
         </AnimatedSection>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
@@ -3573,11 +3573,11 @@ const About = () => (
             { name: 'Emily Tan', role: 'Head of Recruitment', specialty: 'Talent Acquisition' }
           ].map((member, idx) => (
             <div key={idx} className="text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-[#003B73] to-[#177BBB] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-32 h-32 bg-gradient-to-br from-[#6C5CE7] to-[#8B7FE8] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-3xl">{member.name.split(' ').map(n => n[0]).join('')}</span>
               </div>
-              <h4 className="text-lg font-bold text-[#003B73]">{member.name}</h4>
-              <p className="text-[#D4A843] text-sm mb-1">{member.role}</p>
+              <h4 className="text-lg font-bold text-[#6C5CE7]">{member.name}</h4>
+              <p className="text-[#A29BFE] text-sm mb-1">{member.role}</p>
               <p className="text-gray-400 text-xs">{member.specialty}</p>
             </div>
           ))}
@@ -3588,7 +3588,7 @@ const About = () => (
     {/* 5. FAQ */}
     <div className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-16"><h4 className="text-[#D4A843] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Common Questions</h4><h2 className="text-5xl font-black text-[#003B73] tracking-tight">FAQ</h2></AnimatedSection>
+        <AnimatedSection className="text-center mb-16"><h4 className="text-[#A29BFE] font-bold tracking-[0.3em] uppercase text-xs mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Common Questions</h4><h2 className="text-5xl font-black text-[#6C5CE7] tracking-tight">FAQ</h2></AnimatedSection>
         <AnimatedSection className="bg-white border border-gray-200 p-8 md:p-12 rounded-2xl">
           <FAQItem question="What industries do you specialize in?" answer="Technology, healthcare, construction, engineering, finance, and hospitality." />
           <FAQItem question="How long does visa processing take?" answer="2 weeks to 4 months depending on country and visa type." />
@@ -3599,14 +3599,14 @@ const About = () => (
     </div>
 
     {/* 6. CTA */}
-    <div className="bg-gradient-to-r from-[#003B73] to-[#177BBB] py-20 relative overflow-hidden">
+    <div className="bg-gradient-to-r from-[#6C5CE7] to-[#8B7FE8] py-20 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600')] bg-cover bg-center"></div>
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Learn More About Us</h2>
         <p className="text-gray-300 text-lg mb-8 font-light">Get in touch to discover how we can help you achieve your global goals.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button onClick={() => navigate('/contact')} className="bg-white text-[#003B73] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#D4A843] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">Contact Us <ArrowRight className="h-4 w-4" /></button>
-          <button onClick={() => navigate('/services')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#003B73] transition-all duration-300 rounded-xl">Our Services</button>
+          <button onClick={() => navigate('/contact')} className="bg-white text-[#6C5CE7] px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#A29BFE] hover:text-white transition-all duration-300 flex items-center justify-center gap-3 rounded-xl">Contact Us <ArrowRight className="h-4 w-4" /></button>
+          <button onClick={() => navigate('/services')} className="border border-white/30 text-white px-10 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-[#6C5CE7] transition-all duration-300 rounded-xl">Our Services</button>
         </div>
       </div>
     </div>
@@ -3655,14 +3655,14 @@ const Book = ({ navigate }) => {
       if (navigate) navigate('/');
     }, 1800);
   };
-  const inputCls = (key) => `w-full px-4 py-3 bg-gray-50 border outline-none transition-colors font-medium text-sm rounded-lg ${errors[key] ? 'border-red-500 focus:border-red-600' : 'border-gray-200 focus:border-[#003B73]'}`;
+  const inputCls = (key) => `w-full px-4 py-3 bg-gray-50 border outline-none transition-colors font-medium text-sm rounded-lg ${errors[key] ? 'border-red-500 focus:border-red-600' : 'border-gray-200 focus:border-[#6C5CE7]'}`;
   const errMsg = (key) => errors[key] ? <p id={`${key}-error`} className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1"><AlertCircle className="h-3 w-3"/>{errors[key]}</p> : null;
   return (
     <div className="animate-in fade-in duration-500 pb-20">
       <ParallaxSection image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600" title="Book Consultation" subtitle="Schedule" subtitleBelow="Book" />
       <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 mt-16">
         <AnimatedSection className="bg-white p-6 sm:p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
-          <h3 className="text-2xl font-black text-[#003B73] mb-8 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Secure Your Slot</h3>
+          <h3 className="text-2xl font-black text-[#6C5CE7] mb-8 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Secure Your Slot</h3>
           {submitted && <div className="mb-8 p-4 bg-emerald-50 border-l-4 border-emerald-500 text-emerald-700 text-sm font-bold tracking-wide uppercase flex items-center gap-3"><CheckCircle2 className="h-5 w-5"/> Booking Confirmed Successfully</div>}
           <form onSubmit={handleSubmit} noValidate className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -3674,15 +3674,15 @@ const Book = ({ navigate }) => {
               <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Preferred Time *</label><input type="time" name="time" value={formData.time} onChange={handleChange} aria-invalid={!!errors.time} aria-describedby={errors.time ? 'time-error' : undefined} className={inputCls('time')} />{errMsg('time')}</div>
             </div>
             <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Message <span className="text-gray-400 normal-case font-normal">({formData.message.length}/1000)</span></label><textarea name="message" value={formData.message} onChange={handleChange} maxLength={1000} rows={4} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-error' : undefined} className={inputCls('message')} placeholder="Tell us about your needs..."></textarea>{errMsg('message')}</div>
-            <button type="submit" className="w-full bg-gradient-to-r from-[#003B73] to-[#D4A843] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:shadow-2xl transition-all rounded-xl flex items-center justify-center gap-3">Confirm Booking <ArrowRight className="h-4 w-4"/></button>
+            <button type="submit" className="w-full bg-gradient-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:shadow-2xl transition-all rounded-xl flex items-center justify-center gap-3">Confirm Booking <ArrowRight className="h-4 w-4"/></button>
           </form>
         </AnimatedSection>
       </div>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-24 grid grid-cols-2 md:grid-cols-3 gap-6">
         {[{i:Phone,t:'Call Us',d:'+65 6123 4567'},{i:Mail,t:'Email',d:'hello@visahobe.sg'},{i:MapPin,t:'Visit',d:'10 Anson Rd, Singapore'}].map((c,idx)=>(
           <AnimatedSection key={idx} delay={idx*100} className="bg-white p-8 border border-gray-200 rounded-2xl text-center hover:shadow-xl transition-shadow">
-            <div className="w-14 h-14 mx-auto mb-4 bg-[#003B73] rounded-xl flex items-center justify-center"><c.i className="h-6 w-6 text-[#D4A843]"/></div>
-            <h4 className="text-sm font-black text-[#003B73] uppercase tracking-widest mb-2">{c.t}</h4>
+            <div className="w-14 h-14 mx-auto mb-4 bg-[#6C5CE7] rounded-xl flex items-center justify-center"><c.i className="h-6 w-6 text-[#A29BFE]"/></div>
+            <h4 className="text-sm font-black text-[#6C5CE7] uppercase tracking-widest mb-2">{c.t}</h4>
             <p className="text-sm text-gray-600 font-medium">{c.d}</p>
           </AnimatedSection>
         ))}
@@ -3724,7 +3724,7 @@ const Contact = ({ navigate }) => {
       if (navigate) navigate('/');
     }, 900);
   };
-  const inputCls = (key, extra = '') => `w-full px-4 py-3 bg-gray-50 border outline-none transition-colors font-medium text-sm rounded-lg ${extra} ${errors[key] ? 'border-red-500 focus:border-red-600' : 'border-gray-200 focus:border-[#003B73]'}`;
+  const inputCls = (key, extra = '') => `w-full px-4 py-3 bg-gray-50 border outline-none transition-colors font-medium text-sm rounded-lg ${extra} ${errors[key] ? 'border-red-500 focus:border-red-600' : 'border-gray-200 focus:border-[#6C5CE7]'}`;
   const errMsg = (key) => errors[key] ? <p id={`c-${key}-error`} className="mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1"><AlertCircle className="h-3 w-3"/>{errors[key]}</p> : null;
   return (
     <div className="animate-in fade-in duration-500 pb-24">
@@ -3732,7 +3732,7 @@ const Contact = ({ navigate }) => {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <AnimatedSection className="bg-white p-6 sm:p-8 lg:p-12 border border-gray-200 rounded-2xl shadow-xl">
-            <h3 className="text-2xl font-black text-[#003B73] mb-2 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Send a Message</h3>
+            <h3 className="text-2xl font-black text-[#6C5CE7] mb-2 tracking-tight uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>Send a Message</h3>
             <p className="text-sm text-gray-500 mb-8">We'll respond within one business day.</p>
             <form onSubmit={onSubmit} noValidate className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -3741,25 +3741,25 @@ const Contact = ({ navigate }) => {
               </div>
               <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Subject</label><input type="text" name="subject" value={form.subject} onChange={onChange} maxLength={150} aria-invalid={!!errors.subject} aria-describedby={errors.subject ? 'c-subject-error' : undefined} className={inputCls('subject')} placeholder="How can we help?" />{errMsg('subject')}</div>
               <div><label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Message * <span className="text-gray-400 normal-case font-normal">({form.message.length}/1000)</span></label><textarea name="message" value={form.message} onChange={onChange} maxLength={1000} rows={6} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'c-message-error' : undefined} className={inputCls('message', 'resize-none')} placeholder="Tell us about your needs..."></textarea>{errMsg('message')}</div>
-              <button type="submit" disabled={sending} className="w-full bg-gradient-to-r from-[#003B73] to-[#D4A843] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:shadow-2xl transition-all rounded-xl flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed">{sending ? 'Sending…' : <>Send Message <ArrowRight className="h-4 w-4"/></>}</button>
+              <button type="submit" disabled={sending} className="w-full bg-gradient-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-4 font-bold text-sm tracking-widest uppercase hover:shadow-2xl transition-all rounded-xl flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed">{sending ? 'Sending…' : <>Send Message <ArrowRight className="h-4 w-4"/></>}</button>
             </form>
           </AnimatedSection>
         </div>
         <div className="space-y-6">
           {[{i:Phone,t:'Call',d:'+65 6123 4567',sub:'Mon–Fri 9am–6pm'},{i:Mail,t:'Email',d:'hello@visahobe.sg',sub:'24h response'},{i:MapPin,t:'Office',d:'10 Anson Road, #22-02',sub:'International Plaza, Singapore 079903'}].map((c,idx)=>(
             <AnimatedSection key={idx} delay={idx*100} className="bg-white p-6 border border-gray-200 rounded-2xl hover:shadow-xl transition-shadow flex items-start gap-4">
-              <div className="w-12 h-12 shrink-0 bg-[#003B73] rounded-xl flex items-center justify-center"><c.i className="h-5 w-5 text-[#D4A843]"/></div>
+              <div className="w-12 h-12 shrink-0 bg-[#6C5CE7] rounded-xl flex items-center justify-center"><c.i className="h-5 w-5 text-[#A29BFE]"/></div>
               <div>
-                <h4 className="text-xs font-black text-[#003B73] uppercase tracking-widest mb-1">{c.t}</h4>
+                <h4 className="text-xs font-black text-[#6C5CE7] uppercase tracking-widest mb-1">{c.t}</h4>
                 <p className="text-sm text-gray-800 font-semibold">{c.d}</p>
                 <p className="text-xs text-gray-500 mt-1">{c.sub}</p>
               </div>
             </AnimatedSection>
           ))}
-          <AnimatedSection delay={400} className="bg-gradient-to-br from-[#003B73] to-[#0A1628] text-white p-6 rounded-2xl">
-            <h4 className="text-xs font-black uppercase tracking-widest text-[#D4A843] mb-2">Need it faster?</h4>
+          <AnimatedSection delay={400} className="bg-gradient-to-br from-[#6C5CE7] to-[#2D1B69] text-white p-6 rounded-2xl">
+            <h4 className="text-xs font-black uppercase tracking-widest text-[#A29BFE] mb-2">Need it faster?</h4>
             <p className="text-sm text-white/80 mb-4">Book a 30-min consultation directly.</p>
-            <button onClick={() => navigate && navigate('/book')} className="w-full bg-white text-[#003B73] py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#D4A843] hover:text-white transition-colors flex items-center justify-center gap-2">Book Now <ArrowRight className="h-3 w-3"/></button>
+            <button onClick={() => navigate && navigate('/book')} className="w-full bg-white text-[#6C5CE7] py-3 text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-[#A29BFE] hover:text-white transition-colors flex items-center justify-center gap-2">Book Now <ArrowRight className="h-3 w-3"/></button>
           </AnimatedSection>
         </div>
       </div>
